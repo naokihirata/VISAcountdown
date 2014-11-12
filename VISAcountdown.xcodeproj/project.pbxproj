@@ -14,6 +14,7 @@
 		5F4D370E1A10F94700D7668B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4D370D1A10F94700D7668B /* Images.xcassets */; };
 		5F4D37111A10F94700D7668B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F4D370F1A10F94700D7668B /* LaunchScreen.xib */; };
 		5F4D371D1A10F94700D7668B /* VISAcountdownTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D371C1A10F94700D7668B /* VISAcountdownTests.m */; };
+		5F4D37281A11E30F00D7668B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37271A11E30F00D7668B /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		5F4D37161A10F94700D7668B /* VISAcountdownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VISAcountdownTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4D371B1A10F94700D7668B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F4D371C1A10F94700D7668B /* VISAcountdownTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VISAcountdownTests.m; sourceTree = "<group>"; };
+		5F4D37261A11E30E00D7668B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5F4D37271A11E30F00D7668B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				5F4D37051A10F94700D7668B /* AppDelegate.m */,
 				5F4D37071A10F94700D7668B /* ViewController.h */,
 				5F4D37081A10F94700D7668B /* ViewController.m */,
+				5F4D37261A11E30E00D7668B /* DetailViewController.h */,
+				5F4D37271A11E30F00D7668B /* DetailViewController.m */,
 				5F4D370A1A10F94700D7668B /* Main.storyboard */,
 				5F4D370D1A10F94700D7668B /* Images.xcassets */,
 				5F4D370F1A10F94700D7668B /* LaunchScreen.xib */,
@@ -222,6 +227,7 @@
 				5F4D37091A10F94700D7668B /* ViewController.m in Sources */,
 				5F4D37061A10F94700D7668B /* AppDelegate.m in Sources */,
 				5F4D37031A10F94700D7668B /* main.m in Sources */,
+				5F4D37281A11E30F00D7668B /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,10 +14,10 @@
     UILabel *_countryLabel; //選択された国名を表示する
     UILabel *_purposeLabel; //選択された目的を表示する
     UILabel *_periodLabel; //選択された期間を表示する
-    
-    
+    int _int;  //データを送る
+    UIView *_uv;
     UIView *_backView;  //水色のビュー用メンバ変数
-    BOOL *_visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
+    BOOL _visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
     
     UIButton *_CheckButton;    //金額チェックボタンを作成する
     UIButton *_CancelButton;    //キャンセルボタンを作成する
@@ -31,7 +31,8 @@
     UIPickerView *_PickerView;  //選択項目を表示
     
     NSArray *_country;  //国名の連想配列
-    
+    NSArray *_period;   //期間の連想配列
+    NSArray *_purpose;  //目的の連想配列
 }
 
 
