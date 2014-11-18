@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A6CA89CC-198B-4B40-85A6-156BD4BF3040</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VISAcountdown</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5896527810EF4BBD64E98741A8FE2E7E89E291BA</key>
+		<string>https://github.com/naokihirata/VISAcountdown.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>VISAcountdown.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5896527810EF4BBD64E98741A8FE2E7E89E291BA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/naokihirata/VISAcountdown.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5896527810EF4BBD64E98741A8FE2E7E89E291BA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5896527810EF4BBD64E98741A8FE2E7E89E291BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VISAcountdown</string>
+		</dict>
+	</array>
+</dict>
+</plist>

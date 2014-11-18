@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0DC2F11A1B41EB0071ED16 /* costArea.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F0DC2F01A1B41EB0071ED16 /* costArea.plist */; };
 		5F4D37031A10F94700D7668B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37021A10F94700D7668B /* main.m */; };
 		5F4D37061A10F94700D7668B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37051A10F94700D7668B /* AppDelegate.m */; };
 		5F4D37091A10F94700D7668B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37081A10F94700D7668B /* ViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F0DC2F01A1B41EB0071ED16 /* costArea.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = costArea.plist; sourceTree = "<group>"; };
 		5F4D36FD1A10F94700D7668B /* VISAcountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VISAcountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4D37011A10F94700D7668B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F4D37021A10F94700D7668B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		5F4D37001A10F94700D7668B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F0DC2F01A1B41EB0071ED16 /* costArea.plist */,
 				5F4D37011A10F94700D7668B /* Info.plist */,
 				5F4D37021A10F94700D7668B /* main.m */,
 			);
@@ -206,6 +209,7 @@
 			files = (
 				5F4D370C1A10F94700D7668B /* Main.storyboard in Resources */,
 				5F4D37111A10F94700D7668B /* LaunchScreen.xib in Resources */,
+				5F0DC2F11A1B41EB0071ED16 /* costArea.plist in Resources */,
 				5F4D370E1A10F94700D7668B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +422,7 @@
 				5F4D37221A10F94700D7668B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F4D37231A10F94700D7668B /* Build configuration list for PBXNativeTarget "VISAcountdownTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +431,7 @@
 				5F4D37251A10F94700D7668B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

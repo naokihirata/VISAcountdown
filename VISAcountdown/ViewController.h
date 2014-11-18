@@ -21,7 +21,7 @@
     
     UIButton *_CheckButton;    //金額チェックボタンを作成する
     UIButton *_CancelButton;    //キャンセルボタンを作成する
-    UIButton *_finishButton;    //登録完了ボタンを作成する
+    UIButton *_dateButton;    //登録完了ボタンを作成する
     UIButton *_countryButton;   //国名を選ぶボタン
     UIButton *_purposeButton;   //目的を選ぶボタン
     UIButton *_periodButton;    //期間を選ぶボタン
@@ -33,6 +33,17 @@
     NSArray *_country;  //国名の連想配列
     NSArray *_period;   //期間の連想配列
     NSArray *_purpose;  //目的の連想配列
+    
+    NSArray *_PListArray;   //取り出したplistを入れた連想配列
+    NSBundle *_bundle;  //プロジェクト内のファイルにアクセス出来るオブジェクトを宣言
+    NSString *_path;    //読み込むプロパティリストのファイルパス（場所）(名前)を指定
+    NSDictionary *_dic; //プロパティリストの中身のデータを取得
+    
+    UILabel *_checkLabel;   //料金を表示するラベル
+    
+    int _valcountry;
+    int _valpurpose;
+    int _valperiod;
 }
 
 
