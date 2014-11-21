@@ -25,8 +25,10 @@
     UIButton *_countryButton;   //国名を選ぶボタン
     UIButton *_purposeButton;   //目的を選ぶボタン
     UIButton *_periodButton;    //期間を選ぶボタン
-    UIButton *_createButton;    //addSubView内の完了ボタン
+    UIButton *_createButton;    //addSubView内の完了ボタン(PickerView)
+    UIButton *_datecreateButton;//addSubView内の完了ボタン(DatePicker)
     UIButton *_setButton;       //設定を完了するボタン
+    
     
     UIPickerView *_PickerView;  //選択項目を表示
     
@@ -44,6 +46,14 @@
     int _valcountry;
     int _valpurpose;
     int _valperiod;
+    
+    UIDatePicker *_datepicker;
+    NSDate *_mindate;
+    NSDateFormatter *_df;
+    NSDate *_today;
+    NSString *_datestr;
+    int _dayCount;
+
 }
 
 

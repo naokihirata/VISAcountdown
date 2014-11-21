@@ -43,7 +43,17 @@
     _period = @[@"1ヶ月",@"2ヶ月",@"3ヶ月",@"4ヶ月",@"5ヶ月",@"6ヶ月",@"7ヶ月",@"8ヶ月",@"9ヶ月",@"10ヶ月",@"11ヶ月",@"12ヶ月"];
     _purpose = @[@"留学",@"就労",@"観光"];
     
+    //現在の時刻、日付をとる
+    _today = [NSDate date];
+    //時刻、日付の書式を決める
+    _df = [[NSDateFormatter alloc] init];
+    [_df setDateFormat:@"yyyy/MM/dd"];
+    //時刻、日付を書式の通りに変換する
+    _datestr = [_df stringFromDate:_today];
+    //コンソールに出力
+    NSLog(@"%@",_datestr);
     
+    _datepicker = [[UIDatePicker alloc] init];
 
 }
 -(void)textLabel{
@@ -320,11 +330,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
             break;
         }else{NSLog(@"%@",VISAcondition[@"country"]);}
         
-        
     }
-
-    
-    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
@@ -343,9 +349,59 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 -(void)TapFinishBtn:(UIButton *)dateButton{
     NSLog(@"date");
     
+    [self datepicker];
+    [self upObject];
+    [self datecreateButton];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
+}
+-(void)datePicker:(UIDatePicker *)datePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+}
+-(void)datepicker{
+    
+    [_datepicker setDatePickerMode:UIDatePickerModeDate];
+    
+    _mindate = [_df dateFromString:@"2014/01/01 01:01:00"];
+    [_datepicker setMinimumDate:_mindate];
+    
+    [_datepicker addTarget:self
+                    action:@selector(changeDatePicker:)
+          forControlEvents:UIControlEventValueChanged];
+    
+    
+    [_backView addSubview:_datepicker];
+}
+-(void)changeDatePicker:(UIDatePicker *)datepicker{
+    
+    // ログに日付を表示
+    NSLog(@"%@", [_df stringFromDate:_datepicker.date]);
+    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_datepicker.date];
+    NSLog(@"%d",_dayCount);
+}
+-(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
+    float tmp= [_datepicker.date timeIntervalSinceDate:_today];
+    int day=(int)( tmp / (3600.0*24.0) );
+//    day +=1;
+    return day;
+}
+-(void)datecreateButton{
+    _datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
+    
+    [_datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    
+    [_datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [_datecreateButton addTarget:self action:@selector(TapCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_backView addSubview:_datecreateButton];
+}
+-(void)TapDateCreateBtn:(UIButton *)datecreateButton{
+    
+    for (_uv in [self.view subviews]) {
+        [_datepicker removeFromSuperview];
+        //        [_createButton removeFromSuperview];
+    }
+    [self downObject];
 }
 -(void)setButton{
     _setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 500, 130, 20)];
