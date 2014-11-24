@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController{
 
+    UILabel *_countLabel;
+    
+    UILocalNotification *_countNotification;
+    
+}
+
+@property (nonatomic,assign) int _daycount2;
+
+    
 @end

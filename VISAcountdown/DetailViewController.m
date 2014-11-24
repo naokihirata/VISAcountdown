@@ -7,7 +7,7 @@
 //
 
 #import "DetailViewController.h"
-
+#import "ViewController.h"
 @interface DetailViewController ()
 
 @end
@@ -17,6 +17,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self countLabel];
+    
+    [self countBudge];
+    _countNotification.applicationIconBadgeNumber = self._daycount2;
+}
+-(void)countLabel{
+    _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,160 ,self.view.bounds.size.width, 60)];
+    
+    _countLabel.font = [UIFont systemFontOfSize:36];
+    _countLabel.textAlignment = NSTextAlignmentCenter;
+    
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", self._daycount2];
+    
+    _countLabel.text = daycount;
+    [self.view addSubview:_countLabel];
+}
+//UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+//
+//localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+//localNotification.alertBody = @"10秒経過した";
+//
+//localNotification.applicationIconBadgeNumber = 1;
+//
+//
+//localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+-(void)countBudge{
+    _countNotification = [[UILocalNotification alloc] init];
+    
+    _countNotification.applicationIconBadgeNumber = self._daycount2;
+    _countNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:_countNotification];
 }
 
 - (void)didReceiveMemoryWarning {

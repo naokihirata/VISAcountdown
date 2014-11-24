@@ -14,9 +14,11 @@
     UILabel *_countryLabel; //選択された国名を表示する
     UILabel *_purposeLabel; //選択された目的を表示する
     UILabel *_periodLabel; //選択された期間を表示する
+    UILabel *_dateLabel;    //日程のラベルを表示する
     int _int;  //データを送る
     UIView *_uv;
     UIView *_backView;  //水色のビュー用メンバ変数
+    UIView *_backdateView;  //datepcker用のbackview
     BOOL _visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
     
     UIButton *_CheckButton;    //金額チェックボタンを作成する

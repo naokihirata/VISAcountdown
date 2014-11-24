@@ -25,6 +25,8 @@
     [self periodLabel];
     //目的を表示する
     [self purposeLabel];
+    //出発日を表示する
+    [self dateLabel];
     //国名を選ぶボタン
     [self countryButton];
     //期間を選ぶボタン
@@ -39,6 +41,8 @@
     [self setButton];
     //バックビュー作成
     [self smallView];
+    //バックビュー（datepicker）作成
+    [self smalldateView];
     _country = @[@"アメリカ",@"フィリピン",@"オーストラリア",@"カナダ",@"ニュージーランド"];
     _period = @[@"1ヶ月",@"2ヶ月",@"3ヶ月",@"4ヶ月",@"5ヶ月",@"6ヶ月",@"7ヶ月",@"8ヶ月",@"9ヶ月",@"10ヶ月",@"11ヶ月",@"12ヶ月"];
     _purpose = @[@"留学",@"就労",@"観光"];
@@ -335,8 +339,22 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
 }
+-(void)smalldateView{
+    _backdateView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
+    
+    _backdateView.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:_backdateView];
+}
+-(void)updateObject{
+    
+    _backdateView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+}
+-(void)downdateObject{
+    _backdateView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    
+}
 -(void)dateButton{
-    _dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 460, 130, 20)];
+    _dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 430, 130, 20)];
     
     [_dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
     
@@ -350,14 +368,18 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     NSLog(@"date");
     
     [self datepicker];
-    [self upObject];
+    [self updateObject];
     [self datecreateButton];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
 }
--(void)datePicker:(UIDatePicker *)datePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+-(void)dateLabel{
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,460 ,140, 20)];
     
+    [self.view addSubview:_dateLabel];
+}
+-(void)datePicker:(UIDatePicker *)datePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 }
 -(void)datepicker{
     
@@ -371,7 +393,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
           forControlEvents:UIControlEventValueChanged];
     
     
-    [_backView addSubview:_datepicker];
+    [_backdateView addSubview:_datepicker];
 }
 -(void)changeDatePicker:(UIDatePicker *)datepicker{
     
@@ -392,8 +414,8 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [_datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
     [_datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_datecreateButton addTarget:self action:@selector(TapCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [_backView addSubview:_datecreateButton];
+    [_datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_backdateView addSubview:_datecreateButton];
 }
 -(void)TapDateCreateBtn:(UIButton *)datecreateButton{
     
@@ -401,7 +423,10 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         [_datepicker removeFromSuperview];
         //        [_createButton removeFromSuperview];
     }
-    [self downObject];
+    [self downdateObject];
+    //_dateLabel.text = _datepicker.date;
+
+    _dateLabel.text = [_df stringFromDate:_datepicker.date];
 }
 -(void)setButton{
     _setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 500, 130, 20)];
@@ -423,8 +448,16 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     //controller　＠の中はIdentifierで定義した名前
     DetailViewController  *sub = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    
+    sub._daycount2 = _dayCount;
     //NavigationControllerを使って遷移する
     [self.navigationController pushViewController:sub animated:YES];
+        //index( _dayCount);
+    //[self.navigationController pushViewController:nextB_ViewController animated:YES];
 }
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"arrSendSegue"]) {
+//        ViewController_after *viewController_after = segue.destinationViewController;
+//        viewController_after.arr = _arr;
+//    }
+//}
 @end
