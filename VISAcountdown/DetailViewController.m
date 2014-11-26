@@ -21,7 +21,8 @@
     [self countLabel];
     
     [self countBudge];
-    _countNotification.applicationIconBadgeNumber = self._daycount2;
+    //_countNotification.applicationIconBadgeNumber = self._daycount2;
+    
 }
 -(void)countLabel{
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,160 ,self.view.bounds.size.width, 60)];
@@ -47,6 +48,9 @@
 -(void)countBudge{
     _countNotification = [[UILocalNotification alloc] init];
     
+    
+    _countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    _countNotification.alertBody = @"visa";
     _countNotification.applicationIconBadgeNumber = self._daycount2;
     _countNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:_countNotification];

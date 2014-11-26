@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>{
+@interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,UIAlertViewDelegate>{
     
     UILabel *_myLabelInput; //入力された文字を表示する
     UILabel *_countryLabel; //選択された国名を表示する
@@ -50,12 +50,14 @@
     int _valperiod;
     
     UIDatePicker *_datepicker;
-    NSDate *_mindate;
-    NSDateFormatter *_df;
-    NSDate *_today;
+    NSDate *_mindate;   //
+    NSDateFormatter *_df;   //日にちの表示の書式を設定
+    NSDate *_today;         //今日の日付を呼び出す
     NSString *_datestr;
-    int _dayCount;
-
+    int _dayCount;  //残り日数の計算
+    
+    UIAlertView *_alertview;
+    UIAlertView *_alertview2;
 }
 
 
