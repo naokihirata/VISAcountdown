@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
+#import "DetailViewController.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+    UITabBarController *tabBarController_;
+}
+
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+- (void)switchTabBarController:(NSInteger)selectedViewIndex;
 @end
 

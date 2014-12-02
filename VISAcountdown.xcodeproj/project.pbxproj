@@ -16,6 +16,8 @@
 		5F4D37111A10F94700D7668B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F4D370F1A10F94700D7668B /* LaunchScreen.xib */; };
 		5F4D371D1A10F94700D7668B /* VISAcountdownTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D371C1A10F94700D7668B /* VISAcountdownTests.m */; };
 		5F4D37281A11E30F00D7668B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37271A11E30F00D7668B /* DetailViewController.m */; };
+		5FD7BB721A2C400800068810 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5FD7BB711A2C400800068810 /* images.jpeg */; };
+		5FD7BB741A2C466800068810 /* images2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5FD7BB731A2C466800068810 /* images2.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		5F4D371C1A10F94700D7668B /* VISAcountdownTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VISAcountdownTests.m; sourceTree = "<group>"; };
 		5F4D37261A11E30E00D7668B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		5F4D37271A11E30F00D7668B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		5FD7BB711A2C400800068810 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		5FD7BB731A2C466800068810 /* images2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images2.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		5F4D37001A10F94700D7668B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5FD7BB701A2C400800068810 /* images */,
 				5F0DC2F01A1B41EB0071ED16 /* costArea.plist */,
 				5F4D37011A10F94700D7668B /* Info.plist */,
 				5F4D37021A10F94700D7668B /* main.m */,
@@ -125,6 +130,15 @@
 				5F4D371B1A10F94700D7668B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FD7BB701A2C400800068810 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5FD7BB731A2C466800068810 /* images2.jpeg */,
+				5FD7BB711A2C400800068810 /* images.jpeg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +221,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD7BB741A2C466800068810 /* images2.jpeg in Resources */,
 				5F4D370C1A10F94700D7668B /* Main.storyboard in Resources */,
+				5FD7BB721A2C400800068810 /* images.jpeg in Resources */,
 				5F4D37111A10F94700D7668B /* LaunchScreen.xib in Resources */,
 				5F0DC2F11A1B41EB0071ED16 /* costArea.plist in Resources */,
 				5F4D370E1A10F94700D7668B /* Images.xcassets in Resources */,

@@ -17,6 +17,7 @@
     UILabel *_dateLabel;    //日程のラベルを表示する
     int _int;  //データを送る
     UIView *_uv;
+
     UIView *_backView;  //水色のビュー用メンバ変数
     UIView *_backdateView;  //datepcker用のbackview
     BOOL _visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
@@ -54,6 +55,7 @@
     NSDateFormatter *_df;   //日にちの表示の書式を設定
     NSDate *_today;         //今日の日付を呼び出す
     NSString *_datestr;
+    NSString *_lastdatestr;
     int _dayCount;  //残り日数の計算
     
     UIAlertView *_alertview;

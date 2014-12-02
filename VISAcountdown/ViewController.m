@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+ 
+    //controller　＠の中はIdentifierで定義した名前
+    DetailViewController  *sub = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     _country = @[@"アメリカ",@"フィリピン",@"オーストラリア",@"カナダ",@"ニュージーランド"];
     _period = @[@"1ヶ月",@"2ヶ月",@"3ヶ月",@"4ヶ月",@"5ヶ月",@"6ヶ月",@"7ヶ月",@"8ヶ月",@"9ヶ月",@"10ヶ月",@"11ヶ月",@"12ヶ月"];
     _purpose = @[@"留学",@"就労",@"観光"];
@@ -29,6 +31,8 @@
     [_df setDateFormat:@"yyyy/MM/dd"];
     //時刻、日付を書式の通りに変換する
     _datestr = [_df stringFromDate:_today];
+    _lastdatestr = [_df stringFromDate:sub._departdate];
+
     //コンソールに出力
     NSLog(@"%@",_datestr);
 
@@ -42,6 +46,9 @@
     
     NSInteger memo3=[defaultspurpose integerForKey:@"KEY_3"];
     
+    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    NSDate *date1=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    
     
     if(memo1 !=NULL){
         _valcountry=memo1;
@@ -54,6 +61,13 @@
     if(memo3 !=NULL){
         _valpurpose=memo3;
         _purposeLabel.text = _purpose[_valpurpose];
+    }
+    if (date1 !=NULL) {
+        //DatePickerで得た日付を転送
+        _datepicker = [[UIDatePicker alloc] init];
+        _datepicker.date = date1;
+        sub._departdate = _datepicker.date;
+        
     }
     [self textLabel];
     //国名を表示する
@@ -85,8 +99,6 @@
 
 }
 -(void)viewWillAppear:(BOOL)animated{
-
-    
 
 }
 -(void)textLabel{
@@ -417,6 +429,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 -(void)dateLabel{
     _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,460 ,140, 20)];
     
+    _dateLabel.text = [_df stringFromDate:_datepicker.date];
     [self.view addSubview:_dateLabel];
 }
 -(void)datePicker:(UIDatePicker *)datePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -456,6 +469,8 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [_datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [_datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_backdateView addSubview:_datecreateButton];
+    
+    
 }
 -(void)TapDateCreateBtn:(UIButton *)datecreateButton{
     
@@ -465,13 +480,18 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     }
     [self downdateObject];
     //_dateLabel.text = _datepicker.date;
-
+    
+    //DatePickerのデータを保存
+    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    [defaultsdate setObject:[_df stringFromDate:_datepicker.date] forKey:@"KEY_4"];
+    [defaultsdate synchronize];
+    
     _dateLabel.text = [_df stringFromDate:_datepicker.date];
 }
 -(void)setButton{
-    _setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 500, 130, 20)];
+    _setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 490, 130, 20)];
     
-    [_setButton setTitle:@"設定完了" forState:UIControlStateNormal];
+    [_setButton setTitle:@"設定を登録する" forState:UIControlStateNormal];
     
     [_setButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
@@ -492,24 +512,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         [self WarningAlertView];
     }else if(_valpurpose==nil){
         [self WarningAlertView];
+    }else if (_dayCount==0){
+        [self WarningAlertView];
     }else{
         [self ConfirmAlertView];
     }
     
-//    //controller　＠の中はIdentifierで定義した名前
-//    DetailViewController  *sub = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-//    sub._daycount2 = _dayCount;
-//    //NavigationControllerを使って遷移する
-//    [self.navigationController pushViewController:sub animated:YES];
-        //index( _dayCount);
-    //[self.navigationController pushViewController:nextB_ViewController animated:YES];
 }
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"arrSendSegue"]) {
-//        ViewController_after *viewController_after = segue.destinationViewController;
-//        viewController_after.arr = _arr;
-//    }
-//}
 -(void)WarningAlertView{
     _alertview = [[UIAlertView alloc] initWithTitle:@"未入力箇所があります" message:nil delegate:self cancelButtonTitle:@"入力を続ける" otherButtonTitles:nil];
     [_alertview show];
@@ -525,7 +534,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
     //controller　＠の中はIdentifierで定義した名前
     DetailViewController  *sub = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    sub._daycount2 = _dayCount;
+    
     if(alertView.tag==2){
         
         switch(buttonIndex){
@@ -538,8 +547,27 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 //OKボタン
                 NSLog(@"aaaa");
                 
-                //NavigationControllerを使って遷移する
-                [self.navigationController pushViewController:sub animated:YES];
+                
+                if (_dayCount<1) {
+                    
+                }else{
+                
+                //データを転送（integer型）
+                self.tabBarController.selectedIndex=0;
+                    
+                sub=(DetailViewController *)self.tabBarController.selectedViewController;
+                //sub._daycount2 = _dayCount;
+
+                //画面遷移(tabbarcontroller)
+                    
+                //DatePickerで得た日付を転送
+                    NSLog(@"%@", _datepicker.date);
+                sub._departdate = _datepicker.date;
+                    NSLog(@"%@", sub._departdate);
+                
+                    
+                
+                }
         }
         }else{
         
@@ -553,7 +581,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         }   //if文のかっこ
     }
 
-  //メソッドのかっこ
+  
 //-(void)alertView:(UIAlertView *)alertView clickedButtonIndex:(NSInteger)buttonIndex{
 //    switch(buttonIndex1){
 //            case 0:
