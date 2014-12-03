@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface DetailViewController : UIViewController{
+#import <iAd/iAd.h>
+@interface DetailViewController : UIViewController<ADBannerViewDelegate>{
 
     
     
@@ -25,6 +25,10 @@
     //NSDate *_
     
     int _daycount3;//日にち計算
+    
+    //広告
+    ADBannerView *_adView;
+    BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
     
 }
 

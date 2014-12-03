@@ -65,8 +65,9 @@
     if (date1 !=NULL) {
         //DatePickerで得た日付を転送
         _datepicker = [[UIDatePicker alloc] init];
-        _datepicker.date = date1;
-        sub._departdate = _datepicker.date;
+        _departdate1 = date1;
+        sub._departdate = _departdate1;
+        _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
         
     }
     [self textLabel];
@@ -429,7 +430,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 -(void)dateLabel{
     _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,460 ,140, 20)];
     
-    _dateLabel.text = [_df stringFromDate:_datepicker.date];
+    _dateLabel.text = [_df stringFromDate:_departdate1];
     [self.view addSubview:_dateLabel];
 }
 -(void)datePicker:(UIDatePicker *)datePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -450,15 +451,17 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 }
 -(void)changeDatePicker:(UIDatePicker *)datepicker{
     
+    
+    _departdate1=_datepicker.date;
     // ログに日付を表示
-    NSLog(@"%@", [_df stringFromDate:_datepicker.date]);
-    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_datepicker.date];
+    NSLog(@"%@", [_df stringFromDate:_departdate1]);
+    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
     NSLog(@"%d",_dayCount);
 }
 -(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
-    float tmp= [_datepicker.date timeIntervalSinceDate:_today];
+    float tmp= [_departdate1 timeIntervalSinceDate:_today];
     int day=(int)( tmp / (3600.0*24.0) );
-//    day +=1;
+    day +=1;
     return day;
 }
 -(void)datecreateButton{
@@ -481,12 +484,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [self downdateObject];
     //_dateLabel.text = _datepicker.date;
     
+    
+    //NSdate型にDatePickerの値を代入
+    _departdate1=_datepicker.date;
     //DatePickerのデータを保存
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
-    [defaultsdate setObject:[_df stringFromDate:_datepicker.date] forKey:@"KEY_4"];
+    [defaultsdate setObject:[_df stringFromDate:_departdate1] forKey:@"KEY_4"];
     [defaultsdate synchronize];
     
-    _dateLabel.text = [_df stringFromDate:_datepicker.date];
+    _dateLabel.text = [_df stringFromDate:_departdate1];
 }
 -(void)setButton{
     _setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 490, 130, 20)];
@@ -561,8 +567,8 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 //画面遷移(tabbarcontroller)
                     
                 //DatePickerで得た日付を転送
-                    NSLog(@"%@", _datepicker.date);
-                sub._departdate = _datepicker.date;
+                    NSLog(@"%@", _departdate1);
+                sub._departdate = _departdate1;
                     NSLog(@"%@", sub._departdate);
                 
                     

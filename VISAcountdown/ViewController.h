@@ -57,6 +57,7 @@
     NSString *_datestr;
     NSString *_lastdatestr;
     int _dayCount;  //残り日数の計算
+    NSDate *_departdate1;
     
     UIAlertView *_alertview;
     UIAlertView *_alertview2;
