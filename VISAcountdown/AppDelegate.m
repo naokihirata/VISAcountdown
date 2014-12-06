@@ -18,13 +18,43 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    UIUserNotificationType types =  UIUserNotificationTypeBadge|
+    UIUserNotificationTypeSound|
+    UIUserNotificationTypeAlert;
+    
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    
+    [application registerUserNotificationSettings:mySettings];
+
+//    // UIApplicationLaunchOptionsLocalNotificationKeyをキーにして、情報を取り出す
+//    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    
+    float osVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    
+    if (osVersion >= 8.0f) {
+        UIUserNotificationType types =  UIUserNotificationTypeBadge|
+        UIUserNotificationTypeSound|
+        UIUserNotificationTypeAlert;
+        
+        UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        
+        [application registerUserNotificationSettings:mySettings];
+        
+        
+    }
+    
+    return YES;
+    
+    
+
 //    CGRect bounds = [[UIScreen mainScreen] bounds];
 //    _window = [[UIWindow alloc] initWithFrame:bounds];
 
     
-    // 生成
-    UITabBarController *tab = [[UITabBarController alloc] init];
-    
+//    // 生成
+//    UITabBarController *tab = [[UITabBarController alloc] init];
+//    
     // 自身を管理しているUITabBarControllerを取得
    // self.tabBarController;
     
@@ -41,11 +71,11 @@
 //    [window addSubView:tbc.view];
 //    [window makeKeyAndVisible];
     
-    UITabBarItem *tbi = [tabBarController_.tabBar.items objectAtIndex:0];
-    tbi.title = @"Main";
-    UITabBarItem *tbi2 = [tabBarController_.tabBar.items objectAtIndex:1];
-    tbi2.title = @"Setting";
-    
+//    UITabBarItem *tbi = [tabBarController_.tabBar.items objectAtIndex:0];
+//    tbi.title = @"Main";
+//    UITabBarItem *tbi2 = [tabBarController_.tabBar.items objectAtIndex:1];
+//    tbi2.title = @"Setting";
+//    
     
     
     return YES;
@@ -105,11 +135,17 @@
 //}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    
+    __countNotification.applicationIconBadgeNumber = __countdownDayNumber;
+    
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
+    __countNotification.applicationIconBadgeNumber = __countdownDayNumber;
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

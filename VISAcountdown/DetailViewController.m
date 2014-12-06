@@ -33,36 +33,27 @@
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
     NSInteger memorycount=[defaultscount integerForKey:@"KEY_5"];
     
-    if (_daycount3!=0) {
-        _daycount3=memorycount;
+    if (memorycount!=nil) {
+        _countdownDayNumber=memorycount;
     }else{
     }
     [self countLabel];
     
-    //[self countBudge];
+//    [self countBudge];
     
     NSLog(@"%@", _df);
     //_countNotification.applicationIconBadgeNumber = self._daycount2;
     [self extendButton];
     
-//    ///広告
-//    //タブバーの高さと調べる
-//    CGFloat tabBarHeight = self.tabBarController.tabBar.bounds.size.height;
-//    CGFloat addViewHeight =_adView.frame.size.height;
-//    //バナーオブジェクト生成
-//    _adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, 0, _adView.frame.size.width, _adView.frame.size.height)];
-//    _adView.delegate = self;
-//    [self.view addSubview:_adView];
-//    _adView.alpha =1.0;
-//    //フラグがNOの時にこの処理をする
-//    //_isVisible = NO;
 
     UIApplication *application = [UIApplication sharedApplication];
-    application.applicationIconBadgeNumber = _daycount3;
+    application.applicationIconBadgeNumber = _countdownDayNumber;
     
+    
+    //広告関連(iAD)
     //初期化
     _adView = [[ADBannerView alloc] init];
-    _adView.frame = CGRectMake(0, -_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+    _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
     
     //場所を決定
     _adView.alpha = 0.0;
@@ -130,44 +121,100 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     
+    //現在の時刻、日付をとる
+    _today = [NSDate date];
+    //時刻、日付の書式を決める
+    _df = [[NSDateFormatter alloc] init];
+    [_df setDateFormat:@"yyyy/MM/dd"];
+    //時刻、日付を書式の通りに変換する
+    _datestr = [_df stringFromDate:_today];
+    //コンソールに出力
+    NSLog(@"%@",_datestr);
+    
+    
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date1=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
 
-    __departdate = date1;
+    if (self._daycount2>=0) {
+        __departdate = date1;
+    }else{
+    }
     
-    _daycount3 = [self getDaysCountByTwoDateString:_today endDateString:__departdate];
+    
+    
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    _def1 = [cal components:NSDayCalendarUnit fromDate:_today toDate:__departdate options:0];
+    NSLog(@"days: %d", [_def1 day]);
+    
+    _countdownDayNumber = [_def1 day];
+    _countdownDayNumber+=1;
+    
+//    _daycount3 = [self getDaysCountByTwoDateString:_today endDateString:__departdate];
     NSLog(@"%d",_daycount3);
 
     
-    if (_daycount3==0) {
+    if (_countdownDayNumber==0) {
         self.tabBarController.selectedIndex=1;
     }else{
             }
     
     //DatePickerのデータを保存
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-    [defaultscount setInteger:_daycount3 forKey:@"KEY_5"];
+    [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
     [defaultscount synchronize];
     
     
-    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _daycount3];
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
     
     _countLabel.text = daycount;
     
-    }
--(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
-    float tmp= [__departdate timeIntervalSinceDate:_today];
-    int day=(int)( tmp / (3600.0*24.0) );
-    //    day +=1;
-    return day;
+    _countNotification.applicationIconBadgeNumber = _countdownDayNumber;
+
+//    // NSDateFormatter を用意します。
+//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+//    
+//    // 変換用の書式を設定
+//    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+//    
+//    [formatter stringFromDate:_today];
+//    [formatter stringFromDate:self._departdate];
+//    
+//    // NSString を NSDate に変換
+//    NSDate* date_converted = [cal dateByAddingComponents:__departdate toDate:_today options:0];
+//    
+//    //時間単位の文字列にセット
+//    NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:date_converted]];
+//    
+//    
+//    date_converted = [formatter dateFromString:hourDateString];
+//    
+//    //設定した日数と、カウントダウンする日付をUserDefaultに設定
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    
+//    //日数
+//    [defaults setObject:[NSString stringWithFormat:@"%d",_countdownDayNumber] forKey:@"countdownDayNumber"];
+//    
+//    //設定した日付
+//    [defaults setObject:[_df stringFromDate:__departdate] forKey:@"settingDate"];
+//    
+//    [defaults synchronize];
+//
+//
 }
+//-(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
+//    float tmp= [__departdate timeIntervalSinceDate:_today];
+//    int day=(int)( tmp / (3600.0*24.0) );
+//        day +=1;
+//    return day;
+//}
 -(void)countLabel{
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,160 ,self.view.bounds.size.width, 60)];
     
-    _countLabel.font = [UIFont systemFontOfSize:36];
+    _countLabel.font = [UIFont systemFontOfSize:45];
     _countLabel.textAlignment = NSTextAlignmentCenter;
     
-    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _daycount3];
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
     
     _countLabel.text = daycount;
     [self.view addSubview:_countLabel];
@@ -187,6 +234,21 @@
 -(void)TapextendBtn:(UIButton *)extendButton{
     
     NSLog(@"extend");
+    
+   // [self countBudge];
+    
+    
+    
+//    _countNotification = [[UILocalNotification alloc] init];
+//    
+//    _countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+//    _countNotification.alertBody = [NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
+//    //
+//    _countNotification.repeatInterval = NSDayCalendarUnit;
+//    _countNotification.applicationIconBadgeNumber = _countdownDayNumber;
+//    _countNotification.timeZone = [NSTimeZone defaultTimeZone];
+//    [[UIApplication sharedApplication] scheduleLocalNotification:_countNotification];
+//
 
 }
 
@@ -200,18 +262,61 @@
 //
 //localNotification.timeZone = [NSTimeZone defaultTimeZone];
 //[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+
+//BadgeとlocalNotificationの表記
 -(void)countBudge{
     _countNotification = [[UILocalNotification alloc] init];
     
-    _countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    _countNotification.alertBody = @"visa";
-    _countNotification.applicationIconBadgeNumber = _daycount3;
-    _countNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:_countNotification];
+//    int day=5;
+//    for (int i=0; i<300 ;i++) {
+//        // NSDateFormatter を用意します。
+//        NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+//        
+//        // 変換用の書式を設定
+//        [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+//        
+//        [formatter stringFromDate:_today];
+//        [formatter stringFromDate:self._departdate];
+//        
+//        
+//        NSCalendar *cal = [NSCalendar currentCalendar];
+//        // NSString を NSDate に変換
+//        NSDate* date_converted = [cal dateByAddingComponents:__departdate toDate:_today options:0];
+//        
+//        //時間単位の文字列にセット
+//        NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:date_converted]];
+//        
+//        
+//        date_converted = [formatter dateFromString:hourDateString];
+//        
+//        //設定した日数と、カウントダウンする日付をUserDefaultに設定
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        
+//        //日数
+//        [defaults setObject:[NSString stringWithFormat:@"%d",_countdownDayNumber] forKey:@"countdownDayNumber"];
+//        
+//        //設定した日付
+//        [defaults setObject:[_df stringFromDate:__departdate] forKey:@"settingDate"];
+//        
+//        [defaults synchronize];
     
+        //_countdownDayNumber = _countdownDayNumber - 1;
+
+    }
+
     
+//    _countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+//    _countNotification.alertBody = [NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
+//    //
+//    _countNotification.repeatInterval = NSDayCalendarUnit;
+//    _countNotification.applicationIconBadgeNumber = _countdownDayNumber;
+//    _countNotification.timeZone = [NSTimeZone defaultTimeZone];
+//    [[UIApplication sharedApplication] scheduleLocalNotification:_countNotification];
+//    
+
     
-}
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

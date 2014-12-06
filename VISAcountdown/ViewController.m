@@ -97,7 +97,51 @@
     [self smalldateView];
     
     _datepicker = [[UIDatePicker alloc] init];
+    
+    //初期化
+    _adView = [[ADBannerView alloc] init];
+    _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+    //場所を決定
+    _adView.alpha = 0.0;
+    _adView.delegate = self;
+    
+    //画面本体に追加
+    [self.view addSubview:_adView];
+    
+    //バナーは表示されていないのでNOを設定
+    _isVisible = NO;
 
+}
+//バナーが正常に表示された場合
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    if (_isVisible == NO) {
+        [UIView beginAnimations:@"animateAdBannerOn" context:nil];
+        [UIView setAnimationDuration:0.3];
+        
+        banner.frame = CGRectOffset(banner.frame, 0, CGRectGetHeight(banner.frame));
+        banner.alpha = 1.0;
+        [UIView commitAnimations];
+        
+        //バナーを表示しているのでYESを設定
+        _isVisible = YES;
+    }
+}
+//バナー表示でエラーが発生した場合
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    
+    if (_isVisible == YES) {
+        [UIView beginAnimations:@"animateAdBannerOff" context:nil];
+        [UIView setAnimationDuration:0.3];
+        
+        _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+        
+        banner.alpha = 0.0;
+        
+        [UIView commitAnimations];
+        
+        //バナーを非表示にしているのでNOを設定
+        _isVisible = NO;
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
 
@@ -536,6 +580,22 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [_alertview2 show];
     _alertview2.tag=2;
 }
+-(void)DepartAlertView{
+    _alertview3 = [[UIAlertView alloc] initWithTitle:@"日程に誤りがあります" message:nil delegate:self cancelButtonTitle:@"入力を続ける" otherButtonTitles:nil];
+    [_alertview3 show];
+    _alertview3.tag =3;
+}
+-(void)countBudge1{
+    __countNotification = [[UILocalNotification alloc] init];
+    
+    __countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    //    __countNotification.alertBody = [NSString stringWithFormat:@"あと%d日です",__countdownDayNumber];
+    //一日ごとに計算
+    //__countNotification.repeatInterval = NSDayCalendarUnit;
+    __countNotification.applicationIconBadgeNumber = _dayCount;
+    __countNotification.timeZone = [NSTimeZone defaultTimeZone];
+   // [[UIApplication sharedApplication] scheduleLocalNotification:__countNotification];
+}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
     //controller　＠の中はIdentifierで定義した名前
@@ -555,6 +615,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 
                 
                 if (_dayCount<1) {
+                    [self DepartAlertView];
                     
                 }else{
                 
@@ -566,13 +627,21 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
                 //画面遷移(tabbarcontroller)
                     
+                    // アプリに登録されている全ての通知を削除
+                    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+                    
                 //DatePickerで得た日付を転送
                     NSLog(@"%@", _departdate1);
                 sub._departdate = _departdate1;
                     NSLog(@"%@", sub._departdate);
-                
                     
-                
+                    sub._daycount2=_dayCount;
+                [self countBudge1];
+                    
+                    //バックグラウンドでも適用
+                UIApplication *application = [UIApplication sharedApplication];
+                    _dayCount=_dayCount-1;
+                application.applicationIconBadgeNumber = _dayCount;
                 }
         }
         }else{
@@ -586,15 +655,4 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
             }
         }   //if文のかっこ
     }
-
-  
-//-(void)alertView:(UIAlertView *)alertView clickedButtonIndex:(NSInteger)buttonIndex{
-//    switch(buttonIndex1){
-//            case 0:
-//            NSLog(@"ccccc");
-//            
-//            break;
-//    }
-//    
-//}
 @end

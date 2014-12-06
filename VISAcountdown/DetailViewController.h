@@ -10,8 +10,7 @@
 #import <iAd/iAd.h>
 @interface DetailViewController : UIViewController<ADBannerViewDelegate>{
 
-    
-    
+
     UILabel *_countLabel;   //残り日数表示
     
     UILocalNotification *_countNotification;
@@ -30,9 +29,11 @@
     ADBannerView *_adView;
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
     
+    NSDateComponents *_def1;
+    int _countdownDayNumber;
 }
 
-//@property (nonatomic,assign) int _daycount2;
+@property (nonatomic,assign) int _daycount2;
 @property (nonatomic,assign) NSDate *_departdate;
 
     

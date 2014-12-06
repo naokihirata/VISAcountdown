@@ -18,6 +18,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+
+@property (nonatomic,assign) UILocalNotification* _countNotification;
+@property (nonatomic,assign) int _countdownDayNumber;
+
 - (void)switchTabBarController:(NSInteger)selectedViewIndex;
 @end
 

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,UIAlertViewDelegate>{
+#import <iAd/iAd.h>
+@interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,UIAlertViewDelegate,ADBannerViewDelegate>{
     
     UILabel *_myLabelInput; //入力された文字を表示する
     UILabel *_countryLabel; //選択された国名を表示する
@@ -61,8 +61,15 @@
     
     UIAlertView *_alertview;
     UIAlertView *_alertview2;
+    UIAlertView *_alertview3;
+    
+    //広告
+    ADBannerView *_adView;
+    BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
 }
 
+@property (nonatomic,assign) UILocalNotification* _countNotification;
+@property (nonatomic,assign) int _countdownDayNumber;
 
 
 @end
