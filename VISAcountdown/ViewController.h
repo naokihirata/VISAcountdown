@@ -66,6 +66,9 @@
     //広告
     ADBannerView *_adView;
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
+    
+    int _countdownDayNumber;
+    NSDate *_finishdate;
 }
 
 @property (nonatomic,assign) UILocalNotification* _countNotification;

@@ -555,6 +555,21 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
+    __countNotification = [[UILocalNotification alloc] init];
+    
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    [comp2 setDay:30];
+    NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
+    // 現在から指定した日付との差分を、日を基準にして取得する。
+    NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
+    NSLog(@"days: %d", [def1 day]);
+    
+    _countdownDayNumber = [def1 day];
+
     
     if(_valcountry==nil){
         [self WarningAlertView];
@@ -586,16 +601,72 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _alertview3.tag =3;
 }
 -(void)countBudge1{
+    // アプリに登録されている全ての通知を削除
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+
     __countNotification = [[UILocalNotification alloc] init];
     
-    __countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    //    __countNotification.alertBody = [NSString stringWithFormat:@"あと%d日です",__countdownDayNumber];
-    //一日ごとに計算
-    //__countNotification.repeatInterval = NSDayCalendarUnit;
-    __countNotification.applicationIconBadgeNumber = _dayCount;
-    __countNotification.timeZone = [NSTimeZone defaultTimeZone];
-   // [[UIApplication sharedApplication] scheduleLocalNotification:__countNotification];
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    // NSDateFormatter を用意します。
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    
+    // 変換用の書式を設定
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    
+    for (int i=0; i<30 ;i++) {
+        //指定した日付の30日先を設定
+        [comp setDay:i];
+        [comp2 setDay:30];
+        NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+        _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
+        // 現在から指定した日付との差分を、日を基準にして取得する。
+        NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
+        NSLog(@"days: %d", [def1 day]);
+        
+        _countdownDayNumber = [def1 day];
+        
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        
+        //日時データを文字列に変換する場合のフォーマットを指定
+        df.dateFormat = @"yyyy/MM/dd";
+        //時間単位の文字列にセット
+        NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [df stringFromDate:date_converted]];
+
+        
+        //hourDateString = [NSString stringWithFormat:@"%@ 22:10:00", [df stringFromDate:date_converted]];
+        
+        _countdownDayNumber = _countdownDayNumber - 1;
+
+        
+        date_converted =[formatter dateFromString:hourDateString];
+        //        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
+        __countNotification.fireDate=date_converted;
+        
+        __countNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
+        
+        __countNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        
+        __countNotification.timeZone = [NSTimeZone defaultTimeZone];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:__countNotification];
+        
+        //バックグラウンドでも適用
+        UIApplication *application = [UIApplication sharedApplication];
+    }
+
 }
+//    __countNotification = [[UILocalNotification alloc] init];
+//    
+//    __countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+//    //    __countNotification.alertBody = [NSString stringWithFormat:@"あと%d日です",__countdownDayNumber];
+//    //一日ごとに計算
+//    //__countNotification.repeatInterval = NSDayCalendarUnit;
+//    __countNotification.applicationIconBadgeNumber = _dayCount;
+//    __countNotification.timeZone = [NSTimeZone defaultTimeZone];
+//   // [[UIApplication sharedApplication] scheduleLocalNotification:__countNotification];
+//}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
     //controller　＠の中はIdentifierで定義した名前
@@ -614,7 +685,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 NSLog(@"aaaa");
                 
                 
-                if (_dayCount<1) {
+                if (_countdownDayNumber<1) {
                     [self DepartAlertView];
                     
                 }else{
@@ -627,21 +698,19 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
                 //画面遷移(tabbarcontroller)
                     
-                    // アプリに登録されている全ての通知を削除
-                    [[UIApplication sharedApplication] cancelAllLocalNotifications];
                     
                 //DatePickerで得た日付を転送
                     NSLog(@"%@", _departdate1);
                 sub._departdate = _departdate1;
                     NSLog(@"%@", sub._departdate);
-                    
-                    sub._daycount2=_dayCount;
+                    sub._finishdate1 = _finishdate;
+                    sub._daycount2=_countdownDayNumber;
                 [self countBudge1];
                     
                     //バックグラウンドでも適用
                 UIApplication *application = [UIApplication sharedApplication];
-                    _dayCount=_dayCount-1;
-                application.applicationIconBadgeNumber = _dayCount;
+                 //   _dayCount=_dayCount-1;
+               // application.applicationIconBadgeNumber = _dayCount;
                 }
         }
         }else{

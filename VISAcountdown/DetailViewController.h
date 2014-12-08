@@ -35,6 +35,7 @@
 
 @property (nonatomic,assign) int _daycount2;
 @property (nonatomic,assign) NSDate *_departdate;
+@property (nonatomic,assign) NSDate *_finishdate1;
 
     
 @end

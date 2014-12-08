@@ -144,14 +144,17 @@
     
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     NSCalendar *cal = [NSCalendar currentCalendar];
-    _def1 = [cal components:NSDayCalendarUnit fromDate:_today toDate:__departdate options:0];
+    //指定した日付の30日先を設定
+
+    
+    _def1 = [cal components:NSDayCalendarUnit fromDate:_today toDate:__finishdate1 options:0];
     NSLog(@"days: %d", [_def1 day]);
     
     _countdownDayNumber = [_def1 day];
     _countdownDayNumber+=1;
     
 //    _daycount3 = [self getDaysCountByTwoDateString:_today endDateString:__departdate];
-    NSLog(@"%d",_daycount3);
+ //   NSLog(@"%d",_daycount3);
 
     
     if (_countdownDayNumber==0) {
@@ -264,12 +267,40 @@
 //[[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
 
-//BadgeとlocalNotificationの表記
--(void)countBudge{
-    _countNotification = [[UILocalNotification alloc] init];
-    
-//    int day=5;
-//    for (int i=0; i<300 ;i++) {
+//
+////BadgeとlocalNotificationの表記
+//-(void)countBudge{
+//    _countNotification = [[UILocalNotification alloc] init];
+//    
+//    NSDateComponents *comp = [[NSDateComponents alloc] init];
+//    NSCalendar *cal = [NSCalendar currentCalendar];
+////    int day=5;
+//    for (int i=0; i<30 ;i++) {
+//        //指定した日付の30日先を設定
+//        [comp setDay:i];
+//        
+//        NSDate* finishdate = [cal dateByAddingComponents:comp toDate:__departdate options:0];
+//        
+//        // 現在から指定した日付との差分を、日を基準にして取得する。
+//        NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:_today toDate:finishdate options:0];
+//        NSLog(@"days: %d", [def1 day]);
+//        
+//        int countdownDayNumber = [def1 day];
+//        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
+//
+//        _countNotification.applicationIconBadgeNumber = countdownDayNumber;
+//        
+//        _countNotification.timeZone = [NSTimeZone defaultTimeZone];
+//        
+//        [[UIApplication sharedApplication] scheduleLocalNotification:_countNotification];
+//        
+//    }
+//}
+
+
+
+//_def1 = [cal components:NSDayCalendarUnit fromDate:_today toDate:__departdate options:0];
+        
 //        // NSDateFormatter を用意します。
 //        NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
 //        
@@ -303,7 +334,7 @@
     
         //_countdownDayNumber = _countdownDayNumber - 1;
 
-    }
+
 
     
 //    _countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
