@@ -44,7 +44,7 @@
     NSLog(@"%@", _df);
     //_countNotification.applicationIconBadgeNumber = self._daycount2;
     [self extendButton];
-    
+    [self extendButton2];
 
     UIApplication *application = [UIApplication sharedApplication];
     application.applicationIconBadgeNumber = _countdownDayNumber;
@@ -133,10 +133,10 @@
     
     
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
-    NSDate *date1=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
 
     if (self._daycount2>=0) {
-        __finishdate1 = date1;
+        __finishdate1 = date;
     }else{
     }
     
@@ -157,7 +157,7 @@
  //   NSLog(@"%d",_daycount3);
 
     
-    if (_countdownDayNumber==0) {
+    if (self._daycount2<1) {
         self.tabBarController.selectedIndex=1;
     }else{
             }
@@ -167,7 +167,7 @@
     [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
     [defaultscount synchronize];
     
-    
+    //_countdownDayNumber+=1;
     NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
     
     _countLabel.text = daycount;
@@ -223,24 +223,39 @@
     [self.view addSubview:_countLabel];
 }
 -(void)extendButton{
-    _extendButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 130, 20)];
+    UIButton *extendButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 130, 20)];
     
-    [_extendButton setTitle:@"延長手続き完了" forState:UIControlStateNormal];
+    [extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
     
-    [_extendButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [extendButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [_extendButton addTarget:self action:@selector(TapextendBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [extendButton addTarget:self action:@selector(TapextendBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    [self.view addSubview:_extendButton];
+    [self.view addSubview:extendButton];
 }
 -(void)TapextendBtn:(UIButton *)extendButton{
     
     NSLog(@"extend");
     
    // [self countBudge];
+}
+-(void)extendButton2{
+    UIButton *extendButton2 = [[UIButton alloc] initWithFrame:CGRectMake(150, 300, 130, 20)];
+    
+    [extendButton2 setTitle:@"二ヶ月延長" forState:UIControlStateNormal];
+    
+    [extendButton2 setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [extendButton2 addTarget:self action:@selector(TapextendBtn2:) forControlEvents:UIControlEventTouchUpInside];
     
     
+    [self.view addSubview:extendButton2];
+}
+-(void)TapextendBtn2:(UIButton *)extendButton2{
+    
+    NSLog(@"extend2");
+}
     
 //    _countNotification = [[UILocalNotification alloc] init];
 //    
@@ -253,7 +268,7 @@
 //    [[UIApplication sharedApplication] scheduleLocalNotification:_countNotification];
 //
 
-}
+
 
 //UILocalNotification *localNotification = [[UILocalNotification alloc] init];
 //

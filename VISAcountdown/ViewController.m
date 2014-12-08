@@ -47,8 +47,10 @@
     NSInteger memo3=[defaultspurpose integerForKey:@"KEY_3"];
     
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
-    NSDate *date1=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
-    
+    NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    NSUserDefaults *defautsdate1 = [NSUserDefaults standardUserDefaults];
+    NSDate *date1=[_df dateFromString:[defautsdate1 objectForKey:@"KEY_6"]];
+    //NSDate *date2=[_df dateFromString:de]
     
     if(memo1 !=NULL){
         _valcountry=memo1;
@@ -62,10 +64,15 @@
         _valpurpose=memo3;
         _purposeLabel.text = _purpose[_valpurpose];
     }
-    if (date1 !=NULL) {
+    if(date1 !=NULL){
         //DatePickerで得た日付を転送
         _datepicker = [[UIDatePicker alloc] init];
-        _finishdate = date1;
+        _datepicker.date=date1;
+        _departdate1=_datepicker.date;
+    }
+    if (date !=NULL) {
+        
+        _finishdate = date;
         //sub._departdate = _departdate1;
         sub._finishdate1= _finishdate;
         
@@ -500,17 +507,26 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     
     _departdate1=_datepicker.date;
-    // ログに日付を表示
+    // ログに出発の日付を表示
     NSLog(@"%@", [_df stringFromDate:_departdate1]);
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    [comp2 setDay:30];
+    NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
+    // 現在から指定した日付との差分を、日を基準にして取得する。
+    NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
 //    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
 //    NSLog(@"%d",_dayCount);
 }
--(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
-    float tmp= [_departdate1 timeIntervalSinceDate:_today];
-    int day=(int)( tmp / (3600.0*24.0) );
-    day +=1;
-    return day;
-}
+//-(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
+//    float tmp= [_departdate1 timeIntervalSinceDate:_today];
+//    int day=(int)( tmp / (3600.0*24.0) );
+//    day +=1;
+//    return day;
+//}
 -(void)datecreateButton{
     _datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
     
@@ -534,10 +550,14 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     //NSdate型にDatePickerの値を代入
     _departdate1=_datepicker.date;
-    //DatePickerのデータを保存
+    //finishdateを保存
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     [defaultsdate setObject:[_df stringFromDate:_finishdate] forKey:@"KEY_4"];
     [defaultsdate synchronize];
+    //DatePickerのデータを保存
+    NSUserDefaults *defaultsdate1 = [NSUserDefaults standardUserDefaults];
+    [defaultsdate1 setObject:[_df stringFromDate:_datepicker.date] forKey:@"KEY_6"];
+    [defaultsdate1 synchronize];
     
     _dateLabel.text = [_df stringFromDate:_departdate1];
 }
@@ -618,13 +638,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     // 変換用の書式を設定
     [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
-    
+    [comp2 setDay:30];
+    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
     for (int i=0; i<30 ;i++) {
         //指定した日付の30日先を設定
         [comp setDay:i];
-        [comp2 setDay:30];
         NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
-        _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
+        
         // 現在から指定した日付との差分を、日を基準にして取得する。
         NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
         NSLog(@"days: %d", [def1 day]);
@@ -641,7 +661,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         
         //hourDateString = [NSString stringWithFormat:@"%@ 22:10:00", [df stringFromDate:date_converted]];
         
-        self._countdownDayNumber = self._countdownDayNumber - 1;
+        //self._countdownDayNumber = self._countdownDayNumber - 1;
 
         
         date_converted =[formatter dateFromString:hourDateString];
@@ -711,7 +731,9 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     NSLog(@"%@",sub._finishdate1);
                     sub._daycount2=self._countdownDayNumber;
                 [self countBudge1];
-                    
+                    sub._finishdate1 = _finishdate;
+                    NSLog(@"%@",sub._finishdate1);
+                    sub._daycount2=self._countdownDayNumber;
                     //バックグラウンドでも適用
                 UIApplication *application = [UIApplication sharedApplication];
                  //   _dayCount=_dayCount-1;

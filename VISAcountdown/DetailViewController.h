@@ -15,7 +15,7 @@
     
     UILocalNotification *_countNotification;
     
-    UIButton *_extendButton;    //延長完了ボタン
+ //   UIButton *_extendButton;    //延長完了ボタン
     
     NSDateFormatter *_df;   //日にちの表示の書式を設定
     NSDate *_today;         //今日の日付を呼び出す
