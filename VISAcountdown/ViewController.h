@@ -56,7 +56,7 @@
     NSDate *_today;         //今日の日付を呼び出す
     NSString *_datestr;
     NSString *_lastdatestr;
-    int _dayCount;  //残り日数の計算
+    //int _dayCount;  //残り日数の計算
     NSDate *_departdate1;
     
     UIAlertView *_alertview;
@@ -67,11 +67,11 @@
     ADBannerView *_adView;
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
     
-    int _countdownDayNumber;
+    //int _countdownDayNumber;
     NSDate *_finishdate;
 }
 
-@property (nonatomic,assign) UILocalNotification* _countNotification;
+//@property (nonatomic,assign) UILocalNotification* _countNotification;
 @property (nonatomic,assign) int _countdownDayNumber;
 
 

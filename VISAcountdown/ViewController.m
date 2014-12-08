@@ -31,7 +31,7 @@
     [_df setDateFormat:@"yyyy/MM/dd"];
     //時刻、日付を書式の通りに変換する
     _datestr = [_df stringFromDate:_today];
-    _lastdatestr = [_df stringFromDate:sub._departdate];
+    //_lastdatestr = [_df stringFromDate:sub._departdate];
 
     //コンソールに出力
     NSLog(@"%@",_datestr);
@@ -65,9 +65,12 @@
     if (date1 !=NULL) {
         //DatePickerで得た日付を転送
         _datepicker = [[UIDatePicker alloc] init];
-        _departdate1 = date1;
-        sub._departdate = _departdate1;
-        _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
+        _finishdate = date1;
+        //sub._departdate = _departdate1;
+        sub._finishdate1= _finishdate;
+        
+        //TODO:_todayを修正
+        //_dayCount = [self getDaysCountByTwoDateString:_today endDateString:_finishdate];
         
     }
     [self textLabel];
@@ -499,8 +502,8 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _departdate1=_datepicker.date;
     // ログに日付を表示
     NSLog(@"%@", [_df stringFromDate:_departdate1]);
-    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
-    NSLog(@"%d",_dayCount);
+//    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
+//    NSLog(@"%d",_dayCount);
 }
 -(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
     float tmp= [_departdate1 timeIntervalSinceDate:_today];
@@ -533,7 +536,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _departdate1=_datepicker.date;
     //DatePickerのデータを保存
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
-    [defaultsdate setObject:[_df stringFromDate:_departdate1] forKey:@"KEY_4"];
+    [defaultsdate setObject:[_df stringFromDate:_finishdate] forKey:@"KEY_4"];
     [defaultsdate synchronize];
     
     _dateLabel.text = [_df stringFromDate:_departdate1];
@@ -555,7 +558,8 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
-    __countNotification = [[UILocalNotification alloc] init];
+    
+    
     
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     NSDateComponents *comp2 = [[NSDateComponents alloc] init];
@@ -568,7 +572,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
     NSLog(@"days: %d", [def1 day]);
     
-    _countdownDayNumber = [def1 day];
+    __countdownDayNumber = [def1 day];
 
     
     if(_valcountry==nil){
@@ -577,7 +581,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         [self WarningAlertView];
     }else if(_valpurpose==nil){
         [self WarningAlertView];
-    }else if (_dayCount==0){
+    }else if (__countdownDayNumber<1){
         [self WarningAlertView];
     }else{
         [self ConfirmAlertView];
@@ -604,7 +608,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     // アプリに登録されている全ての通知を削除
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 
-    __countNotification = [[UILocalNotification alloc] init];
+    UILocalNotification *localNotification= [[UILocalNotification alloc] init];
     
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     NSDateComponents *comp2 = [[NSDateComponents alloc] init];
@@ -625,7 +629,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
         NSLog(@"days: %d", [def1 day]);
         
-        _countdownDayNumber = [def1 day];
+        self._countdownDayNumber = [def1 day];
         
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         
@@ -637,20 +641,20 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         
         //hourDateString = [NSString stringWithFormat:@"%@ 22:10:00", [df stringFromDate:date_converted]];
         
-        _countdownDayNumber = _countdownDayNumber - 1;
+        self._countdownDayNumber = self._countdownDayNumber - 1;
 
         
         date_converted =[formatter dateFromString:hourDateString];
         //        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
-        __countNotification.fireDate=date_converted;
+        localNotification.fireDate=date_converted;
         
-        __countNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",self._countdownDayNumber];
         
-        __countNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        localNotification.applicationIconBadgeNumber = self._countdownDayNumber;
         
-        __countNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
         
-        [[UIApplication sharedApplication] scheduleLocalNotification:__countNotification];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
         //バックグラウンドでも適用
         UIApplication *application = [UIApplication sharedApplication];
@@ -685,7 +689,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 NSLog(@"aaaa");
                 
                 
-                if (_countdownDayNumber<1) {
+                if (self._countdownDayNumber<1) {
                     [self DepartAlertView];
                     
                 }else{
@@ -701,10 +705,11 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     
                 //DatePickerで得た日付を転送
                     NSLog(@"%@", _departdate1);
-                sub._departdate = _departdate1;
-                    NSLog(@"%@", sub._departdate);
+                //sub._departdate = _departdate1;
+                   // NSLog(@"%@", sub._departdate);
                     sub._finishdate1 = _finishdate;
-                    sub._daycount2=_countdownDayNumber;
+                    NSLog(@"%@",sub._finishdate1);
+                    sub._daycount2=self._countdownDayNumber;
                 [self countBudge1];
                     
                     //バックグラウンドでも適用

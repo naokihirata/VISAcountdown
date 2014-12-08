@@ -136,7 +136,7 @@
     NSDate *date1=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
 
     if (self._daycount2>=0) {
-        __departdate = date1;
+        __finishdate1 = date1;
     }else{
     }
     
@@ -145,12 +145,12 @@
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     NSCalendar *cal = [NSCalendar currentCalendar];
     //指定した日付の30日先を設定
-
     
-    _def1 = [cal components:NSDayCalendarUnit fromDate:_today toDate:__finishdate1 options:0];
-    NSLog(@"days: %d", [_def1 day]);
+    NSDateComponents *def2=[cal components:NSDayCalendarUnit fromDate:_today toDate:__finishdate1 options:0];
     
-    _countdownDayNumber = [_def1 day];
+    NSLog(@"days: %d", [def2 day]);
+    
+    _countdownDayNumber = [def2 day];
     _countdownDayNumber+=1;
     
 //    _daycount3 = [self getDaysCountByTwoDateString:_today endDateString:__departdate];
