@@ -636,11 +636,14 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     // NSDateFormatter を用意します。
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     
+    NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:_finishdate options:0];
+    
+    int day_number = [startNumberdef day];
     // 変換用の書式を設定
     [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
     [comp2 setDay:30];
     _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
-    for (int i=0; i<30 ;i++) {
+    for (int i=0; i<day_number ;i++) {
         //指定した日付の30日先を設定
         [comp setDay:i];
         NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
@@ -733,7 +736,10 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 [self countBudge1];
                     sub._finishdate1 = _finishdate;
                     NSLog(@"%@",sub._finishdate1);
-                    sub._daycount2=self._countdownDayNumber;
+                    
+                    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
+                    [defaultscount setInteger:self._countdownDayNumber forKey:@"KEY_5"];
+                    [defaultscount synchronize];
                     //バックグラウンドでも適用
                 UIApplication *application = [UIApplication sharedApplication];
                  //   _dayCount=_dayCount-1;

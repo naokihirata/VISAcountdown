@@ -136,6 +136,8 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
 
+    _countdownDayNumber = (NSUInteger *)[defaultsdate integerForKey:@"KEY_5"];
+    
 //    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
 //    NSInteger memorycount=[defaultscount integerForKey:@"KEY_5"];
 //
