@@ -661,7 +661,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         
         //hourDateString = [NSString stringWithFormat:@"%@ 22:10:00", [df stringFromDate:date_converted]];
         
-        //self._countdownDayNumber = self._countdownDayNumber - 1;
+        
 
         
         date_converted =[formatter dateFromString:hourDateString];

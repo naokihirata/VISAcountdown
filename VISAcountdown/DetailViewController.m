@@ -35,6 +35,7 @@
     
     if (memorycount!=nil) {
         _countdownDayNumber=memorycount;
+        //_countdownDayNumber+=1;
     }else{
     }
     [self countLabel];
@@ -135,6 +136,13 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
 
+//    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
+//    NSInteger memorycount=[defaultscount integerForKey:@"KEY_5"];
+//
+//    if(memorycount!=nil){
+//        self._daycount2=memorycount;
+//    }
+    self._daycount2=_countdownDayNumber;
     if (self._daycount2>=0) {
         __finishdate1 = date;
     }else{
@@ -162,14 +170,14 @@
     }else{
             }
     
+    
+    //_countdownDayNumber+=1;
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
     //DatePickerのデータを保存
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
     [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
     [defaultscount synchronize];
-    
-    //_countdownDayNumber+=1;
-    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
-    
+
     _countLabel.text = daycount;
     
     _countNotification.applicationIconBadgeNumber = _countdownDayNumber;
