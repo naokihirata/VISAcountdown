@@ -67,13 +67,13 @@
     ADBannerView *_adView;
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
     
-    //int _countdownDayNumber;
+    int _countdownDayNumber;
     NSDate *_finishdate;        //延長日
     int daycountoffirstadition; //国ごとの追加日数
 }
 
 //@property (nonatomic,assign) UILocalNotification* _countNotification;
-@property (nonatomic,assign) int _countdownDayNumber;
+//@property (nonatomic,assign) int _countdownDayNumber;
 
 
 @end

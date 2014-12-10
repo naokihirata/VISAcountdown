@@ -572,33 +572,25 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 -(void)TapSetBtn:(UIButton *)setButton{
     NSLog(@"完了");
     
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-    [UIView commitAnimations];
-    
-    
-    
-    NSDateComponents *comp = [[NSDateComponents alloc] init];
-    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
-    NSCalendar *cal = [NSCalendar currentCalendar];
-
-    [comp2 setDay:30];
-    NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
-    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
-    // 現在から指定した日付との差分を、日を基準にして取得する。
-    NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
-    NSLog(@"days: %d", [def1 day]);
-    
-    __countdownDayNumber = [def1 day];
-
+//        NSDateComponents *comp = [[NSDateComponents alloc] init];
+//    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+//    NSCalendar *cal = [NSCalendar currentCalendar];
+//
+//    [comp2 setDay:30];
+//    NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+//    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
+//    // 現在から指定した日付との差分を、日を基準にして取得する。
+//    NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
+//    NSLog(@"days: %d", [def1 day]);
+//    
+//    _countdownDayNumber = [def1 day];
+//
     
     if(_valcountry==nil){
         [self WarningAlertView];
     }else if(_valperiod==nil){
         [self WarningAlertView];
     }else if(_valpurpose==nil){
-        [self WarningAlertView];
-    }else if (__countdownDayNumber<1){
         [self WarningAlertView];
     }else{
         [self ConfirmAlertView];
@@ -633,7 +625,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     // NSDateFormatter を用意します。
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     
-    NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:_finishdate options:0];
+    NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:_departdate1 options:0];
     
     int day_number = [startNumberdef day];
     // 変換用の書式を設定
@@ -662,6 +654,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     [comp2 setDay:daycountoffirstadition];
     
+    day_number=day_number+ daycountoffirstadition;
     
     _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
     for (int i=0; i<day_number ;i++) {
@@ -673,7 +666,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
         NSLog(@"days: %d", [def1 day]);
         
-        self._countdownDayNumber = [def1 day];
+        _countdownDayNumber = [def1 day];
         
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         
@@ -688,17 +681,16 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         //        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
         localNotification.fireDate=date_converted;
         
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",self._countdownDayNumber];
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
         
-        localNotification.applicationIconBadgeNumber = self._countdownDayNumber;
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber;
         
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
-        //バックグラウンドでも適用
-        UIApplication *application = [UIApplication sharedApplication];
     }
+    _countdownDayNumber=day_number+1;
 
 }
 //    __countNotification = [[UILocalNotification alloc] init];
@@ -728,23 +720,20 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 //OKボタン
                 NSLog(@"aaaa");
                 
+                //計算、Notificationのセット
+                [self countBudge1];
+
                 
-                if (self._countdownDayNumber<1) {
+                if (_countdownDayNumber<1) {
                     [self DepartAlertView];
                     
                 }else{
                 
 
-                  //計算、Notificationのセット
-                [self countBudge1];
                     
                     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-                    [defaultscount setInteger:self._countdownDayNumber forKey:@"KEY_5"];
+                    [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
                     [defaultscount synchronize];
-                    //バックグラウンドでも適用
-                //UIApplication *application = [UIApplication sharedApplication];
-                    
-                  
                     
                     
                 //画面遷移
@@ -755,7 +744,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     sub._finishdate1 = _finishdate;
                     NSLog(@"%@",sub._finishdate1);
                     
-                    sub._daycount2=self._countdownDayNumber;
+                    sub._daycount2=_countdownDayNumber;
                 }
         }
         }else{
