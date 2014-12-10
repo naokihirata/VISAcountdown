@@ -30,11 +30,11 @@
     _df = [[NSDateFormatter alloc] init];
     [_df setDateFormat:@"yyyy/MM/dd"];
     //時刻、日付を書式の通りに変換する
-    _datestr = [_df stringFromDate:_today];
+    NSString *datestr = [_df stringFromDate:_today];
     //_lastdatestr = [_df stringFromDate:sub._departdate];
 
     //コンソールに出力
-    NSLog(@"%@",_datestr);
+    NSLog(@"%@",datestr);
 
     //タイトル文章を入力
     NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
@@ -157,10 +157,10 @@
 
 }
 -(void)textLabel{
-    _myLabelInput = [[UILabel alloc] initWithFrame:CGRectMake(20 ,80 ,200, 50)];
+    UILabel *myLabelInput = [[UILabel alloc] initWithFrame:CGRectMake(20 ,80 ,200, 50)];
     
-    _myLabelInput.text = @"情報を入力";
-    [self.view addSubview:_myLabelInput];
+    myLabelInput.text = @"情報を入力";
+    [self.view addSubview:myLabelInput];
 }
 -(void)countryLabel{
     _countryLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,160 ,140, 20)];
@@ -185,39 +185,39 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)countryButton{
-    _countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 130, 130, 20)];
+    UIButton *countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 130, 130, 20)];
     
-    [_countryButton setTitle:@"国名を選択" forState:UIControlStateNormal];
+    [countryButton setTitle:@"国名を選択" forState:UIControlStateNormal];
     
-    [_countryButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [countryButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [_countryButton addTarget:self action:@selector(TapCountryBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [countryButton addTarget:self action:@selector(TapCountryBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    [self.view addSubview:_countryButton];
+    [self.view addSubview:countryButton];
 }
 -(void)periodButton{
-    _periodButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 190, 130, 20)];
+    UIButton *periodButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 190, 130, 20)];
     
-    [_periodButton setTitle:@"期間を選択" forState:UIControlStateNormal];
+    [periodButton setTitle:@"期間を選択" forState:UIControlStateNormal];
     
-    [_periodButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [periodButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [_periodButton addTarget:self action:@selector(TapPeriodBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [periodButton addTarget:self action:@selector(TapPeriodBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:_periodButton];
+    [self.view addSubview:periodButton];
 }
 
 -(void)purposeButton{
-    _purposeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 250, 130, 20)];
+    UIButton *purposeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 250, 130, 20)];
     
-    [_purposeButton setTitle:@"目的を選択" forState:UIControlStateNormal];
+    [purposeButton setTitle:@"目的を選択" forState:UIControlStateNormal];
     
-    [_purposeButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [purposeButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [_purposeButton addTarget:self action:@selector(TapPurposeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [purposeButton addTarget:self action:@selector(TapPurposeBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:_purposeButton];
+    [self.view addSubview:purposeButton];
 }
 -(void)TapCountryBtn:(UIButton *)countryButton{
     
@@ -288,8 +288,7 @@
 }
 //文字列を返す
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    //NSString *_country = [NSString stringWithFormat:@"%d行目",row];
-    //return _country[row];
+    
     switch(_int){
         case 0:
             return _country[row];
@@ -357,13 +356,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
 }
 -(void)createButton{
-    _createButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
+    UIButton *createButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
     
-    [_createButton setTitle:@"完了" forState:UIControlStateNormal];
+    [createButton setTitle:@"完了" forState:UIControlStateNormal];
     
-    [_createButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_createButton addTarget:self action:@selector(TapCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [_backView addSubview:_createButton];
+    [createButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [createButton addTarget:self action:@selector(TapCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_backView addSubview:createButton];
 }
 -(void)TapCreateBtn:(UIButton *)createButton{
 
@@ -372,7 +371,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     NSUserDefaults *defaultspurpose = [NSUserDefaults standardUserDefaults];
     for (_uv in [self.view subviews]) {
         [_PickerView removeFromSuperview];
-//        [_createButton removeFromSuperview];
+
     }
     [self downObject];
     switch(_int){
@@ -399,15 +398,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
 }
 -(void)checkButton{
-    _CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 340, 130, 20)];
+    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 340, 130, 20)];
     
-    [_CheckButton setTitle:@"料金チェック" forState:UIControlStateNormal];
+    [CheckButton setTitle:@"料金チェック" forState:UIControlStateNormal];
     
-    [_CheckButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [CheckButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [_CheckButton addTarget:self action:@selector(TapCheckBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [CheckButton addTarget:self action:@selector(TapCheckBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:_CheckButton];
+    [self.view addSubview:CheckButton];
 }
 -(void)TapCheckBtn:(UIButton *)checkButton{
     NSLog(@"check");
@@ -461,15 +460,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
 }
 -(void)dateButton{
-    _dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 430, 130, 20)];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 430, 130, 20)];
     
-    [_dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
+    [dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
     
-    [_dateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [dateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [_dateButton addTarget:self action:@selector(TapFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [dateButton addTarget:self action:@selector(TapFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:_dateButton];
+    [self.view addSubview:dateButton];
 }
 -(void)TapFinishBtn:(UIButton *)dateButton{
     NSLog(@"date");
@@ -528,13 +527,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 //    return day;
 //}
 -(void)datecreateButton{
-    _datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
     
-    [_datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
-    [_datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [_backdateView addSubview:_datecreateButton];
+    [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_backdateView addSubview:datecreateButton];
     
     
 }
@@ -542,10 +541,8 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     for (_uv in [self.view subviews]) {
         [_datepicker removeFromSuperview];
-        //        [_createButton removeFromSuperview];
-    }
+            }
     [self downdateObject];
-    //_dateLabel.text = _datepicker.date;
     
     
     //NSdate型にDatePickerの値を代入
@@ -562,15 +559,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _dateLabel.text = [_df stringFromDate:_departdate1];
 }
 -(void)setButton{
-    _setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 490, 130, 20)];
+    UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 490, 130, 20)];
     
-    [_setButton setTitle:@"設定を登録する" forState:UIControlStateNormal];
+    [setButton setTitle:@"設定を登録する" forState:UIControlStateNormal];
     
-    [_setButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [setButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [_setButton addTarget:self action:@selector(TapSetBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [setButton addTarget:self action:@selector(TapSetBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:_setButton];
+    [self.view addSubview:setButton];
 }
 -(void)TapSetBtn:(UIButton *)setButton{
     NSLog(@"完了");
@@ -641,7 +638,31 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     int day_number = [startNumberdef day];
     // 変換用の書式を設定
     [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
-    [comp2 setDay:30];
+    switch(_valcountry){
+        case 0:
+            daycountoffirstadition = 30;
+            break;
+        case 1:
+            daycountoffirstadition = 30;
+            break;
+        case 2:
+            daycountoffirstadition=30;
+            break;
+        case 3:
+            daycountoffirstadition=30;
+            break;
+        case 4:
+            daycountoffirstadition=30;
+            break;
+        default:
+            daycountoffirstadition=30;
+            break;
+    }
+
+    
+    [comp2 setDay:daycountoffirstadition];
+    
+    
     _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
     for (int i=0; i<day_number ;i++) {
         //指定した日付の30日先を設定
@@ -661,10 +682,6 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         //時間単位の文字列にセット
         NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [df stringFromDate:date_converted]];
 
-        
-        //hourDateString = [NSString stringWithFormat:@"%@ 22:10:00", [df stringFromDate:date_converted]];
-        
-        
 
         
         date_converted =[formatter dateFromString:hourDateString];
@@ -717,33 +734,28 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     
                 }else{
                 
-                //データを転送（integer型）
-                self.tabBarController.selectedIndex=0;
-                    
-                sub=(DetailViewController *)self.tabBarController.selectedViewController;
-                //sub._daycount2 = _dayCount;
 
-                //画面遷移(tabbarcontroller)
-                    
-                    
-                //DatePickerで得た日付を転送
-                    NSLog(@"%@", _departdate1);
-                //sub._departdate = _departdate1;
-                   // NSLog(@"%@", sub._departdate);
-                    sub._finishdate1 = _finishdate;
-                    NSLog(@"%@",sub._finishdate1);
-                    sub._daycount2=self._countdownDayNumber;
+                  //計算、Notificationのセット
                 [self countBudge1];
-                    sub._finishdate1 = _finishdate;
-                    NSLog(@"%@",sub._finishdate1);
                     
                     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
                     [defaultscount setInteger:self._countdownDayNumber forKey:@"KEY_5"];
                     [defaultscount synchronize];
                     //バックグラウンドでも適用
-                UIApplication *application = [UIApplication sharedApplication];
-                 //   _dayCount=_dayCount-1;
-               // application.applicationIconBadgeNumber = _dayCount;
+                //UIApplication *application = [UIApplication sharedApplication];
+                    
+                  
+                    
+                    
+                //画面遷移
+                    //データを転送（integer型）
+                    self.tabBarController.selectedIndex=0;
+                    
+                    sub=(DetailViewController *)self.tabBarController.selectedViewController;
+                    sub._finishdate1 = _finishdate;
+                    NSLog(@"%@",sub._finishdate1);
+                    
+                    sub._daycount2=self._countdownDayNumber;
                 }
         }
         }else{

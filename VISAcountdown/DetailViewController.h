@@ -19,17 +19,17 @@
     
     NSDateFormatter *_df;   //日にちの表示の書式を設定
     NSDate *_today;         //今日の日付を呼び出す
-    NSString *_datestr;     //書式の設定
+  //  NSString *_datestr;     //書式の設定
 
     //NSDate *_
     
-    int _daycount3;//日にち計算
+  //  int _daycount3;//日にち計算
     
     //広告
     ADBannerView *_adView;
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
     
-    NSDateComponents *_def1;
+  //  NSDateComponents *_def1;
     int _countdownDayNumber;
 }
 

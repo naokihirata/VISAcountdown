@@ -10,7 +10,7 @@
 #import <iAd/iAd.h>
 @interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,UIAlertViewDelegate,ADBannerViewDelegate>{
     
-    UILabel *_myLabelInput; //入力された文字を表示する
+//    UILabel *_myLabelInput; //入力された文字を表示する
     UILabel *_countryLabel; //選択された国名を表示する
     UILabel *_purposeLabel; //選択された目的を表示する
     UILabel *_periodLabel; //選択された期間を表示する
@@ -22,15 +22,15 @@
     UIView *_backdateView;  //datepcker用のbackview
     BOOL _visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
     
-    UIButton *_CheckButton;    //金額チェックボタンを作成する
-    UIButton *_CancelButton;    //キャンセルボタンを作成する
-    UIButton *_dateButton;    //登録完了ボタンを作成する
-    UIButton *_countryButton;   //国名を選ぶボタン
-    UIButton *_purposeButton;   //目的を選ぶボタン
-    UIButton *_periodButton;    //期間を選ぶボタン
-    UIButton *_createButton;    //addSubView内の完了ボタン(PickerView)
-    UIButton *_datecreateButton;//addSubView内の完了ボタン(DatePicker)
-    UIButton *_setButton;       //設定を完了するボタン
+  //  UIButton *_CheckButton;    //金額チェックボタンを作成する
+   // UIButton *_CancelButton;    //キャンセルボタンを作成する
+   // UIButton *_dateButton;    //登録完了ボタンを作成する
+   // UIButton *_countryButton;   //国名を選ぶボタン
+   // UIButton *_purposeButton;   //目的を選ぶボタン
+   // UIButton *_periodButton;    //期間を選ぶボタン
+   // UIButton *_createButton;    //addSubView内の完了ボタン(PickerView)
+    //UIButton *_datecreateButton;//addSubView内の完了ボタン(DatePicker)
+    //UIButton *_setButton;       //設定を完了するボタン
     
     
     UIPickerView *_PickerView;  //選択項目を表示
@@ -54,7 +54,7 @@
     NSDate *_mindate;   //
     NSDateFormatter *_df;   //日にちの表示の書式を設定
     NSDate *_today;         //今日の日付を呼び出す
-    NSString *_datestr;
+ //   NSString *_datestr;
     NSString *_lastdatestr;
     //int _dayCount;  //残り日数の計算
     NSDate *_departdate1;
@@ -68,7 +68,8 @@
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
     
     //int _countdownDayNumber;
-    NSDate *_finishdate;
+    NSDate *_finishdate;        //延長日
+    int daycountoffirstadition; //国ごとの追加日数
 }
 
 //@property (nonatomic,assign) UILocalNotification* _countNotification;
