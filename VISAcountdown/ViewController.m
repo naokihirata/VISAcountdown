@@ -40,11 +40,11 @@
     NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
     NSUserDefaults *defaultsperiod = [NSUserDefaults standardUserDefaults];
     NSUserDefaults *defaultspurpose = [NSUserDefaults standardUserDefaults];
-    NSInteger memo1=[defaultscountry integerForKey:@"KEY_1"];
+    int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
     
-    NSInteger memo2=[defaultsperiod integerForKey:@"KEY_2"];
+    int memo2=[[defaultsperiod objectForKey:@"KEY_2"] intValue];
     
-    NSInteger memo3=[defaultspurpose integerForKey:@"KEY_3"];
+    int memo3=[[defaultspurpose objectForKey:@"KEY_3"] intValue];
     
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
@@ -52,15 +52,15 @@
     NSDate *date1=[_df dateFromString:[defautsdate1 objectForKey:@"KEY_6"]];
     //NSDate *date2=[_df dateFromString:de]
     
-    if(memo1 !=NULL){
+    if(!memo1){
         _valcountry=memo1;
         _countryLabel.text = _country[_valcountry];
     }
-    if(memo2 !=NULL){
+    if(!memo2){
         _valperiod=memo2;
         _periodLabel.text = _period[_valperiod];
     }
-    if(memo3 !=NULL){
+    if(!memo3){
         _valpurpose=memo3;
         _purposeLabel.text = _purpose[_valpurpose];
     }
@@ -186,13 +186,15 @@
 }
 -(void)countryButton{
     UIButton *countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 130, 130, 20)];
-    
-    [countryButton setTitle:@"国名を選択" forState:UIControlStateNormal];
+    //セットタイトルを消す
+    //[countryButton setTitle:@"国名を選択" forState:UIControlStateNormal];
     
     [countryButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
     [countryButton addTarget:self action:@selector(TapCountryBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgcountry=[UIImage imageNamed:@"select_country"];
+    [countryButton setBackgroundImage:imgcountry forState:UIControlStateNormal];
     
     [self.view addSubview:countryButton];
 }
@@ -224,6 +226,8 @@
     _int = 0;
     NSLog(@"country");
     _valcountry = 0;
+    
+    
     [self upObject];
     [self pickerView];
     [self createButton];
@@ -508,15 +512,16 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _departdate1=_datepicker.date;
     // ログに出発の日付を表示
     NSLog(@"%@", [_df stringFromDate:_departdate1]);
-    NSDateComponents *comp = [[NSDateComponents alloc] init];
-    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
-    NSCalendar *cal = [NSCalendar currentCalendar];
+//    NSDateComponents *comp = [[NSDateComponents alloc] init];
+//    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+//    NSCalendar *cal = [NSCalendar currentCalendar];
+//    
+//    [comp2 setDay:30];
+//    NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+//    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
+//    // 現在から指定した日付との差分を、日を基準にして取得する。
+//    NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
     
-    [comp2 setDay:30];
-    NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
-    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
-    // 現在から指定した日付との差分を、日を基準にして取得する。
-    NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
 //    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
 //    NSLog(@"%d",_dayCount);
 }
@@ -539,6 +544,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 }
 -(void)TapDateCreateBtn:(UIButton *)datecreateButton{
     
+    _justday=1;
     for (_uv in [self.view subviews]) {
         [_datepicker removeFromSuperview];
             }
@@ -557,6 +563,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [defaultsdate1 synchronize];
     
     _dateLabel.text = [_df stringFromDate:_departdate1];
+    
 }
 -(void)setButton{
     UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 490, 130, 20)];
@@ -586,16 +593,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 //    _countdownDayNumber = [def1 day];
 //
     
-    if(_valcountry==nil){
+    if(_valcountry<0){
         [self WarningAlertView];
-    }else if(_valperiod==nil){
+    }else if(_valperiod<0){
         [self WarningAlertView];
-    }else if(_valpurpose==nil){
+    }else if(_valpurpose<0){
         [self WarningAlertView];
     }else{
         [self ConfirmAlertView];
     }
-    
 }
 -(void)WarningAlertView{
     _alertview = [[UIAlertView alloc] initWithTitle:@"未入力箇所があります" message:nil delegate:self cancelButtonTitle:@"入力を続ける" otherButtonTitles:nil];
@@ -614,6 +620,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _alertview3.tag =3;
 }
 -(void)countBudge1{
+
     // アプリに登録されている全ての通知を削除
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 
@@ -632,29 +639,29 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
     switch(_valcountry){
         case 0:
-            daycountoffirstadition = 30;
+            _daycountoffirstadition = 30;
             break;
         case 1:
-            daycountoffirstadition = 30;
+            _daycountoffirstadition = 30;
             break;
         case 2:
-            daycountoffirstadition=30;
+            _daycountoffirstadition=30;
             break;
         case 3:
-            daycountoffirstadition=30;
+            _daycountoffirstadition=30;
             break;
         case 4:
-            daycountoffirstadition=30;
+            _daycountoffirstadition=30;
             break;
         default:
-            daycountoffirstadition=30;
+            _daycountoffirstadition=30;
             break;
     }
 
     
-    [comp2 setDay:daycountoffirstadition];
+    [comp2 setDay:_daycountoffirstadition];
     
-    day_number=day_number+ daycountoffirstadition;
+    day_number=day_number+ _daycountoffirstadition;
     
     _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
     for (int i=0; i<day_number ;i++) {
@@ -664,7 +671,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         
         // 現在から指定した日付との差分を、日を基準にして取得する。
         NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
-        NSLog(@"days: %d", [def1 day]);
+        NSLog(@"days: %ld", (long)[def1 day]);
         
         _countdownDayNumber = [def1 day];
         
@@ -683,26 +690,26 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         
         localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
         
+        //_countdownDayNumber=_countdownDayNumber+1;
+        //day_number=day_number+1;
+//        if((_justday=1)){
+//            _countdownDayNumber=_countdownDayNumber-1;
+//        }else{
+//        }
+//        _countdownDayNumber=_countdownDayNumber+1;
         localNotification.applicationIconBadgeNumber = _countdownDayNumber;
-        
+        //_countdownDayNumber=_countdownDayNumber-1;
+        //day_number=day_number-1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
     }
     _countdownDayNumber=day_number+1;
+    
 
 }
-//    __countNotification = [[UILocalNotification alloc] init];
-//    
-//    __countNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-//    //    __countNotification.alertBody = [NSString stringWithFormat:@"あと%d日です",__countdownDayNumber];
-//    //一日ごとに計算
-//    //__countNotification.repeatInterval = NSDayCalendarUnit;
-//    __countNotification.applicationIconBadgeNumber = _dayCount;
-//    __countNotification.timeZone = [NSTimeZone defaultTimeZone];
-//   // [[UIApplication sharedApplication] scheduleLocalNotification:__countNotification];
-//}
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
     //controller　＠の中はIdentifierで定義した名前
@@ -728,11 +735,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     [self DepartAlertView];
                     
                 }else{
-                
 
-                    
+                    if(!_justday){
+                        _countdownDayNumber=_countdownDayNumber+1;
+                    }else{
+                    }
                     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-                    [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
+                    [[defaultscount objectForKey:@"KEY_5"] intValue];
                     [defaultscount synchronize];
                     
                     
@@ -745,6 +754,10 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     NSLog(@"%@",sub._finishdate1);
                     
                     sub._daycount2=_countdownDayNumber;
+                    
+                    NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
+                    int number = (int)[[defaultsnumber objectForKey:@"KEY_9"] intValue];
+//                    number=0;
                 }
         }
         }else{

@@ -30,7 +30,11 @@
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ
     
   //  NSDateComponents *_def1;
-    int _countdownDayNumber;
+    int _countdownDayNumber;    //日付の差分
+    
+    int _daycountoffirstadition; //ボタンによる期間の延長
+    
+    int _number;    
 }
 
 @property (nonatomic,assign) int _daycount2;

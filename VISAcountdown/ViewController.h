@@ -69,12 +69,14 @@
     
     int _countdownDayNumber;
     NSDate *_finishdate;        //延長日
-    int daycountoffirstadition; //国ごとの追加日数
+    int _daycountoffirstadition; //国ごとの追加日数
+    
+    int _justday;   //DatePickerを使用した時を見分けるよう
 }
 
 //@property (nonatomic,assign) UILocalNotification* _countNotification;
 //@property (nonatomic,assign) int _countdownDayNumber;
-
+@property (nonatomic,assign) int _number1;
 
 @end
 

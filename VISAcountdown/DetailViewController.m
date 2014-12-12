@@ -31,9 +31,9 @@
     NSLog(@"%@",datestr);
     
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-    NSInteger memorycount=[defaultscount integerForKey:@"KEY_5"];
+    int memorycount=[[defaultscount objectForKey:@"KEY_5"] intValue];
     
-    if (memorycount!=nil) {
+    if (!memorycount) {
         _countdownDayNumber=memorycount;
         //_countdownDayNumber+=1;
     }else{
@@ -47,8 +47,8 @@
     [self extendButton];
     [self extendButton2];
 
-    UIApplication *application = [UIApplication sharedApplication];
-    application.applicationIconBadgeNumber = _countdownDayNumber;
+//    UIApplication *application = [UIApplication sharedApplication];
+//    application.applicationIconBadgeNumber = _countdownDayNumber;
     
     
     //広告関連(iAD)
@@ -82,8 +82,6 @@
         _isVisible = YES;
         
     }
-    
-    
 }
 //バナー表示でエラーが発生した場合
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
@@ -118,32 +116,32 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
 
-    _countdownDayNumber = (NSUInteger *)[defaultsdate integerForKey:@"KEY_5"];
+    NSUserDefaults *defaultscount=[NSUserDefaults standardUserDefaults];
+    _countdownDayNumber = (int)[[defaultscount objectForKey:@"KEY_5"] intValue];
     
-//    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-//    NSInteger memorycount=[defaultscount integerForKey:@"KEY_5"];
-//
-//    if(memorycount!=nil){
-//        self._daycount2=memorycount;
-//    }
+    NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
+    _number = (int)[[defaultsnumber objectForKey:@"KEY_9"] intValue];
+    
+
+
     self._daycount2=_countdownDayNumber;
     if (self._daycount2>=0) {
         __finishdate1 = date;
     }else{
     }
     
-    
-    
+    if(_number<1){
+    }else{
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     NSCalendar *cal = [NSCalendar currentCalendar];
     //指定した日付の30日先を設定
     
     NSDateComponents *def2=[cal components:NSDayCalendarUnit fromDate:_today toDate:__finishdate1 options:0];
     
-    NSLog(@"days: %d", [def2 day]);
+    NSLog(@"days: %ld", (long)[def2 day]);
     
     _countdownDayNumber = [def2 day];
-    _countdownDayNumber+=1;
+    //_countdownDayNumber+=1;
     
     
     if (self._daycount2<1) {
@@ -151,18 +149,14 @@
     }else{
             }
     
-    
-    //_countdownDayNumber+=1;
-    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
-    //DatePickerのデータを保存
-    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-    [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
+    [[defaultscount objectForKey:@"KEY_5"] intValue];
     [defaultscount synchronize];
+    _countdownDayNumber=_countdownDayNumber+1;
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
 
     _countLabel.text = daycount;
     
-    _countNotification.applicationIconBadgeNumber = _countdownDayNumber;
-
+    _countdownDayNumber=_countdownDayNumber-1;
 //    // NSDateFormatter を用意します。
 //    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
 //    
@@ -193,13 +187,9 @@
 //    [defaults synchronize];
 //
 //
+    }
 }
-//-(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
-//    float tmp= [__departdate timeIntervalSinceDate:_today];
-//    int day=(int)( tmp / (3600.0*24.0) );
-//        day +=1;
-//    return day;
-//}
+
 -(void)countLabel{
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,160 ,self.view.bounds.size.width, 60)];
     
@@ -210,6 +200,106 @@
     
     _countLabel.text = daycount;
     [self.view addSubview:_countLabel];
+}
+-(void)aditionalcalculate{
+    // アプリに登録されている全ての通知を削除
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification *localNotification= [[UILocalNotification alloc] init];
+    //UserDefaultから呼び出し
+    NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
+    int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
+    int valcountry=memo1;
+    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    NSDate *finishdate=date;
+    NSUserDefaults *defautsdate1 = [NSUserDefaults standardUserDefaults];
+    NSDate *date1=[_df dateFromString:[defautsdate1 objectForKey:@"KEY_6"]];
+    NSDate *departdate=date1;
+    
+    
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    // NSDateFormatter を用意します。
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    
+    NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:finishdate options:0];
+    
+    int day_number = [startNumberdef day];
+    // 変換用の書式を設定
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    switch(valcountry){
+        case 0:
+            _daycountoffirstadition = 30;
+            break;
+        case 1:
+            _daycountoffirstadition = 30;
+            break;
+        case 2:
+            _daycountoffirstadition=30;
+            break;
+        case 3:
+            _daycountoffirstadition=30;
+            break;
+        case 4:
+            _daycountoffirstadition=30;
+            break;
+        default:
+            _daycountoffirstadition=30;
+            break;
+    }
+    
+    
+    [comp2 setDay:_daycountoffirstadition];
+    
+    day_number=day_number+ _daycountoffirstadition;
+    
+    finishdate = [cal dateByAddingComponents:comp2 toDate:departdate options:0];
+    for (int i=0; i<day_number ;i++) {
+        //指定した日付の30日先を設定
+        [comp setDay:i];
+        NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+        
+        // 現在から指定した日付との差分を、日を基準にして取得する。
+        NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:finishdate options:0];
+        NSLog(@"days: %ld", (long)[def1 day]);
+        
+        _countdownDayNumber = [def1 day];
+        
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        
+        //日時データを文字列に変換する場合のフォーマットを指定
+        df.dateFormat = @"yyyy/MM/dd";
+        //時間単位の文字列にセット
+        NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [df stringFromDate:date_converted]];
+        
+        
+        
+        date_converted =[formatter dateFromString:hourDateString];
+        
+        localNotification.fireDate=date_converted;
+        
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
+        
+        
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+    }
+    _countdownDayNumber=day_number+1;
+    
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
+    
+    _countLabel.text=daycount;
+    //データを保存
+    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
+    [[defaultscount objectForKey:@"KEY_5"] intValue];
+    [defaultscount synchronize];
+
 }
 -(void)extendButton{
     UIButton *extendButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 130, 20)];
@@ -225,9 +315,18 @@
 }
 -(void)TapextendBtn:(UIButton *)extendButton{
     
+    //期間延長、計算、ラベルの表示
+    [self aditionalcalculate];
     NSLog(@"extend");
     
-   // [self countBudge];
+    _number=1;  //延長したときの見分けるよう
+    
+    NSUserDefaults *defaultsnumber = [NSUserDefaults standardUserDefaults];
+    [[defaultsnumber objectForKey:@"KEY_9"] intValue];
+    [defaultsnumber synchronize];
+    
+    //_number=nil;
+    // [self countBudge];
 }
 -(void)extendButton2{
     UIButton *extendButton2 = [[UIButton alloc] initWithFrame:CGRectMake(150, 300, 130, 20)];
