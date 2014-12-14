@@ -12,6 +12,7 @@
 
 
     UILabel *_countLabel;   //残り日数表示
+    UILabel *_finishdatelabel;  //最終日の表示
     
     UILocalNotification *_countNotification;
     

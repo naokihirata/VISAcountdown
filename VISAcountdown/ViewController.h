@@ -37,6 +37,7 @@
     
     NSArray *_country;  //国名の連想配列
     NSArray *_period;   //期間の連想配列
+    NSArray *_period_for_compare;//期間のPList検索型の連想配列
     NSArray *_purpose;  //目的の連想配列
     
     NSArray *_PListArray;   //取り出したplistを入れた連想配列

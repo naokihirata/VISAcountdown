@@ -18,11 +18,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
  
+    //画像を読み込んでボタンに貼る
+    UIImage *backimg=[UIImage imageNamed:@"backimage_02.png"];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backimg];
+    //[backimg release];
+    
     //controller　＠の中はIdentifierで定義した名前
     DetailViewController  *sub = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    _country = @[@"アメリカ",@"フィリピン",@"オーストラリア",@"カナダ",@"ニュージーランド"];
+    _country = @[@"フィリピン",@"オーストラリア",@"シンガポール",@"ニュージーランド"];
     _period = @[@"1ヶ月",@"2ヶ月",@"3ヶ月",@"4ヶ月",@"5ヶ月",@"6ヶ月",@"7ヶ月",@"8ヶ月",@"9ヶ月",@"10ヶ月",@"11ヶ月",@"12ヶ月"];
-    _purpose = @[@"留学",@"就労",@"観光"];
+    _period_for_compare = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12"];
+    
+    _purpose = @[@"留学",@"観光",@"就労"];
     
     //現在の時刻、日付をとる
     _today = [NSDate date];
@@ -80,13 +88,18 @@
         //_dayCount = [self getDaysCountByTwoDateString:_today endDateString:_finishdate];
         
     }
+    //タイトルを表示
     [self textLabel];
+    //注意書きを表示
+    [self alertlabel];
     //国名を表示する
     [self countryLabel];
     //期間を表示する
     [self periodLabel];
     //目的を表示する
     [self purposeLabel];
+    //料金を表示する
+    [self checkLabel];
     //出発日を表示する
     [self dateLabel];
     //国名を選ぶボタン
@@ -108,75 +121,108 @@
     
     _datepicker = [[UIDatePicker alloc] init];
     
-    //初期化
-    _adView = [[ADBannerView alloc] init];
-    _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
-    //場所を決定
-    _adView.alpha = 0.0;
-    _adView.delegate = self;
-    
-    //画面本体に追加
-    [self.view addSubview:_adView];
-    
-    //バナーは表示されていないのでNOを設定
-    _isVisible = NO;
+//    //初期化
+//    _adView = [[ADBannerView alloc] init];
+//    _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+//    //場所を決定
+//    _adView.alpha = 0.0;
+//    _adView.delegate = self;
+//    
+//    //画面本体に追加
+//    [self.view addSubview:_adView];
+//    
+//    //バナーは表示されていないのでNOを設定
+//    _isVisible = NO;
 
 }
 //バナーが正常に表示された場合
--(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-    if (_isVisible == NO) {
-        [UIView beginAnimations:@"animateAdBannerOn" context:nil];
-        [UIView setAnimationDuration:0.3];
-        
-        banner.frame = CGRectOffset(banner.frame, 0, CGRectGetHeight(banner.frame));
-        banner.alpha = 1.0;
-        [UIView commitAnimations];
-        
-        //バナーを表示しているのでYESを設定
-        _isVisible = YES;
-    }
-}
+//-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+//    if (_isVisible == NO) {
+//        [UIView beginAnimations:@"animateAdBannerOn" context:nil];
+//        [UIView setAnimationDuration:0.3];
+//        
+//        banner.frame = CGRectOffset(banner.frame, 0, CGRectGetHeight(banner.frame));
+//        banner.alpha = 1.0;
+//        [UIView commitAnimations];
+//        
+//        //バナーを表示しているのでYESを設定
+//        _isVisible = YES;
+//    }
+//}
 //バナー表示でエラーが発生した場合
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
-    
-    if (_isVisible == YES) {
-        [UIView beginAnimations:@"animateAdBannerOff" context:nil];
-        [UIView setAnimationDuration:0.3];
-        
-        _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
-        
-        banner.alpha = 0.0;
-        
-        [UIView commitAnimations];
-        
-        //バナーを非表示にしているのでNOを設定
-        _isVisible = NO;
-    }
-}
+//-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+//    
+//    if (_isVisible == YES) {
+//        [UIView beginAnimations:@"animateAdBannerOff" context:nil];
+//        [UIView setAnimationDuration:0.3];
+//        
+//        _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
+//        
+//        banner.alpha = 0.0;
+//        
+//        [UIView commitAnimations];
+//        
+//        //バナーを非表示にしているのでNOを設定
+//        _isVisible = NO;
+//    }
+//}
 -(void)viewWillAppear:(BOOL)animated{
-
 }
 -(void)textLabel{
-    UILabel *myLabelInput = [[UILabel alloc] initWithFrame:CGRectMake(20 ,80 ,200, 50)];
-    
+    UILabel *myLabelInput = [[UILabel alloc] initWithFrame:CGRectMake(20 ,16 ,130, 35)];
+    //myLabelInput.font=[UIFont systemFontOfSize:22];
+    [myLabelInput setFont:[UIFont fontWithName:@"Marker Felt" size:22]];
+    myLabelInput.textColor=[UIColor blueColor];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.02]; //透過率50%
+    myLabelInput.backgroundColor=acolor;
+    myLabelInput.textAlignment = NSTextAlignmentLeft;
     myLabelInput.text = @"情報を入力";
+    //画像を読み込んでボタンに貼る
+//    UIImage *imgtextlabel=[UIImage imageNamed:@"Button_01.png"];
+//    [myLabelInput setBackgroundImage:imgtextlabel forState:UIControlStateNormal];
+
     [self.view addSubview:myLabelInput];
 }
--(void)countryLabel{
-    _countryLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,160 ,140, 20)];
+-(void)alertlabel{
+    UILabel *alertlabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, self.view.bounds.size.width, 20)];
+    [alertlabel setFont:[UIFont fontWithName:@"Marker Felt" size:12]];
+    alertlabel.textColor=[UIColor redColor];
+    UIColor *color = [UIColor yellowColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    alertlabel.backgroundColor=acolor;
+    alertlabel.textAlignment=NSTextAlignmentNatural;
+    alertlabel.text=@"国名、期間、目的、出発日は入力必須項目です！";
     
+    [self.view addSubview:alertlabel];
+}
+-(void)countryLabel{
+    _countryLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,118 ,180, 30)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _countryLabel.backgroundColor=acolor;
+    _countryLabel.font=[UIFont systemFontOfSize:22];
+    _countryLabel.textAlignment = NSTextAlignmentCenter;
     _countryLabel.text = _country[_valcountry];
     [self.view addSubview:_countryLabel];
 }
 -(void)periodLabel{
-    _periodLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,220 ,140, 20)];
-    
+    _periodLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,196 ,180, 30)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _periodLabel.backgroundColor=acolor;
+    _periodLabel.font=[UIFont systemFontOfSize:22];
+    _periodLabel.textAlignment = NSTextAlignmentCenter;
     _periodLabel.text = _period[_valperiod];
     [self.view addSubview:_periodLabel];
 }
 -(void)purposeLabel{
-    _purposeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,280 ,140, 20)];
-    
+    _purposeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,273 ,180, 30)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _purposeLabel.backgroundColor=acolor;
+    _purposeLabel.font=[UIFont systemFontOfSize:22];
+    _purposeLabel.textAlignment = NSTextAlignmentCenter;
     _purposeLabel.text = _purpose[_valpurpose];
     [self.view addSubview:_purposeLabel];
 }
@@ -185,7 +231,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)countryButton{
-    UIButton *countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 130, 130, 20)];
+    UIButton *countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 75, 180, 40)];
     //セットタイトルを消す
     //[countryButton setTitle:@"国名を選択" forState:UIControlStateNormal];
     
@@ -193,32 +239,38 @@
     
     [countryButton addTarget:self action:@selector(TapCountryBtn:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
-    UIImage *imgcountry=[UIImage imageNamed:@"select_country"];
+    UIImage *imgcountry=[UIImage imageNamed:@"Button_01.png"];
     [countryButton setBackgroundImage:imgcountry forState:UIControlStateNormal];
     
     [self.view addSubview:countryButton];
 }
 -(void)periodButton{
-    UIButton *periodButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 190, 130, 20)];
+    UIButton *periodButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 153, 180, 40)];
     
-    [periodButton setTitle:@"期間を選択" forState:UIControlStateNormal];
+    //[periodButton setTitle:@"期間を選択" forState:UIControlStateNormal];
     
     [periodButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
     [periodButton addTarget:self action:@selector(TapPeriodBtn:) forControlEvents:UIControlEventTouchUpInside];
     
+    //画像を読み込んでボタンに貼る
+    UIImage *imgperiod=[UIImage imageNamed:@"Button_03period.png"];
+    [periodButton setBackgroundImage:imgperiod forState:UIControlStateNormal];
     [self.view addSubview:periodButton];
 }
 
 -(void)purposeButton{
-    UIButton *purposeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 250, 130, 20)];
+    UIButton *purposeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 230, 180, 40)];
     
-    [purposeButton setTitle:@"目的を選択" forState:UIControlStateNormal];
+    //[purposeButton setTitle:@"目的を選択" forState:UIControlStateNormal];
     
     [purposeButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
     [purposeButton addTarget:self action:@selector(TapPurposeBtn:) forControlEvents:UIControlEventTouchUpInside];
     
+    //画像を読み込んでボタンに貼る
+    UIImage *imgpurpose=[UIImage imageNamed:@"Button_02purpose.png"];
+    [purposeButton setBackgroundImage:imgpurpose forState:UIControlStateNormal];
     [self.view addSubview:purposeButton];
 }
 -(void)TapCountryBtn:(UIButton *)countryButton{
@@ -336,7 +388,10 @@
 -(void)smallView{
     _backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
     
-    _backView.backgroundColor = [UIColor grayColor];
+    // 生成済みのUIColorに透過率のみ指定する場合
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _backView.backgroundColor = acolor;
     [self.view addSubview:_backView];
 }
 -(void)upObject{
@@ -353,14 +408,14 @@
         default:
             break;
     }   //_val = 0;
-_backView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+_backView.frame = CGRectMake(0, (self.view.bounds.size.height)/3, self.view.bounds.size.width, self.view.bounds.size.height);
 }
 -(void)downObject{
 _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
 
 }
 -(void)createButton{
-    UIButton *createButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
+    UIButton *createButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 268, 130, 20)];
     
     [createButton setTitle:@"完了" forState:UIControlStateNormal];
     
@@ -402,14 +457,16 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
 }
 -(void)checkButton{
-    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 340, 130, 20)];
+    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 307, 150, 30)];
     
-    [CheckButton setTitle:@"料金チェック" forState:UIControlStateNormal];
+    //[CheckButton setTitle:@"料金チェック" forState:UIControlStateNormal];
     
     [CheckButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
     [CheckButton addTarget:self action:@selector(TapCheckBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgcheck=[UIImage imageNamed:@"Button_04costcheck.png"];
+    [CheckButton setBackgroundImage:imgcheck forState:UIControlStateNormal];
     [self.view addSubview:CheckButton];
 }
 -(void)TapCheckBtn:(UIButton *)checkButton{
@@ -419,28 +476,27 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     //プロジェクト内のファイルにアクセス出来るオブジェクトを宣言
     _bundle = [NSBundle mainBundle];
     
+    //TODO:プロパティリストから値を読み込む
+    
     //読み込むプロパティリストのファイルパス（場所）を指定
-    _path = [_bundle pathForResource:@"costArea" ofType:@"plist"];
+    _path = [_bundle pathForResource:@"created" ofType:@"plist"];
     
     //プロパティリストの中身のデータを取得
     _dic = [NSDictionary dictionaryWithContentsOfFile:_path];
     
     //取得出来た配列のデータをメンバ変数に代入
-    _PListArray = [_dic objectForKey:@"VISAfee"];
-    //TODO:プロパティリストから値を読み込む
+    _PListArray = [_dic objectForKey:_country[_valcountry]];
+    
     
     //TODO:取得した配列から国期間目的が一致したデータを取り出す
-    
-    //TODO:取り出したデータから料金を抜き出し表示する
     for(NSDictionary *VISAcondition in _PListArray) {
         // NSLog(@"%@",VISAcondition[@"country"]);
         
-        if(([VISAcondition[@"country"] isEqualToString:_country[_valcountry]])&&([VISAcondition[@"purpose"] isEqualToString:_purpose[_valpurpose]])&&([VISAcondition[@"period"] isEqualToString:_period[_valperiod]])){
-            NSLog(@"%@",VISAcondition[@"fee"]);
+        if(([VISAcondition[@"country"] isEqualToString:_country[_valcountry]])&&([VISAcondition[@"purpose"] isEqualToString:_purpose[_valpurpose]])&&([VISAcondition[@"period"] isEqualToString:_period_for_compare[_valperiod]])){
+            NSLog(@"%@",VISAcondition[@"cost"]);
             
-            _checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 400, 140, 20)];
-            _checkLabel.text = VISAcondition[@"fee"];
-            [self.view addSubview:_checkLabel];
+    //TODO:取り出したデータから料金を抜き出し表示する
+            _checkLabel.text = VISAcondition[@"cost"];
             break;
         }else{NSLog(@"%@",VISAcondition[@"country"]);}
         
@@ -449,29 +505,45 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
 }
+-(void)checkLabel{
+
+    _checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 340, 160, 25)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _checkLabel.backgroundColor=acolor;
+    _checkLabel.font=[UIFont systemFontOfSize:18];
+    _checkLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:_checkLabel];
+}
 -(void)smalldateView{
     _backdateView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
     
-    _backdateView.backgroundColor = [UIColor greenColor];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _backdateView.backgroundColor = acolor;
+    
     [self.view addSubview:_backdateView];
 }
 -(void)updateObject{
     
-    _backdateView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    _backdateView.frame = CGRectMake(0, (self.view.bounds.size.height)/3, self.view.bounds.size.width, self.view.bounds.size.height);
 }
 -(void)downdateObject{
     _backdateView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
     
 }
 -(void)dateButton{
-    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 430, 130, 20)];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 368, 130, 40)];
     
-    [dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
+    //[dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
     
     [dateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
     [dateButton addTarget:self action:@selector(TapFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"Button_010.png"];
+    [dateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [self.view addSubview:dateButton];
 }
 -(void)TapFinishBtn:(UIButton *)dateButton{
@@ -485,8 +557,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [UIView commitAnimations];
 }
 -(void)dateLabel{
-    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,460 ,140, 20)];
-    
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,408 ,160, 30)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _dateLabel.backgroundColor=acolor;
+    _dateLabel.font=[UIFont systemFontOfSize:22];
+    _dateLabel.textAlignment = NSTextAlignmentCenter;
+
     _dateLabel.text = [_df stringFromDate:_departdate1];
     [self.view addSubview:_dateLabel];
 }
@@ -532,7 +609,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 //    return day;
 //}
 -(void)datecreateButton{
-    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 130, 20)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 270, 130, 20)];
     
     [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
@@ -544,36 +621,44 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 }
 -(void)TapDateCreateBtn:(UIButton *)datecreateButton{
     
-    _justday=1;
+    //_justday=1;
     for (_uv in [self.view subviews]) {
         [_datepicker removeFromSuperview];
             }
     [self downdateObject];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:_datepicker.date]];
     
+    
+
     
     //NSdate型にDatePickerの値を代入
-    _departdate1=_datepicker.date;
+    _departdate1=[formatter dateFromString:hourDateString];
+    
     //finishdateを保存
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     [defaultsdate setObject:[_df stringFromDate:_finishdate] forKey:@"KEY_4"];
     [defaultsdate synchronize];
     //DatePickerのデータを保存
     NSUserDefaults *defaultsdate1 = [NSUserDefaults standardUserDefaults];
-    [defaultsdate1 setObject:[_df stringFromDate:_datepicker.date] forKey:@"KEY_6"];
+    [defaultsdate1 setObject:[_df stringFromDate:_departdate1] forKey:@"KEY_6"];
     [defaultsdate1 synchronize];
     
     _dateLabel.text = [_df stringFromDate:_departdate1];
     
 }
 -(void)setButton{
-    UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 490, 130, 20)];
+    UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 475, 130, 35)];
     
-    [setButton setTitle:@"設定を登録する" forState:UIControlStateNormal];
+    //[setButton setTitle:@"設定を登録する" forState:UIControlStateNormal];
     
     [setButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
     [setButton addTarget:self action:@selector(TapSetBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgset=[UIImage imageNamed:@"Button_08.png"];
+    [setButton setBackgroundImage:imgset forState:UIControlStateNormal];
     [self.view addSubview:setButton];
 }
 -(void)TapSetBtn:(UIButton *)setButton{
@@ -675,6 +760,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         
         _countdownDayNumber = [def1 day];
         
+        //_countdownDayNumber-=2;
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         
         //日時データを文字列に変換する場合のフォーマットを指定
@@ -697,7 +783,9 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 //        }else{
 //        }
 //        _countdownDayNumber=_countdownDayNumber+1;
-        localNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        //_countdownDayNumber+=1;
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber + 1;
+        //_countdownDayNumber-=1;
         //_countdownDayNumber=_countdownDayNumber-1;
         //day_number=day_number-1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
@@ -740,8 +828,10 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                         _countdownDayNumber=_countdownDayNumber+1;
                     }else{
                     }
+                    _countdownDayNumber-=2;
                     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-                    [[defaultscount objectForKey:@"KEY_5"] intValue];
+
+                    [defaultscount setObject:[NSString stringWithFormat:@"%d",_countdownDayNumber] forKey:@"KEY_5"];
                     [defaultscount synchronize];
                     
                     
@@ -755,9 +845,18 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     
                     sub._daycount2=_countdownDayNumber;
                     
-                    NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
-                    int number = (int)[[defaultsnumber objectForKey:@"KEY_9"] intValue];
-//                    number=0;
+                    
+                    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+                    [defaultsdate setObject:[_df stringFromDate:_finishdate] forKey:@"KEY_4"];
+                    
+//                    NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
+//                    int number = (int)[[defaultsnumber objectForKey:@"KEY_9"] intValue];
+                    
+                    int number=0;
+                    NSUserDefaults *defaultsnumber = [NSUserDefaults standardUserDefaults];
+                    [defaultsnumber setInteger:number forKey:@"KEY_9"];
+                    [defaultsnumber synchronize];
+
                 }
         }
         }else{
