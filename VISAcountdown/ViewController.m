@@ -723,20 +723,17 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     // 変換用の書式を設定
     [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
     switch(_valcountry){
-        case 0:
+        case 0://フィリピン
             _daycountoffirstadition = 30;
             break;
-        case 1:
+        case 1://オーストラリア
             _daycountoffirstadition = 30;
             break;
-        case 2:
+        case 2://シンガポール
             _daycountoffirstadition=30;
             break;
-        case 3:
-            _daycountoffirstadition=30;
-            break;
-        case 4:
-            _daycountoffirstadition=30;
+        case 3://ニュージーランド
+            _daycountoffirstadition=90;
             break;
         default:
             _daycountoffirstadition=30;

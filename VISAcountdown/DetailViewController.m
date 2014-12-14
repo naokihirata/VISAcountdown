@@ -144,11 +144,35 @@
     NSUserDefaults *defaultscount=[NSUserDefaults standardUserDefaults];
     _countdownDayNumber = (int)[[defaultscount objectForKey:@"KEY_5"] intValue];
     
-    NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
+    int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
+    int valcountry=memo1;
+    //NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
     //_number = (int)[[defaultsnumber objectForKey:@"KEY_9"] intValue];
     //_number=[[defaultsnumber obje]]
 
     //_finishdatelabel.text = [_df stringFromDate:date];
+    switch(valcountry){
+    case 0:
+            [self extendButton];
+            [self extendButton2];
+            [self extendButton29];
+            break;
+    case 1://オーストラリア
+            
+            break;
+    case 2://シンガポール
+            
+            break;
+    case 3://ニュージーランド
+            
+            break;
+    default://それ以外
+            
+            break;
+        }
+    
+    
     
     //finishdateの呼び出し
     _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
@@ -159,8 +183,8 @@
     }else{
     }
     
-    if(_number<1){
-    }else{
+//    if(_number<1){
+//    }else{
     NSDateComponents *comp = [[NSDateComponents alloc] init];
     NSCalendar *cal = [NSCalendar currentCalendar];
     //指定した日付の30日先を設定
@@ -182,37 +206,7 @@
     NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
         _countdownDayNumber-=1;
     _countLabel.text = daycount;
-    }
-//    // NSDateFormatter を用意します。
-//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-//    
-//    // 変換用の書式を設定
-//    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
-//    
-//    [formatter stringFromDate:_today];
-//    [formatter stringFromDate:self._departdate];
-//    
-//    // NSString を NSDate に変換
-//    NSDate* date_converted = [cal dateByAddingComponents:__departdate toDate:_today options:0];
-//    
-//    //時間単位の文字列にセット
-//    NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:date_converted]];
-//    
-//    
-//    date_converted = [formatter dateFromString:hourDateString];
-//    
-//    //設定した日数と、カウントダウンする日付をUserDefaultに設定
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    //日数
-//    [defaults setObject:[NSString stringWithFormat:@"%d",_countdownDayNumber] forKey:@"countdownDayNumber"];
-//    
-//    //設定した日付
-//    [defaults setObject:[_df stringFromDate:__departdate] forKey:@"settingDate"];
-//    
-//    [defaults synchronize];
-//
-//
+   // }
     
 }
 
