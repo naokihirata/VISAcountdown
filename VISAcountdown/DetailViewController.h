@@ -27,7 +27,8 @@
     UIButton *_extendButton29;
     UIButton *_extendButton6;
     
-    
+    UIView *_backview;
+    UIWebView *_webview;
  //   UIButton *_extendButton;    //延長完了ボタン
     
     NSDateFormatter *_df;   //日にちの表示の書式を設定

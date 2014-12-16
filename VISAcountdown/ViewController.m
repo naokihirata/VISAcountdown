@@ -920,7 +920,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 [self countBudge1];
 
                 
-                if (_countdownDayNumber<1) {
+                if (_countdownDayNumber<-60) {
                     [self DepartAlertView];
                     
                 }else{

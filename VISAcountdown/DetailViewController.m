@@ -36,7 +36,7 @@
     
     
     if (!memorycount) {
-        _countdownDayNumber=0;
+        _countdownDayNumber=-90;
        
     }else{
         _countdownDayNumber=memorycount;
@@ -64,6 +64,7 @@
     
         switch(memo1){
         case 0: //フィリピン
+                [self WebButton];
             if (touchnumber==0) {
                 
                 [self extendButton29];
@@ -208,6 +209,7 @@
     int touchnumber=[[defaultstouchnumber objectForKey:@"KEY_10"] intValue];
     switch(valcountry){
     case 0: //フィリピン
+            [self WebButton];
             if (touchnumber==0) {
                 [self extendButton29];
             }else{
@@ -239,10 +241,10 @@
     _willreturndatelabel.text=[NSString stringWithFormat:@"帰国予定日%@",[_df stringFromDate:willreturndate]];
     
     self._daycount2=_countdownDayNumber;
-    if (self._daycount2>=0) {
+    //if (self._daycount2>=0) {
         __finishdate1 = date;
-    }else{
-    }
+    //}else{
+    //}
     
 //    if(_number<1){
 //    }else{
@@ -258,7 +260,7 @@
     
     
     //カウント日数の値が0以下であれば設定画面に戻す
-    if (self._daycount2<1) {
+    if (self._daycount2<-60) {
         self.tabBarController.selectedIndex=1;
     }else{
             }
@@ -367,6 +369,66 @@
     _countlabel2.text = daycount2;
     [self.view addSubview:_countlabel2];
 }
+//UIWebViewを表示するためのボタン
+-(void)WebButton{
+    UIButton *webButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 400, 20, 20)];
+    
+    //[extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
+    
+    [webButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [webButton addTarget:self action:@selector(TapWebBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgextend1=[UIImage imageNamed:@"Button_011.png"];
+    [webButton setBackgroundImage:imgextend1 forState:UIControlStateNormal];
+    [self.view addSubview:webButton];
+}
+-(void)TapWebBtn:(UIButton *)WebButton{
+    [self upObject];
+}
+-(void)smallView{
+    _backview = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
+    
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.9]; //透過率50%
+    _backview.backgroundColor = acolor;
+    
+    [self.view addSubview:_backview];
+    
+    NSURL *myURL = [NSURL URLWithString:@"http://www.apple.com/"];
+    
+    NSURLRequest *myURLReq = [NSURLRequest requestWithURL:myURL];
+    
+    _webview=[[UIWebView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
+    [_webview loadRequest:myURLReq];
+    [_backview addSubview:_webview];
+
+}
+-(void)createButton{
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 270, 100, 30)];
+    
+    //[datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    
+    [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [_backview addSubview:datecreateButton];
+}
+-(void)TapDateCreateBtn:(UIButton *)datecreateButton{
+    
+    [self downObject];
+}
+-(void)upObject{
+    
+    _backview.frame = CGRectMake(0, (self.view.bounds.size.height)/4, self.view.bounds.size.width, self.view.bounds.size.height);
+}
+-(void)downObject{
+    _backview.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    
+}
 -(void)aditionalcalculate{
     // アプリに登録されている全ての通知を削除
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -461,27 +523,25 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        //_countdownDayNumber+=1;
+        
         localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        //_countdownDayNumber-=1;
+        _countdownDayNumber=day_number;
+        NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber+1];
+        _countLabel.text=daycount;
+
     }
     //TODO:修正箇所？
-    _countdownDayNumber=day_number;
-    _countdownDayNumber+=1;
-    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
-    
-    _countLabel.text=daycount;
-    //データを保存
+        //データを保存
 //    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
 //    //[[defaultscount objectForKey:@"KEY_5"] intValue];
 //    [defaultscount setObject:[NSString stringWithFormat:@"%d",_countdownDayNumber] forKey:@"KEY_5"];
 //    [defaultscount synchronize];
 
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
-    [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
+    [defaultscount setInteger:_countdownDayNumber+1 forKey:@"KEY_5"];
     [defaultscount synchronize];
 
 }
@@ -650,7 +710,7 @@
     //_number=1;  //延長したときの見分けるよう
 }
 -(void)extendButton29{
-    _extendButton29 = [[UIButton alloc] initWithFrame:CGRectMake(20, 350, 130, 35)];
+    _extendButton29 = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 130, 35)];
     
     //[extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
     
