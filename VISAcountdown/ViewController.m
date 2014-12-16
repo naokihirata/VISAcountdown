@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
  
     //画像を読み込んでボタンに貼る
-    UIImage *backimg=[UIImage imageNamed:@"backimage_02.png"];
+    UIImage *backimg=[UIImage imageNamed:@"backimage_02new.png"];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:backimg];
     //[backimg release];
@@ -399,7 +399,7 @@
     
     // 生成済みのUIColorに透過率のみ指定する場合
     UIColor *color = [UIColor whiteColor];
-    UIColor *acolor = [color colorWithAlphaComponent:0.8]; //透過率50%
+    UIColor *acolor = [color colorWithAlphaComponent:0.9]; //透過率50%
     _backView.backgroundColor = acolor;
     [self.view addSubview:_backView];
 }
@@ -424,12 +424,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
 }
 -(void)createButton{
-    UIButton *createButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 268, 130, 20)];
+    UIButton *createButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 268, 100, 30)];
     
-    [createButton setTitle:@"完了" forState:UIControlStateNormal];
+    //[createButton setTitle:@"完了" forState:UIControlStateNormal];
     
     [createButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [createButton addTarget:self action:@selector(TapCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [createButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [_backView addSubview:createButton];
 }
 -(void)TapCreateBtn:(UIButton *)createButton{
@@ -531,7 +534,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _backdateView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
     
     UIColor *color = [UIColor whiteColor];
-    UIColor *acolor = [color colorWithAlphaComponent:0.8]; //透過率50%
+    UIColor *acolor = [color colorWithAlphaComponent:0.9]; //透過率50%
     _backdateView.backgroundColor = acolor;
     
     [self.view addSubview:_backdateView];
@@ -602,12 +605,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     NSLog(@"%@", [_df stringFromDate:_departdate1]);
 }
 -(void)datecreateButton{
-    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 270, 130, 20)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 270, 100, 30)];
     
-    [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    //[datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
     [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [_backdateView addSubview:datecreateButton];
     
 }
@@ -647,7 +653,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     [returndateButton addTarget:self action:@selector(TapreturnFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
-    UIImage *imgdate=[UIImage imageNamed:@"Button_010.png"];
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_07.png"];
     [returndateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [self.view addSubview:returndateButton];
 }
@@ -673,7 +679,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _backdateView2 = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
     
     UIColor *color = [UIColor whiteColor];
-    UIColor *acolor = [color colorWithAlphaComponent:0.8]; //透過率50%
+    UIColor *acolor = [color colorWithAlphaComponent:0.9]; //透過率50%
     _backdateView2.backgroundColor = acolor;
     
     [self.view addSubview:_backdateView2];
@@ -709,12 +715,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
 }
 -(void)datecreateButton2{
-    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 270, 130, 20)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 270, 100, 30)];
     
-    [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    //[datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
     [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [datecreateButton addTarget:self action:@selector(TapDateCreateBtn2:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [_backdateView2 addSubview:datecreateButton];
     
 }

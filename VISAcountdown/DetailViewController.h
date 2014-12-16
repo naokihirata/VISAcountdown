@@ -25,7 +25,7 @@
     UIButton *_extendButton2;
     UIButton *_extendButton3;
     UIButton *_extendButton29;
-    
+    UIButton *_extendButton6;
     
     
  //   UIButton *_extendButton;    //延長完了ボタン

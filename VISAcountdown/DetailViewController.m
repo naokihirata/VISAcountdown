@@ -289,7 +289,7 @@
 }
 -(void)textLabel{
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,130 ,self.view.bounds.size.width, 30)];
-    textLabel.font = [UIFont systemFontOfSize:12];
+    textLabel.font = [UIFont systemFontOfSize:16];
     textLabel.textAlignment = NSTextAlignmentLeft;
     
     
@@ -659,7 +659,7 @@
     [_extendButton29 addTarget:self action:@selector(TapextendBtn29:) forControlEvents:UIControlEventTouchUpInside];
     
     //画像を読み込んでボタンに貼る
-    UIImage *imgextend1=[UIImage imageNamed:@"Button_011.png"];
+    UIImage *imgextend1=[UIImage imageNamed:@"VISAbutton_02_11.png"];
     [_extendButton29 setBackgroundImage:imgextend1 forState:UIControlStateNormal];
     [self.view addSubview:_extendButton29];
 }
@@ -777,7 +777,7 @@
     [_extendButton3 addTarget:self action:@selector(TapextendBtn3:) forControlEvents:UIControlEventTouchUpInside];
     
     //画像を読み込んでボタンに貼る
-    UIImage *imgextend1=[UIImage imageNamed:@"Button_011.png"];
+    UIImage *imgextend1=[UIImage imageNamed:@"VISAbutton_02_07.png"];
     [_extendButton3 setBackgroundImage:imgextend1 forState:UIControlStateNormal];
     [self.view addSubview:_extendButton3];
 }
@@ -856,6 +856,108 @@
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         //_countdownDayNumber-=1;
+    }
+    //TODO:修正箇所？
+    _countdownDayNumber=day_number;
+    _countdownDayNumber+=1;
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
+    
+    _countLabel.text=daycount;
+    //データを保存
+    NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
+    [defaultscount setInteger:_countdownDayNumber forKey:@"KEY_5"];
+    [defaultscount synchronize];
+    
+}
+//六ヶ月延長
+-(void)extendButton6{
+    _extendButton6 = [[UIButton alloc] initWithFrame:CGRectMake(20, 350, 130, 35)];
+    
+    //[extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
+    
+    [_extendButton6 setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [_extendButton6 addTarget:self action:@selector(TapextendBtn6:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgextend1=[UIImage imageNamed:@"VISAbutton_02_03.png"];
+    [_extendButton6 setBackgroundImage:imgextend1 forState:UIControlStateNormal];
+    [self.view addSubview:_extendButton6];
+}
+-(void)TapextendBtn6:(UIButton *)extendButton6{
+    //期間延長、計算、ラベルの表示
+    [self aditionalcalculate6];
+    NSLog(@"extend6");
+    
+    //finishdateの呼び出し
+    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    
+    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+}
+-(void)aditionalcalculate6{
+    // アプリに登録されている全ての通知を削除
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification *localNotification= [[UILocalNotification alloc] init];
+    //UserDefaultから呼び出し
+    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    NSDate *finishdate=date;
+    
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    // NSDateFormatter を用意します。
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    
+    NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:finishdate options:0];
+    
+    int day_number = [startNumberdef day];
+    // 変換用の書式を設定
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    
+    [comp2 setDay:180];
+    
+    day_number=day_number+ 180;
+    
+    NSDate *latestfinishdate=[cal dateByAddingComponents:comp2 toDate:finishdate options:0];
+    
+    //    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    [defaultsdate setObject:[_df stringFromDate:latestfinishdate] forKey:@"KEY_4"];
+    [defaultsdate synchronize];
+    
+    //コンソールでfinishdateの確認
+    NSString *datefinish = [_df stringFromDate:latestfinishdate];
+    //コンソールに出力
+    NSLog(@"%@",datefinish);
+    
+    for (int i=0; i<day_number ;i++) {
+        //指定した日付の30日先を設定
+        [comp setDay:i];
+        NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+        
+        // 現在から指定した日付との差分を、日を基準にして取得する。
+        NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:latestfinishdate options:0];
+        NSLog(@"days: %ld", (long)[def1 day]);
+        
+        _countdownDayNumber = [def1 day];
+        
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        
+        //日時データを文字列に変換する場合のフォーマットを指定
+        df.dateFormat = @"yyyy/MM/dd";
+        //時間単位の文字列にセット
+        NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [df stringFromDate:date_converted]];
+        
+        date_converted =[formatter dateFromString:hourDateString];
+        
+        localNotification.fireDate=date_converted;
+        
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     }
     //TODO:修正箇所？
     _countdownDayNumber=day_number;
