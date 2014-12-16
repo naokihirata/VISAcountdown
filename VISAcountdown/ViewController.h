@@ -15,11 +15,13 @@
     UILabel *_purposeLabel; //選択された目的を表示する
     UILabel *_periodLabel; //選択された期間を表示する
     UILabel *_dateLabel;    //日程のラベルを表示する
+    UILabel *_returnlabel;  //帰国予定日のラベルを表示する
     int _int;  //データを送る
     UIView *_uv;
 
     UIView *_backView;  //水色のビュー用メンバ変数
     UIView *_backdateView;  //datepcker用のbackview
+    UIView *_backdateView2;  //帰国予定日用のbackview
     BOOL _visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
     
   //  UIButton *_CheckButton;    //金額チェックボタンを作成する
@@ -51,14 +53,16 @@
     int _valpurpose;
     int _valperiod;
     
-    UIDatePicker *_datepicker;
+    UIDatePicker *_datepicker;  //出発日
+    UIDatePicker *_datepicker2; //帰国予定日
     NSDate *_mindate;   //
     NSDateFormatter *_df;   //日にちの表示の書式を設定
     NSDate *_today;         //今日の日付を呼び出す
  //   NSString *_datestr;
-    NSString *_lastdatestr;
+    NSString *_lastdatestr;     //VISAの期限が切れる日
     //int _dayCount;  //残り日数の計算
-    NSDate *_departdate1;
+    NSDate *_departdate1;       //出発日
+    NSDate *_willreturndate;    //帰国予定日
     
     UIAlertView *_alertview;
     UIAlertView *_alertview2;
@@ -72,7 +76,7 @@
     NSDate *_finishdate;        //延長日
     int _daycountoffirstadition; //国ごとの追加日数
     
-    int _justday;   //DatePickerを使用した時を見分けるよう
+    int _touchnumber;   //設定し直した回数を計算用
 }
 
 //@property (nonatomic,assign) UILocalNotification* _countNotification;

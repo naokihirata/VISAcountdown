@@ -13,8 +13,20 @@
 
     UILabel *_countLabel;   //残り日数表示
     UILabel *_finishdatelabel;  //最終日の表示
+    UILabel *_countlabel2;          //帰国予定日までのカウントダウンを表示
+    UILabel *_willreturndatelabel;  //帰国予定日の表示
+    UILabel *_countrylabel;     //選択された国名を表示
     
     UILocalNotification *_countNotification;
+    
+    
+    UIView *_uv;
+    UIButton *_extendButton;
+    UIButton *_extendButton2;
+    UIButton *_extendButton3;
+    UIButton *_extendButton29;
+    
+    
     
  //   UIButton *_extendButton;    //延長完了ボタン
     
@@ -25,7 +37,7 @@
     //NSDate *_
     
   //  int _daycount3;//日にち計算
-    
+    NSArray *_country;  //国名の連想配列
     //広告
     ADBannerView *_adView;
     BOOL _isVisible; //バナーの表示状態を判別するためのフラグ

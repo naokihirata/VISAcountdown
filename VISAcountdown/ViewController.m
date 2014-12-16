@@ -58,6 +58,8 @@
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     NSUserDefaults *defautsdate1 = [NSUserDefaults standardUserDefaults];
     NSDate *date1=[_df dateFromString:[defautsdate1 objectForKey:@"KEY_6"]];
+    NSUserDefaults *defaultsreturndate=[NSUserDefaults standardUserDefaults];
+    NSDate *date2=[_df dateFromString:[defaultsreturndate objectForKey:@"KEY_7"]];
     //NSDate *date2=[_df dateFromString:de]
     
     if(!memo1){
@@ -78,15 +80,16 @@
         _datepicker.date=date1;
         _departdate1=_datepicker.date;
     }
+    if(date2 !=NULL){
+        _datepicker2=[[UIDatePicker alloc] init];
+        _datepicker2.date=date2;
+        _willreturndate=_datepicker2.date;
+    }
     if (date !=NULL) {
         
         _finishdate = date;
-        //sub._departdate = _departdate1;
+        
         sub._finishdate1= _finishdate;
-        
-        //TODO:_todayを修正
-        //_dayCount = [self getDaysCountByTwoDateString:_today endDateString:_finishdate];
-        
     }
     //タイトルを表示
     [self textLabel];
@@ -102,6 +105,8 @@
     [self checkLabel];
     //出発日を表示する
     [self dateLabel];
+    //帰国予定日を表示する
+    [self returnlabel];
     //国名を選ぶボタン
     [self countryButton];
     //期間を選ぶボタン
@@ -112,15 +117,19 @@
     [self checkButton];
     //日付設定ボタン作成
     [self dateButton];
+    //帰国予定日ボタン作成
+    [self returndateButton];
     //登録完了ボタン
     [self setButton];
     //バックビュー作成
     [self smallView];
     //バックビュー（datepicker）作成
     [self smalldateView];
+    //帰国予定日用のViewを作成
+    [self smalldateView2];
     
     _datepicker = [[UIDatePicker alloc] init];
-    
+    _datepicker2=[[UIDatePicker alloc] init];
 //    //初期化
 //    _adView = [[ADBannerView alloc] init];
 //    _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
@@ -390,7 +399,7 @@
     
     // 生成済みのUIColorに透過率のみ指定する場合
     UIColor *color = [UIColor whiteColor];
-    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    UIColor *acolor = [color colorWithAlphaComponent:0.8]; //透過率50%
     _backView.backgroundColor = acolor;
     [self.view addSubview:_backView];
 }
@@ -516,11 +525,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     [self.view addSubview:_checkLabel];
 }
+
+
 -(void)smalldateView{
     _backdateView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
     
     UIColor *color = [UIColor whiteColor];
-    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    UIColor *acolor = [color colorWithAlphaComponent:0.8]; //透過率50%
     _backdateView.backgroundColor = acolor;
     
     [self.view addSubview:_backdateView];
@@ -589,25 +600,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _departdate1=_datepicker.date;
     // ログに出発の日付を表示
     NSLog(@"%@", [_df stringFromDate:_departdate1]);
-//    NSDateComponents *comp = [[NSDateComponents alloc] init];
-//    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
-//    NSCalendar *cal = [NSCalendar currentCalendar];
-//    
-//    [comp2 setDay:30];
-//    NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
-//    _finishdate = [cal dateByAddingComponents:comp2 toDate:_departdate1 options:0];
-//    // 現在から指定した日付との差分を、日を基準にして取得する。
-//    NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_finishdate options:0];
-    
-//    _dayCount = [self getDaysCountByTwoDateString:_today endDateString:_departdate1];
-//    NSLog(@"%d",_dayCount);
 }
-//-(int)getDaysCountByTwoDateString:(NSString*)startDateString endDateString:(NSString*)endDateString{
-//    float tmp= [_departdate1 timeIntervalSinceDate:_today];
-//    int day=(int)( tmp / (3600.0*24.0) );
-//    day +=1;
-//    return day;
-//}
 -(void)datecreateButton{
     UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 270, 130, 20)];
     
@@ -616,7 +609,6 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_backdateView addSubview:datecreateButton];
-    
     
 }
 -(void)TapDateCreateBtn:(UIButton *)datecreateButton{
@@ -629,9 +621,6 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
     NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:_datepicker.date]];
-    
-    
-
     
     //NSdate型にDatePickerの値を代入
     _departdate1=[formatter dateFromString:hourDateString];
@@ -648,6 +637,112 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _dateLabel.text = [_df stringFromDate:_departdate1];
     
 }
+//帰国日予定ボタン,メソッド
+-(void)returndateButton{
+    UIButton *returndateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 442, 130, 35)];
+    
+    //[dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
+    
+    [returndateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [returndateButton addTarget:self action:@selector(TapreturnFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"Button_010.png"];
+    [returndateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [self.view addSubview:returndateButton];
+}
+-(void)TapreturnFinishBtn:(UIButton *)returndateButton{
+    NSLog(@"date");
+    
+    [self datepicker2];
+    [self updateObject2];
+    [self datecreateButton2];
+}
+-(void)returnlabel{
+    _returnlabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,482 ,160, 30)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _returnlabel.backgroundColor=acolor;
+    _returnlabel.font=[UIFont systemFontOfSize:22];
+    _returnlabel.textAlignment = NSTextAlignmentCenter;
+    
+    _returnlabel.text = [_df stringFromDate:_willreturndate];
+    [self.view addSubview:_returnlabel];
+}
+-(void)smalldateView2{
+    _backdateView2 = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
+    
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.8]; //透過率50%
+    _backdateView2.backgroundColor = acolor;
+    
+    [self.view addSubview:_backdateView2];
+}
+-(void)updateObject2{
+    
+    _backdateView2.frame = CGRectMake(0, (self.view.bounds.size.height)/3, self.view.bounds.size.width, self.view.bounds.size.height);
+}
+-(void)downdateObject2{
+    _backdateView2.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    
+}
+//-(void)datePicker:(UIDatePicker *)datePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+//}
+-(void)datepicker2{
+    
+    [_datepicker2 setDatePickerMode:UIDatePickerModeDate];
+    
+    _mindate = [_df dateFromString:@"2014/01/01 00:00:00"];
+    [_datepicker2 setMinimumDate:_mindate];
+    
+    [_datepicker2 addTarget:self
+                    action:@selector(changeDatePicker2:)
+          forControlEvents:UIControlEventValueChanged];
+    
+    [_backdateView2 addSubview:_datepicker2];
+}
+-(void)changeDatePicker2:(UIDatePicker *)datepicker{
+    
+    _willreturndate=_datepicker2.date;
+    // ログに出発の日付を表示
+    NSLog(@"%@", [_df stringFromDate:_willreturndate]);
+
+}
+-(void)datecreateButton2{
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 270, 130, 20)];
+    
+    [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    
+    [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [datecreateButton addTarget:self action:@selector(TapDateCreateBtn2:) forControlEvents:UIControlEventTouchUpInside];
+    [_backdateView2 addSubview:datecreateButton];
+    
+}
+-(void)TapDateCreateBtn2:(UIButton *)datecreateButton2{
+    
+    for (_uv in [self.view subviews]) {
+        [_datepicker2 removeFromSuperview];
+    }
+    [self downdateObject2];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:_datepicker2.date]];
+    
+    //NSdate型にDatePickerの値を代入
+    _willreturndate=[formatter dateFromString:hourDateString];
+    
+    //willreturndateを保存(KEY_7)
+    NSUserDefaults *defaultsreturndate = [NSUserDefaults standardUserDefaults];
+    [defaultsreturndate setObject:[_df stringFromDate:_willreturndate] forKey:@"KEY_7"];
+    [defaultsreturndate synchronize];
+    
+    _returnlabel.text = [_df stringFromDate:_willreturndate];
+    
+}
+
+
+
+//設定を登録
 -(void)setButton{
     UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 475, 130, 35)];
     
@@ -771,7 +866,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         //        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
         localNotification.fireDate=date_converted;
         
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         
         //_countdownDayNumber=_countdownDayNumber+1;
         //day_number=day_number+1;
@@ -821,11 +916,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     
                 }else{
 
-                    if(!_justday){
-                        _countdownDayNumber=_countdownDayNumber+1;
-                    }else{
-                    }
-                    _countdownDayNumber-=2;
+                    _countdownDayNumber-=1;
                     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
 
                     [defaultscount setObject:[NSString stringWithFormat:@"%d",_countdownDayNumber] forKey:@"KEY_5"];
@@ -854,6 +945,11 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     [defaultsnumber setInteger:number forKey:@"KEY_9"];
                     [defaultsnumber synchronize];
 
+                    _touchnumber=0;
+                    NSUserDefaults *defaultstouchnumber = [NSUserDefaults standardUserDefaults];
+                    [defaultstouchnumber setInteger:_touchnumber forKey:@"KEY_10"];
+                    [defaultstouchnumber synchronize];
+                    
                 }
         }
         }else{

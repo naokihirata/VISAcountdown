@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     //0 = 一番左のTabBarを設定
 
+    _country = @[@"フィリピン",@"オーストラリア",@"シンガポール",@"ニュージーランド"];
     
     //現在の時刻、日付をとる
     _today = [NSDate date];
@@ -33,20 +34,63 @@
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
     int memorycount=[[defaultscount objectForKey:@"KEY_5"] intValue];
     
+    
     if (!memorycount) {
         _countdownDayNumber=0;
        
     }else{
         _countdownDayNumber=memorycount;
     }
+    //表示のラベル
+    [self textLabel];
+    [self countryLabel];
     [self countLabel];
     [self finishdateLabel];
+    [self countLabel2];
+    [self willreturndateLabel];
 //    [self countBudge];
     
     NSLog(@"%@", _df);
     //_countNotification.applicationIconBadgeNumber = self._daycount2;
-    [self extendButton];
-    [self extendButton2];
+    
+    
+    
+    //表示するボタンを設定によって決定する
+    NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
+    int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
+
+    NSUserDefaults *defaultstouchnumber = [NSUserDefaults standardUserDefaults];
+    int touchnumber=[[defaultstouchnumber objectForKey:@"KEY_10"] intValue];
+    
+        switch(memo1){
+        case 0: //フィリピン
+            if (touchnumber==0) {
+                
+                [self extendButton29];
+            }else{
+                [self extendButton];
+                [self extendButton2];
+            }
+            break;
+        case 1://オーストラリア
+            [self extendButton];
+            [self extendButton2];
+            break;
+        case 2://シンガポール
+            [self extendButton];
+            [self extendButton3];
+            break;
+        case 3://ニュージーランド
+            [self extendButton];
+            [self extendButton2];
+            break;
+        default://それ以外
+            [self extendButton];
+            [self extendButton2];
+            break;
+    }
+
+    
     
     //広告関連(iAD)
     //初期化
@@ -140,43 +184,60 @@
     //UserDefaultsからデータの取り出し(残り日数、最終日、number)
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    
+    NSUserDefaults *defaultsreturndate=[NSUserDefaults standardUserDefaults];
+    NSDate *willreturndate=[_df dateFromString:[defaultsreturndate objectForKey:@"KEY_7"]];
+    
 
     NSUserDefaults *defaultscount=[NSUserDefaults standardUserDefaults];
     _countdownDayNumber = (int)[[defaultscount objectForKey:@"KEY_5"] intValue];
     
+    for (_uv in [self.view subviews]) {
+        [_extendButton removeFromSuperview];
+        [_extendButton2 removeFromSuperview];
+        [_extendButton3 removeFromSuperview];
+        [_extendButton29 removeFromSuperview];
+    }
+    
+    
     NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
     int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
     int valcountry=memo1;
-    //NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
-    //_number = (int)[[defaultsnumber objectForKey:@"KEY_9"] intValue];
-    //_number=[[defaultsnumber obje]]
 
-    //_finishdatelabel.text = [_df stringFromDate:date];
+    NSUserDefaults *defaultstouchnumber = [NSUserDefaults standardUserDefaults];
+    int touchnumber=[[defaultstouchnumber objectForKey:@"KEY_10"] intValue];
     switch(valcountry){
-    case 0:
-            [self extendButton];
-            [self extendButton2];
-            [self extendButton29];
+    case 0: //フィリピン
+            if (touchnumber==0) {
+                [self extendButton29];
+            }else{
+                [self extendButton];
+                [self extendButton2];
+            }
             break;
     case 1://オーストラリア
-            
+            [self extendButton];
+            [self extendButton2];
             break;
     case 2://シンガポール
-            
+            [self extendButton];
+            [self extendButton3];
             break;
     case 3://ニュージーランド
-            
+            [self extendButton];
+            [self extendButton2];
             break;
     default://それ以外
-            
+            [self extendButton];
+            [self extendButton2];
             break;
         }
-    
-    
     
     //finishdateの呼び出し
     _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
 
+    _willreturndatelabel.text=[NSString stringWithFormat:@"帰国予定日%@",[_df stringFromDate:willreturndate]];
+    
     self._daycount2=_countdownDayNumber;
     if (self._daycount2>=0) {
         __finishdate1 = date;
@@ -195,24 +256,48 @@
     
     _countdownDayNumber = [def2 day];
     
+    
+    //カウント日数の値が0以下であれば設定画面に戻す
     if (self._daycount2<1) {
         self.tabBarController.selectedIndex=1;
     }else{
             }
+    
     [[defaultscount objectForKey:@"KEY_5"] intValue];
     [defaultscount synchronize];
     
-        _countdownDayNumber+=1;
-    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
-        _countdownDayNumber-=1;
+    NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber+1];
+    
     _countLabel.text = daycount;
    // }
+    NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:willreturndate options:0];
     
-}
+    int day_number2 = [startNumberdef day];
+    
+    NSString *daycount2=[NSString stringWithFormat:@"帰国予定日まで残り%d日",day_number2+1];
 
+    if (!willreturndate) {
+        _willreturndatelabel.text=@"";
+        _countlabel2.text=@"";
+    }else{
+        _countlabel2.text=daycount2;
+        NSUserDefaults *defaultscount2=[NSUserDefaults standardUserDefaults];
+        [[defaultscount2 objectForKey:@"KEY_8"] intValue];
+        [defaultscount2 synchronize];
+    }
+    _countrylabel.text=_country[valcountry];
+}
+-(void)textLabel{
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,130 ,self.view.bounds.size.width, 30)];
+    textLabel.font = [UIFont systemFontOfSize:12];
+    textLabel.textAlignment = NSTextAlignmentLeft;
+    
+    
+    textLabel.text = @"VISAの期限まで...";
+    [self.view addSubview:textLabel];
+}
 -(void)countLabel{
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,160 ,self.view.bounds.size.width, 60)];
-    
     _countLabel.font = [UIFont systemFontOfSize:45];
     _countLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -220,6 +305,20 @@
     
     _countLabel.text = daycount;
     [self.view addSubview:_countLabel];
+}
+-(void)countryLabel{
+    NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
+    int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
+
+    _countrylabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,80 ,self.view.bounds.size.width, 30)];
+    
+    _countrylabel.font = [UIFont systemFontOfSize:22];
+    _countrylabel.textAlignment = NSTextAlignmentLeft;
+    
+    //NSString *daycount = [NSString stringWithFormat:@"残り%d日", _countdownDayNumber];
+    
+    _countrylabel.text = _country[memo1];
+    [self.view addSubview:_countrylabel];
 }
 -(void)finishdateLabel{
     //finishdateの呼び出し
@@ -237,6 +336,36 @@
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _finishdatelabel.backgroundColor=acolor;
     [self.view addSubview:_finishdatelabel];
+}
+//帰国予定日の表示
+-(void)willreturndateLabel{
+    //returndateの呼び出し
+    NSUserDefaults *defaultsreturndate = [NSUserDefaults standardUserDefaults];
+    NSDate *willreturndate=[_df dateFromString:[defaultsreturndate objectForKey:@"KEY_7"]];
+
+    _willreturndatelabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 360, self.view.bounds.size.width, 30)];
+    _willreturndatelabel.font=[UIFont systemFontOfSize:18];
+    _willreturndatelabel.textAlignment=NSTextAlignmentRight;
+    
+    _willreturndatelabel.text=[NSString stringWithFormat:@"帰国予定日%@",[_df stringFromDate:willreturndate]];
+//    UIColor *color = [UIColor whiteColor];
+//    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+//    _willreturndatelabel.backgroundColor=acolor;
+    [self.view addSubview:_willreturndatelabel];
+}
+-(void)countLabel2{
+    NSUserDefaults *defaultscount2=[NSUserDefaults standardUserDefaults];
+    int day_number2 = (int)[[defaultscount2 objectForKey:@"KEY_8"] intValue];
+    
+    _countlabel2 = [[UILabel alloc] initWithFrame:CGRectMake(0 ,400 ,self.view.bounds.size.width, 30)];
+    
+    _countlabel2.font = [UIFont systemFontOfSize:18];
+    _countlabel2.textAlignment = NSTextAlignmentRight;
+    
+    NSString *daycount2 = [NSString stringWithFormat:@"残り%d日", day_number2+1];
+    
+    _countlabel2.text = daycount2;
+    [self.view addSubview:_countlabel2];
 }
 -(void)aditionalcalculate{
     // アプリに登録されている全ての通知を削除
@@ -332,12 +461,12 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        _countdownDayNumber+=1;
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
-        localNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        //_countdownDayNumber+=1;
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        _countdownDayNumber-=1;
+        //_countdownDayNumber-=1;
     }
     //TODO:修正箇所？
     _countdownDayNumber=day_number;
@@ -439,12 +568,12 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        _countdownDayNumber+=1;
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
-        localNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        //_countdownDayNumber+=1;
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        _countdownDayNumber-=1;
+        //_countdownDayNumber-=1;
     }
     _countdownDayNumber=day_number;
     _countdownDayNumber+=1;
@@ -464,24 +593,22 @@
     
 }
 -(void)extendButton{
-    UIButton *extendButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 130, 35)];
+    _extendButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 130, 35)];
     
     //[extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
     
-    [extendButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [_extendButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [extendButton addTarget:self action:@selector(TapextendBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_extendButton addTarget:self action:@selector(TapextendBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     //画像を読み込んでボタンに貼る
     UIImage *imgextend1=[UIImage imageNamed:@"Button_011.png"];
-    [extendButton setBackgroundImage:imgextend1 forState:UIControlStateNormal];
-    [self.view addSubview:extendButton];
+    [_extendButton setBackgroundImage:imgextend1 forState:UIControlStateNormal];
+    [self.view addSubview:_extendButton];
 }
 -(void)TapextendBtn:(UIButton *)extendButton{
     NSUserDefaults *defaultsnumber=[NSUserDefaults standardUserDefaults];
     _number = (int)[[defaultsnumber objectForKey:@"KEY_9"] intValue];
-    
-    
     
     //期間延長、計算、ラベルの表示
     [self aditionalcalculate];
@@ -503,18 +630,18 @@
     _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
 }
 -(void)extendButton2{
-    UIButton *extendButton2 = [[UIButton alloc] initWithFrame:CGRectMake(170, 300, 130, 35)];
+    _extendButton2 = [[UIButton alloc] initWithFrame:CGRectMake(170, 300, 130, 35)];
     
     //[extendButton2 setTitle:@"二ヶ月延長" forState:UIControlStateNormal];
     
-    [extendButton2 setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [_extendButton2 setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [extendButton2 addTarget:self action:@selector(TapextendBtn2:) forControlEvents:UIControlEventTouchUpInside];
+    [_extendButton2 addTarget:self action:@selector(TapextendBtn2:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
     UIImage *imgextend2=[UIImage imageNamed:@"Button_012.png"];
-    [extendButton2 setBackgroundImage:imgextend2 forState:UIControlStateNormal];
+    [_extendButton2 setBackgroundImage:imgextend2 forState:UIControlStateNormal];
     
-    [self.view addSubview:extendButton2];
+    [self.view addSubview:_extendButton2];
 }
 -(void)TapextendBtn2:(UIButton *)extendButton2{
     
@@ -523,29 +650,40 @@
     //_number=1;  //延長したときの見分けるよう
 }
 -(void)extendButton29{
-    UIButton *extendButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 350, 130, 35)];
+    _extendButton29 = [[UIButton alloc] initWithFrame:CGRectMake(20, 350, 130, 35)];
     
     //[extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
     
-    [extendButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [_extendButton29 setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [extendButton addTarget:self action:@selector(TapextendBtn29:) forControlEvents:UIControlEventTouchUpInside];
+    [_extendButton29 addTarget:self action:@selector(TapextendBtn29:) forControlEvents:UIControlEventTouchUpInside];
     
     //画像を読み込んでボタンに貼る
     UIImage *imgextend1=[UIImage imageNamed:@"Button_011.png"];
-    [extendButton setBackgroundImage:imgextend1 forState:UIControlStateNormal];
-    [self.view addSubview:extendButton];
+    [_extendButton29 setBackgroundImage:imgextend1 forState:UIControlStateNormal];
+    [self.view addSubview:_extendButton29];
 }
 -(void)TapextendBtn29:(UIButton *)extendButton29{
     //期間延長、計算、ラベルの表示
     [self aditionalcalculate29];
     NSLog(@"extend29");
+    for (_uv in [self.view subviews]) {
+        [_extendButton29 removeFromSuperview];
+    }
+    [self extendButton];
+    [self extendButton2];
     
     //finishdateの呼び出し
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     
     _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    
+    int touchnumber=1;
+    NSUserDefaults *defaultstouchnumber = [NSUserDefaults standardUserDefaults];
+    [defaultstouchnumber setInteger:touchnumber forKey:@"KEY_10"];
+    [defaultstouchnumber synchronize];
+
 }
 -(void)aditionalcalculate29{
     // アプリに登録されている全ての通知を削除
@@ -605,12 +743,12 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        _countdownDayNumber+=1;
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
-        localNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        _countdownDayNumber-=1;
+        
     }
     //TODO:修正箇所？
     _countdownDayNumber=day_number;
@@ -630,18 +768,18 @@
     
 }
 -(void)extendButton3{
-    UIButton *extendButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 350, 130, 35)];
+    _extendButton3 = [[UIButton alloc] initWithFrame:CGRectMake(20, 350, 130, 35)];
     
     //[extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
     
-    [extendButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [_extendButton3 setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [extendButton addTarget:self action:@selector(TapextendBtn3:) forControlEvents:UIControlEventTouchUpInside];
+    [_extendButton3 addTarget:self action:@selector(TapextendBtn3:) forControlEvents:UIControlEventTouchUpInside];
     
     //画像を読み込んでボタンに貼る
     UIImage *imgextend1=[UIImage imageNamed:@"Button_011.png"];
-    [extendButton setBackgroundImage:imgextend1 forState:UIControlStateNormal];
-    [self.view addSubview:extendButton];
+    [_extendButton3 setBackgroundImage:imgextend1 forState:UIControlStateNormal];
+    [self.view addSubview:_extendButton3];
 }
 -(void)TapextendBtn3:(UIButton *)extendButton3{
     //期間延長、計算、ラベルの表示
@@ -712,12 +850,12 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        _countdownDayNumber+=1;
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber];
-        localNotification.applicationIconBadgeNumber = _countdownDayNumber;
+        //_countdownDayNumber+=1;
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        _countdownDayNumber-=1;
+        //_countdownDayNumber-=1;
     }
     //TODO:修正箇所？
     _countdownDayNumber=day_number;
