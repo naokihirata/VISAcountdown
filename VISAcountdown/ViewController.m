@@ -746,11 +746,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [defaultsreturndate synchronize];
     
     _returnlabel.text = [_df stringFromDate:_willreturndate];
-    
 }
-
-
-
 //設定を登録
 -(void)setButton{
     UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 475, 130, 35)];

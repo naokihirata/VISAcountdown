@@ -50,6 +50,7 @@
     [self willreturndateLabel];
 //    [self countBudge];
     
+    
     NSLog(@"%@", _df);
     //_countNotification.applicationIconBadgeNumber = self._daycount2;
     
@@ -65,6 +66,9 @@
         switch(memo1){
         case 0: //フィリピン
                 [self WebButton];
+                [self smallView];
+                [self createButton];
+
             if (touchnumber==0) {
                 
                 [self extendButton29];
@@ -386,6 +390,7 @@
 }
 -(void)TapWebBtn:(UIButton *)WebButton{
     [self upObject];
+    
 }
 -(void)smallView{
     _backview = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -394,27 +399,29 @@
     UIColor *acolor = [color colorWithAlphaComponent:0.9]; //透過率50%
     _backview.backgroundColor = acolor;
     
-    [self.view addSubview:_backview];
     
-    NSURL *myURL = [NSURL URLWithString:@"http://www.apple.com/"];
+    NSURL *myURL = [NSURL URLWithString:@"http://ameblo.jp/golf220usa/entry-11965692081.html"];
     
     NSURLRequest *myURLReq = [NSURLRequest requestWithURL:myURL];
     
-    _webview=[[UIWebView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height)];
+    _webview=[[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     [_webview loadRequest:myURLReq];
     [_backview addSubview:_webview];
+    
+    [self.view addSubview:_backview];
+
 
 }
 -(void)createButton{
-    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 270, 100, 30)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 270, 100, 30)];
     
-    //[datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
     [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
-    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
-    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+//    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+//    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [_backview addSubview:datecreateButton];
 }
 -(void)TapDateCreateBtn:(UIButton *)datecreateButton{
@@ -423,7 +430,7 @@
 }
 -(void)upObject{
     
-    _backview.frame = CGRectMake(0, (self.view.bounds.size.height)/4, self.view.bounds.size.width, self.view.bounds.size.height);
+    _backview.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 }
 -(void)downObject{
     _backview.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
