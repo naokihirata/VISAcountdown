@@ -127,6 +127,8 @@
     [self smalldateView];
     //帰国予定日用のViewを作成
     [self smalldateView2];
+    //スイッチを表示
+    [self swich];
     
     _datepicker = [[UIDatePicker alloc] init];
     _datepicker2=[[UIDatePicker alloc] init];
@@ -642,6 +644,38 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     _dateLabel.text = [_df stringFromDate:_departdate1];
     
+}
+//Switchの作成
+-(void)swich{
+    //スイッチの設置
+    _switch=[[UISwitch alloc] init];
+    _switch.center=CGPointMake(260, 450);
+    //スイッチをonにする
+    _switch.on=YES;
+    [_switch addTarget:self action:@selector(swich_ValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:_switch];
+}
+-(void)swich_ValueChanged:(id)sender{
+
+    _switch=sender;
+    if (_switch.on) {
+        
+    }else{
+        
+    }
+}
+-(void)switchlabel{
+    UILabel *switchlabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 300, 70, 25)];
+    [switchlabel setFont:[UIFont fontWithName:@"Marker Felt" size:12]];
+    switchlabel.textColor=[UIColor redColor];
+    UIColor *color = [UIColor yellowColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    switchlabel.backgroundColor=acolor;
+    switchlabel.textAlignment=NSTextAlignmentNatural;
+    switchlabel.text=@"自動/手動";
+    
+    [self.view addSubview:switchlabel];
 }
 //帰国日予定ボタン,メソッド
 -(void)returndateButton{

@@ -77,6 +77,8 @@
     int _daycountoffirstadition; //国ごとの追加日数
     
     int _touchnumber;   //設定し直した回数を計算用
+    
+    UISwitch *_switch;
 }
 
 //@property (nonatomic,assign) UILocalNotification* _countNotification;
