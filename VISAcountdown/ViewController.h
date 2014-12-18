@@ -79,6 +79,7 @@
     int _touchnumber;   //設定し直した回数を計算用
     
     UISwitch *_switch;
+    UILabel *_switchlabel;
 }
 
 //@property (nonatomic,assign) UILocalNotification* _countNotification;

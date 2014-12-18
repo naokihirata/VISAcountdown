@@ -26,7 +26,7 @@
     
     //controller　＠の中はIdentifierで定義した名前
     DetailViewController  *sub = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    _country = @[@"フィリピン",@"オーストラリア",@"シンガポール",@"ニュージーランド"];
+    _country = @[@"フィリピン",@"オーストラリア",@"シンガポール",@"ニュージーランド",@"カナダ",@"アメリカ",@"フィジー",@"イギリス"];
     _period = @[@"1ヶ月",@"2ヶ月",@"3ヶ月",@"4ヶ月",@"5ヶ月",@"6ヶ月",@"7ヶ月",@"8ヶ月",@"9ヶ月",@"10ヶ月",@"11ヶ月",@"12ヶ月"];
     _period_for_compare = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12"];
     
@@ -129,9 +129,14 @@
     [self smalldateView2];
     //スイッチを表示
     [self swich];
+    //スイッチのラベル
+    [self switchlabel];
     
     _datepicker = [[UIDatePicker alloc] init];
     _datepicker2=[[UIDatePicker alloc] init];
+    
+    //[self.view bringSubviewToFront:_switch];
+
 //    //初期化
 //    _adView = [[ADBannerView alloc] init];
 //    _adView.frame = CGRectMake(0, 16-_adView.frame.size.height, _adView.frame.size.width, _adView.frame.size.height);
@@ -177,6 +182,12 @@
 //        _isVisible = NO;
 //    }
 //}
+-(void)viewDidAppear:(BOOL)animated{
+    //全てのbackviewを最前面へ
+    [self.view bringSubviewToFront:_backView];
+    [self.view bringSubviewToFront:_backdateView];
+    [self.view bringSubviewToFront:_backdateView2];
+}
 -(void)viewWillAppear:(BOOL)animated{
 }
 -(void)textLabel{
@@ -208,17 +219,17 @@
     [self.view addSubview:alertlabel];
 }
 -(void)countryLabel{
-    _countryLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,118 ,180, 30)];
+    _countryLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,90 ,140, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _countryLabel.backgroundColor=acolor;
-    _countryLabel.font=[UIFont systemFontOfSize:22];
+    _countryLabel.font=[UIFont systemFontOfSize:16];
     _countryLabel.textAlignment = NSTextAlignmentCenter;
     _countryLabel.text = _country[_valcountry];
     [self.view addSubview:_countryLabel];
 }
 -(void)periodLabel{
-    _periodLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,196 ,180, 30)];
+    _periodLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,145 ,140, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _periodLabel.backgroundColor=acolor;
@@ -228,7 +239,7 @@
     [self.view addSubview:_periodLabel];
 }
 -(void)purposeLabel{
-    _purposeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,273 ,180, 30)];
+    _purposeLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,207 ,140, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _purposeLabel.backgroundColor=acolor;
@@ -242,7 +253,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)countryButton{
-    UIButton *countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 75, 180, 40)];
+    UIButton *countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 85, 140, 37)];
     //セットタイトルを消す
     //[countryButton setTitle:@"国名を選択" forState:UIControlStateNormal];
     
@@ -256,7 +267,7 @@
     [self.view addSubview:countryButton];
 }
 -(void)periodButton{
-    UIButton *periodButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 153, 180, 40)];
+    UIButton *periodButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 141, 140, 37)];
     
     //[periodButton setTitle:@"期間を選択" forState:UIControlStateNormal];
     
@@ -271,7 +282,7 @@
 }
 
 -(void)purposeButton{
-    UIButton *purposeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 230, 180, 40)];
+    UIButton *purposeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 200, 140, 37)];
     
     //[purposeButton setTitle:@"目的を選択" forState:UIControlStateNormal];
     
@@ -471,7 +482,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
 }
 -(void)checkButton{
-    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 307, 150, 30)];
+    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 255, 140, 34)];
     
     //[CheckButton setTitle:@"料金チェック" forState:UIControlStateNormal];
     
@@ -521,7 +532,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 }
 -(void)checkLabel{
 
-    _checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 340, 160, 25)];
+    _checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(165, 258, 140, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _checkLabel.backgroundColor=acolor;
@@ -550,7 +561,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
 }
 -(void)dateButton{
-    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 368, 130, 40)];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 320, 130, 32)];
     
     //[dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
     
@@ -573,7 +584,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [UIView commitAnimations];
 }
 -(void)dateLabel{
-    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,408 ,160, 30)];
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,325 ,140, 25)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _dateLabel.backgroundColor=acolor;
@@ -646,10 +657,23 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
 }
 //Switchの作成
+-(void)switchlabel{
+    _switchlabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 430, 80, 27)];
+    [_switchlabel setFont:[UIFont fontWithName:@"Marker Felt" size:20]];
+    //switchlabel.textColor=[UIColor redColor];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.2]; //透過率50%
+    _switchlabel.backgroundColor=acolor;
+    _switchlabel.textAlignment=NSTextAlignmentCenter;
+    _switchlabel.text=@"自動";
+    
+    [self.view addSubview:_switchlabel];
+}
 -(void)swich{
     //スイッチの設置
     _switch=[[UISwitch alloc] init];
-    _switch.center=CGPointMake(260, 450);
+    _switch.center=CGPointMake(140, 445);
+    
     //スイッチをonにする
     _switch.on=YES;
     [_switch addTarget:self action:@selector(swich_ValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -657,29 +681,17 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [self.view addSubview:_switch];
 }
 -(void)swich_ValueChanged:(id)sender{
-
+    
     _switch=sender;
     if (_switch.on) {
-        
+        _switchlabel.text=@"自動";
     }else{
-        
+        _switchlabel.text=@"手入力";
     }
-}
--(void)switchlabel{
-    UILabel *switchlabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 300, 70, 25)];
-    [switchlabel setFont:[UIFont fontWithName:@"Marker Felt" size:12]];
-    switchlabel.textColor=[UIColor redColor];
-    UIColor *color = [UIColor yellowColor];
-    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
-    switchlabel.backgroundColor=acolor;
-    switchlabel.textAlignment=NSTextAlignmentNatural;
-    switchlabel.text=@"自動/手動";
-    
-    [self.view addSubview:switchlabel];
 }
 //帰国日予定ボタン,メソッド
 -(void)returndateButton{
-    UIButton *returndateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 442, 130, 35)];
+    UIButton *returndateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 380, 130, 30)];
     
     //[dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
     
@@ -699,7 +711,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [self datecreateButton2];
 }
 -(void)returnlabel{
-    _returnlabel = [[UILabel alloc] initWithFrame:CGRectMake(20 ,482 ,160, 30)];
+    _returnlabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,383 ,130, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _returnlabel.backgroundColor=acolor;
@@ -902,24 +914,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
         
         date_converted =[formatter dateFromString:hourDateString];
-        //        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
         localNotification.fireDate=date_converted;
-        
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
-        
-        //_countdownDayNumber=_countdownDayNumber+1;
-        //day_number=day_number+1;
-//        if((_justday=1)){
-//            _countdownDayNumber=_countdownDayNumber-1;
-//        }else{
-//        }
-//        _countdownDayNumber=_countdownDayNumber+1;
-        //_countdownDayNumber+=1;
+        if (_countdownDayNumber+1<=14) {
+            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        }else{
+        }
         localNotification.applicationIconBadgeNumber = _countdownDayNumber + 1;
-        //_countdownDayNumber-=1;
-        //_countdownDayNumber=_countdownDayNumber-1;
-        //day_number=day_number-1;
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                localNotification.timeZone = [NSTimeZone defaultTimeZone];
         
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
@@ -928,7 +929,63 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
 
 }
-
+-(void)countBudge2{
+    
+    // アプリに登録されている全ての通知を削除
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification *localNotification= [[UILocalNotification alloc] init];
+    
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    NSDateComponents *comp2 = [[NSDateComponents alloc] init];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    // NSDateFormatter を用意します。
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    
+    NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:_willreturndate options:0];
+    
+    int day_number = [startNumberdef day];
+    // 変換用の書式を設定
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    
+    [comp2 setDay:0];
+    
+    _finishdate = [cal dateByAddingComponents:comp2 toDate:_willreturndate options:0];
+    for (int i=0; i<day_number ;i++) {
+        //指定した日付の30日先を設定
+        [comp setDay:i];
+        NSDate* date_converted = [cal dateByAddingComponents:comp toDate:_today options:0];
+        
+        // 現在から指定した日付との差分を、日を基準にして取得する。
+        NSDateComponents *def1 = [cal components:NSDayCalendarUnit fromDate:date_converted toDate:_willreturndate options:0];
+        NSLog(@"days: %ld", (long)[def1 day]);
+        
+        _countdownDayNumber = [def1 day];
+        
+        //_countdownDayNumber-=2;
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        
+        //日時データを文字列に変換する場合のフォーマットを指定
+        df.dateFormat = @"yyyy/MM/dd";
+        //時間単位の文字列にセット
+        NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [df stringFromDate:date_converted]];
+        
+        
+        
+        date_converted =[formatter dateFromString:hourDateString];
+        //        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
+        localNotification.fireDate=date_converted;
+        
+        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        
+        
+        localNotification.applicationIconBadgeNumber = _countdownDayNumber + 1;
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
+    _countdownDayNumber=day_number+1;
+}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
     //controller　＠の中はIdentifierで定義した名前
@@ -947,8 +1004,11 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                 NSLog(@"aaaa");
                 
                 //計算、Notificationのセット
-                [self countBudge1];
-
+                if (_switch.on) {
+                    [self countBudge1];
+                }else{
+                    [self countBudge2];
+                }
                 
                 if (_countdownDayNumber<-60) {
                     [self DepartAlertView];
@@ -971,7 +1031,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
                     NSLog(@"%@",sub._finishdate1);
                     
                     sub._daycount2=_countdownDayNumber;
-                    
+                    sub._switch2=_switch;
                     
                     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
                     [defaultsdate setObject:[_df stringFromDate:_finishdate] forKey:@"KEY_4"];

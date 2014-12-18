@@ -16,6 +16,7 @@
     UILabel *_countlabel2;          //帰国予定日までのカウントダウンを表示
     UILabel *_willreturndatelabel;  //帰国予定日の表示
     UILabel *_countrylabel;     //選択された国名を表示
+    UILabel *_weblabel;
     
     UILocalNotification *_countNotification;
     
@@ -54,6 +55,6 @@
 @property (nonatomic,assign) int _daycount2;
 //@property (nonatomic,assign) NSDate *_departdate;
 @property (nonatomic,assign) NSDate *_finishdate1;
-
+@property (nonatomic,assign) UISwitch *_switch2;
     
 @end

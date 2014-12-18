@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     //0 = 一番左のTabBarを設定
 
-    _country = @[@"フィリピン",@"オーストラリア",@"シンガポール",@"ニュージーランド"];
+    _country = @[@"フィリピン",@"オーストラリア",@"シンガポール",@"ニュージーランド",@"カナダ",@"アメリカ",@"フィジー",@"イギリス"];
     
     //現在の時刻、日付をとる
     _today = [NSDate date];
@@ -46,8 +46,14 @@
     [self countryLabel];
     [self countLabel];
     [self finishdateLabel];
-    [self countLabel2];
-    [self willreturndateLabel];
+    [self webLabel];
+    if (self._switch2.on) {
+        [self countLabel2];
+        [self willreturndateLabel];
+    }else{
+    }
+    
+    
 //    [self countBudge];
     
     
@@ -139,7 +145,12 @@
     _countLabel.text= [NSString stringWithFormat:@"残り%d日",_countdownDayNumber];
     
     //_finishdatelabel.text = [_df stringFromDate:date];
-    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    if (self._switch2.on) {
+        _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+    }
 }
 //バナーが正常に表示された場合
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner{
@@ -238,12 +249,25 @@
             [self extendButton2];
             break;
         }
-    
+    //ウェブサイトの説明文
+    _weblabel.text=[NSString stringWithFormat:@"←%@のVISA情報",_country[valcountry]];
     //finishdateの呼び出し
-    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    if (self._switch2.on) {
+        _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+    }
+    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
 
-    _willreturndatelabel.text=[NSString stringWithFormat:@"帰国予定日%@",[_df stringFromDate:willreturndate]];
-    
+    //switchがonであれば
+    if (self._switch2.on) {
+        if (!willreturndate) {
+            _willreturndatelabel.text=@"";
+        }else{
+            _willreturndatelabel.text=[NSString stringWithFormat:@"帰国予定日%@",[_df stringFromDate:willreturndate]];
+        }
+    }
+        
     self._daycount2=_countdownDayNumber;
     //if (self._daycount2>=0) {
         __finishdate1 = date;
@@ -256,8 +280,9 @@
     NSCalendar *cal = [NSCalendar currentCalendar];
     //指定した日付の30日先を設定
     
-    NSDateComponents *def2=[cal components:NSDayCalendarUnit fromDate:_today toDate:__finishdate1 options:0];
     
+    NSDateComponents *def2=[cal components:NSDayCalendarUnit fromDate:_today toDate:__finishdate1 options:0];
+ 
     NSLog(@"days: %ld", (long)[def2 day]);
     
     _countdownDayNumber = [def2 day];
@@ -276,6 +301,9 @@
     
     _countLabel.text = daycount;
    // }
+    if (self._switch2.on) {
+        
+    
     NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:willreturndate options:0];
     
     int day_number2 = [startNumberdef day];
@@ -291,15 +319,25 @@
         [[defaultscount2 objectForKey:@"KEY_8"] intValue];
         [defaultscount2 synchronize];
     }
+    }
     _countrylabel.text=_country[valcountry];
+    //最前面へ
+    [self.view bringSubviewToFront:_backview];
 }
+
+
+    
 -(void)textLabel{
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,130 ,self.view.bounds.size.width, 30)];
-    textLabel.font = [UIFont systemFontOfSize:16];
+    textLabel.font = [UIFont systemFontOfSize:18];
     textLabel.textAlignment = NSTextAlignmentLeft;
     
+    if (self._switch2.on) {
+        textLabel.text = @"VISAの期限まで...";
+    }else{
+        textLabel.text = @"帰国まで...";
+    }
     
-    textLabel.text = @"VISAの期限まで...";
     [self.view addSubview:textLabel];
 }
 -(void)countLabel{
@@ -337,7 +375,14 @@
     _finishdatelabel.textAlignment = NSTextAlignmentRight;
     
 //    _finishdatelabel.text = [_df stringFromDate:date];
-    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    
+    if (self._switch2.on) {
+        _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+    }
+    
+    
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _finishdatelabel.backgroundColor=acolor;
@@ -373,6 +418,14 @@
     _countlabel2.text = daycount2;
     [self.view addSubview:_countlabel2];
 }
+//Web説明用のラベル
+-(void)webLabel{
+    _weblabel = [[UILabel alloc] initWithFrame:CGRectMake(60 ,400 ,240, 20)];
+    _weblabel.font = [UIFont systemFontOfSize:16];
+    _weblabel.textAlignment = NSTextAlignmentLeft;
+    
+    [self.view addSubview:_weblabel];
+}
 //UIWebViewを表示するためのボタン
 -(void)WebButton{
     UIButton *webButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 400, 20, 20)];
@@ -404,7 +457,7 @@
     
     NSURLRequest *myURLReq = [NSURLRequest requestWithURL:myURL];
     
-    _webview=[[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    _webview=[[UIWebView alloc] initWithFrame:CGRectMake(0, 50, self.view.bounds.size.width, self.view.bounds.size.height)];
     [_webview loadRequest:myURLReq];
     [_backview addSubview:_webview];
     
@@ -413,7 +466,7 @@
 
 }
 -(void)createButton{
-    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 270, 100, 30)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 30, 100, 30)];
     
     [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
@@ -530,8 +583,11 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
+        if (_countdownDayNumber+1<=14) {
+            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        }else{
+        }
         
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -635,12 +691,15 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        //_countdownDayNumber+=1;
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        if (_countdownDayNumber+1<=14) {
+            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        }else{
+        }
+        
         localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        //_countdownDayNumber-=1;
+        
     }
     _countdownDayNumber=day_number;
     _countdownDayNumber+=1;
@@ -694,7 +753,12 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     //_finishdatelabel.text = [_df stringFromDate:date];
-    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    if (self._switch2.on) {
+        _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+    }
+    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
 }
 -(void)extendButton2{
     _extendButton2 = [[UIButton alloc] initWithFrame:CGRectMake(170, 300, 130, 35)];
@@ -744,7 +808,12 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     
-    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    if (self._switch2.on) {
+        _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+    }
     
     int touchnumber=1;
     NSUserDefaults *defaultstouchnumber = [NSUserDefaults standardUserDefaults];
@@ -810,8 +879,10 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        if (_countdownDayNumber+1<=14) {
+            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        }else{
+        }
         localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -857,7 +928,12 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     
-    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    if (self._switch2.on) {
+        _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+    }
+    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
 }
 -(void)aditionalcalculate3{
     // アプリに登録されている全ての通知を削除
@@ -917,12 +993,13 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        //_countdownDayNumber+=1;
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        if (_countdownDayNumber+1<=14) {
+            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        }else{
+        }
         localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        //_countdownDayNumber-=1;
     }
     //TODO:修正箇所？
     _countdownDayNumber=day_number;
@@ -960,7 +1037,12 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     
-    _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    if (self._switch2.on) {
+        _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+    }
+    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
 }
 -(void)aditionalcalculate6{
     // アプリに登録されている全ての通知を削除
@@ -1020,8 +1102,10 @@
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        if (_countdownDayNumber+1<=14) {
+            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        }else{
+        }
         localNotification.applicationIconBadgeNumber = _countdownDayNumber+1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
