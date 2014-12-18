@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5F0DC2F11A1B41EB0071ED16 /* costArea.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F0DC2F01A1B41EB0071ED16 /* costArea.plist */; };
-		5F33CC281A3D90F8006A6FCF /* created.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC271A3D90F8006A6FCF /* created.plist */; };
 		5F33CC4F1A3FFD38006A6FCF /* icon-8-1000@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC431A3FFD38006A6FCF /* icon-8-1000@2x.png */; };
 		5F33CC501A3FFD38006A6FCF /* iOS-8-1022@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC441A3FFD38006A6FCF /* iOS-8-1022@2x.png */; };
 		5F33CC511A3FFD38006A6FCF /* iOS-8-120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC451A3FFD38006A6FCF /* iOS-8-120@2x.png */; };
@@ -45,6 +44,7 @@
 		5F33CC891A40513B006A6FCF /* VISAbutton_02_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC711A40513B006A6FCF /* VISAbutton_02_11.png */; };
 		5F33CC8A1A40513B006A6FCF /* VISAbutton_03_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC721A40513B006A6FCF /* VISAbutton_03_03.png */; };
 		5F33CC8B1A40513B006A6FCF /* VISAbutton_03_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC731A40513B006A6FCF /* VISAbutton_03_07.png */; };
+		5F33CC8D1A431854006A6FCF /* created.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC8C1A431854006A6FCF /* created.plist */; };
 		5F4D37031A10F94700D7668B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37021A10F94700D7668B /* main.m */; };
 		5F4D37061A10F94700D7668B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37051A10F94700D7668B /* AppDelegate.m */; };
 		5F4D37091A10F94700D7668B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37081A10F94700D7668B /* ViewController.m */; };
@@ -67,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		5F0DC2F01A1B41EB0071ED16 /* costArea.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = costArea.plist; sourceTree = "<group>"; };
-		5F33CC271A3D90F8006A6FCF /* created.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = created.plist; sourceTree = "<group>"; };
 		5F33CC431A3FFD38006A6FCF /* icon-8-1000@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-8-1000@2x.png"; sourceTree = "<group>"; };
 		5F33CC441A3FFD38006A6FCF /* iOS-8-1022@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS-8-1022@2x.png"; sourceTree = "<group>"; };
 		5F33CC451A3FFD38006A6FCF /* iOS-8-120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS-8-120@2x.png"; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		5F33CC711A40513B006A6FCF /* VISAbutton_02_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_02_11.png; sourceTree = "<group>"; };
 		5F33CC721A40513B006A6FCF /* VISAbutton_03_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_03_03.png; sourceTree = "<group>"; };
 		5F33CC731A40513B006A6FCF /* VISAbutton_03_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_03_07.png; sourceTree = "<group>"; };
+		5F33CC8C1A431854006A6FCF /* created.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = created.plist; sourceTree = "<group>"; };
 		5F4D36FD1A10F94700D7668B /* VISAcountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VISAcountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4D37011A10F94700D7668B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F4D37021A10F94700D7668B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -227,9 +227,9 @@
 		5F4D37001A10F94700D7668B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F33CC8C1A431854006A6FCF /* created.plist */,
 				5F33CC5B1A40513B006A6FCF /* images */,
 				5F33CC421A3FFD38006A6FCF /* VISAcountdown_icon */,
-				5F33CC271A3D90F8006A6FCF /* created.plist */,
 				5F0DC2F01A1B41EB0071ED16 /* costArea.plist */,
 				5F4D37011A10F94700D7668B /* Info.plist */,
 				5F4D37021A10F94700D7668B /* main.m */,
@@ -362,7 +362,6 @@
 				5F33CC571A3FFD38006A6FCF /* iOS-8-76@2x.png in Resources */,
 				5F33CC851A40513B006A6FCF /* sgf01a201405271100.jpg in Resources */,
 				5F33CC551A3FFD38006A6FCF /* iOS-8-40@2x.png in Resources */,
-				5F33CC281A3D90F8006A6FCF /* created.plist in Resources */,
 				5F33CC881A40513B006A6FCF /* VISAbutton_02_07.png in Resources */,
 				5F33CC4F1A3FFD38006A6FCF /* icon-8-1000@2x.png in Resources */,
 				5F33CC7E1A40513B006A6FCF /* Button_08.png in Resources */,
@@ -370,6 +369,7 @@
 				5F33CC531A3FFD38006A6FCF /* iOS-8-180@2x.png in Resources */,
 				5F4D370E1A10F94700D7668B /* Images.xcassets in Resources */,
 				5F33CC8A1A40513B006A6FCF /* VISAbutton_03_03.png in Resources */,
+				5F33CC8D1A431854006A6FCF /* created.plist in Resources */,
 				5F33CC7F1A40513B006A6FCF /* images.jpeg in Resources */,
 				5F33CC891A40513B006A6FCF /* VISAbutton_02_11.png in Resources */,
 				5F33CC771A40513B006A6FCF /* Button_010.png in Resources */,

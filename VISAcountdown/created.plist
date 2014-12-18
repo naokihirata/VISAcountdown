@@ -2,11 +2,881 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>アメリカ</key>
+	<array>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>360ドル</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>360ドル</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>アメリカ</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+	</array>
+	<key>イギリス</key>
+	<array>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>144ポンド</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>144ポンド</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>144ポンド</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>144ポンド</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>144ポンド</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>144ポンド</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>144ポンド</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>144ポンド</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>144ポンド</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>144ポンド</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>144ポンド</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>144ポンド</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>ビザ不要</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>ビザ不要</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>イギリス</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+	</array>
 	<key>オーストラリア</key>
 	<array>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -14,11 +884,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -26,11 +896,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -38,11 +908,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -50,11 +920,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -62,11 +932,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -74,11 +944,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -86,11 +956,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -98,11 +968,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -110,11 +980,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -122,11 +992,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -134,11 +1004,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>535ドル</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -146,11 +1016,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>535ドル</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>20ドル(ETAS)</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -158,11 +1028,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>20ドル(ETAS)</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>20ドル(ETAS)</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -170,11 +1040,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>20ドル(ETAS)</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>20ドル(ETAS)</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -182,11 +1052,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>20ドル(ETAS)</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>20ドル+215ドル(観光+ETAS)</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -194,11 +1064,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>20ドル+215ドル(観光+ETAS)</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>20ドル+215ドル(観光+ETAS)</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -206,11 +1076,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>20ドル+215ドル(観光+ETAS)</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>20ドル+215ドル(観光+ETAS)</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -218,11 +1088,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>20ドル+215ドル(観光+ETAS)</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -230,11 +1100,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -242,11 +1112,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -254,11 +1124,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -266,11 +1136,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -278,11 +1148,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -290,11 +1160,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で6ヶ月以上滞在不可</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -302,11 +1172,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -314,11 +1184,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -326,11 +1196,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -338,11 +1208,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -350,11 +1220,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -362,11 +1232,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -374,11 +1244,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -386,11 +1256,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -398,11 +1268,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -410,11 +1280,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -422,11 +1292,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>オーストラリア</string>
 			<key>period</key>
@@ -434,7 +1304,442 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
+		</dict>
+	</array>
+	<key>カナダ</key>
+	<array>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>カナダ</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
 		</dict>
 	</array>
 	<key>シンガポール</key>
@@ -585,7 +1890,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -593,11 +1898,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -605,11 +1910,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -617,11 +1922,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -629,11 +1934,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -641,11 +1946,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -653,11 +1958,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -665,11 +1970,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -677,11 +1982,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -689,11 +1994,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -701,11 +2006,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -713,11 +2018,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -725,11 +2030,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光で滞在は年間183日まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -737,11 +2042,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -749,11 +2054,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -761,11 +2066,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -773,11 +2078,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -785,11 +2090,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -797,11 +2102,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -809,11 +2114,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -821,11 +2126,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -833,11 +2138,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -845,11 +2150,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -857,11 +2162,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>シンガポール</string>
 			<key>period</key>
@@ -869,14 +2174,14 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 	</array>
 	<key>ニュージーランド</key>
 	<array>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -884,11 +2189,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -896,11 +2201,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -908,11 +2213,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -920,11 +2225,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -932,11 +2237,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -944,11 +2249,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -956,11 +2261,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -968,11 +2273,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -980,11 +2285,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光の滞在は9ヶ月まで</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -992,11 +2297,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光の滞在は9ヶ月まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光の滞在は9ヶ月まで</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1004,11 +2309,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光の滞在は9ヶ月まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>観光の滞在は9ヶ月まで</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1016,11 +2321,11 @@
 			<key>purpose</key>
 			<string>観光</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>観光の滞在は9ヶ月まで</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1028,11 +2333,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1040,11 +2345,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1052,11 +2357,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>ビザ不要</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1064,11 +2369,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1076,11 +2381,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1088,11 +2393,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1100,11 +2405,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1112,11 +2417,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1124,11 +2429,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1136,11 +2441,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1148,11 +2453,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1160,11 +2465,11 @@
 			<key>purpose</key>
 			<string>留学</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>申請手数料のみ5200円</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1172,11 +2477,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1184,11 +2489,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1196,11 +2501,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1208,11 +2513,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1220,11 +2525,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1232,11 +2537,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1244,11 +2549,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1256,11 +2561,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1268,11 +2573,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1280,11 +2585,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1292,11 +2597,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>-1</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>ニュージーランド</string>
 			<key>period</key>
@@ -1304,14 +2609,449 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>-1</string>
+			<string>調査中</string>
+		</dict>
+	</array>
+	<key>フィジー</key>
+	<array>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>留学</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>無料</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>無料</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>観光</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>1</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>2</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>3</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>4</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>5</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>6</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>7</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>8</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>9</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>10</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>11</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
+		</dict>
+		<dict>
+			<key>cost</key>
+			<string>調査中</string>
+			<key>country</key>
+			<string>フィジー</string>
+			<key>period</key>
+			<string>12</string>
+			<key>purpose</key>
+			<string>就労</string>
+			<key>separate</key>
+			<string>調査中</string>
 		</dict>
 	</array>
 	<key>フィリピン</key>
 	<array>
 		<dict>
 			<key>cost</key>
-			<string>5500</string>
+			<string>5500P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1323,7 +3063,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>8530</string>
+			<string>8530P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1335,7 +3075,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>15830</string>
+			<string>15830P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1347,7 +3087,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>16330</string>
+			<string>16330P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1359,7 +3099,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>18660</string>
+			<string>18660P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1371,7 +3111,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>19160</string>
+			<string>19160P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1383,7 +3123,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>22900</string>
+			<string>22900P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1395,7 +3135,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>23400</string>
+			<string>23400P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1407,7 +3147,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>27140</string>
+			<string>27140P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1419,7 +3159,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>27640</string>
+			<string>27640P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1431,7 +3171,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>31380</string>
+			<string>31380P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1443,7 +3183,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>31880</string>
+			<string>31880P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1455,7 +3195,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>0P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1467,7 +3207,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>3030</string>
+			<string>3030P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1479,7 +3219,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>10330</string>
+			<string>10330P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1491,7 +3231,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>10830</string>
+			<string>10830P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1503,7 +3243,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>13160</string>
+			<string>13160P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1515,7 +3255,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>13660</string>
+			<string>13660P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1527,7 +3267,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>17400</string>
+			<string>17400P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1539,7 +3279,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>17900</string>
+			<string>17900P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1551,7 +3291,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>21640</string>
+			<string>21640P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1563,7 +3303,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>22140</string>
+			<string>22140P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1575,7 +3315,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>25880</string>
+			<string>25880P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1587,7 +3327,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>26380</string>
+			<string>26380P</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1599,7 +3339,7 @@
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>0</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1607,11 +3347,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>0</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>3030</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1619,11 +3359,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>3030</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>10330</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1631,11 +3371,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>7300</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>10830</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1643,11 +3383,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>7800</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>13160</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1655,11 +3395,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>2330</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>13660</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1667,11 +3407,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>2830</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>17400</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1679,11 +3419,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>3740</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>17900</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1691,11 +3431,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>4240</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>21640</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1703,11 +3443,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>3740</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>22140</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1715,11 +3455,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>4240</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>25880</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1727,11 +3467,11 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>3740</string>
+			<string>調査中</string>
 		</dict>
 		<dict>
 			<key>cost</key>
-			<string>26380</string>
+			<string>調査中</string>
 			<key>country</key>
 			<string>フィリピン</string>
 			<key>period</key>
@@ -1739,7 +3479,7 @@
 			<key>purpose</key>
 			<string>就労</string>
 			<key>separate</key>
-			<string>4240</string>
+			<string>調査中</string>
 		</dict>
 	</array>
 </dict>

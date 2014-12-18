@@ -17,6 +17,7 @@
     UILabel *_willreturndatelabel;  //帰国予定日の表示
     UILabel *_countrylabel;     //選択された国名を表示
     UILabel *_weblabel;
+    UILabel *_textlabel;
     
     UILocalNotification *_countNotification;
     

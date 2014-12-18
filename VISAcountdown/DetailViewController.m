@@ -254,19 +254,18 @@
     //finishdateの呼び出し
     if (self._switch2.on) {
         _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
-    }else{
-        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
-    }
-    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
-
-    //switchがonであれば
-    if (self._switch2.on) {
+        _textlabel.text = @"VISAの期限まで...";
         if (!willreturndate) {
             _willreturndatelabel.text=@"";
         }else{
             _willreturndatelabel.text=[NSString stringWithFormat:@"帰国予定日%@",[_df stringFromDate:willreturndate]];
         }
+    }else{
+        _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
+        _textlabel.text = @"帰国まで...";
     }
+    
+    //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
         
     self._daycount2=_countdownDayNumber;
     //if (self._daycount2>=0) {
@@ -328,17 +327,17 @@
 
     
 -(void)textLabel{
-    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,130 ,self.view.bounds.size.width, 30)];
-    textLabel.font = [UIFont systemFontOfSize:18];
-    textLabel.textAlignment = NSTextAlignmentLeft;
+    _textlabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,130 ,self.view.bounds.size.width, 30)];
+    _textlabel.font = [UIFont systemFontOfSize:18];
+    _textlabel.textAlignment = NSTextAlignmentLeft;
     
     if (self._switch2.on) {
-        textLabel.text = @"VISAの期限まで...";
+        _textlabel.text = @"VISAの期限まで...";
     }else{
-        textLabel.text = @"帰国まで...";
+        _textlabel.text = @"帰国まで...";
     }
     
-    [self.view addSubview:textLabel];
+    [self.view addSubview:_textlabel];
 }
 -(void)countLabel{
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 ,160 ,self.view.bounds.size.width, 60)];
@@ -466,15 +465,15 @@
 
 }
 -(void)createButton{
-    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 30, 100, 30)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 25, 80, 25)];
     
-    [datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    //[datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
     [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
-//    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
-//    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [_backview addSubview:datecreateButton];
 }
 -(void)TapDateCreateBtn:(UIButton *)datecreateButton{

@@ -482,7 +482,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 
 }
 -(void)checkButton{
-    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 255, 140, 34)];
+    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 250, 140, 34)];
     
     //[CheckButton setTitle:@"料金チェック" forState:UIControlStateNormal];
     
@@ -532,7 +532,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
 }
 -(void)checkLabel{
 
-    _checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(165, 258, 140, 27)];
+    _checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 288, 280, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _checkLabel.backgroundColor=acolor;
