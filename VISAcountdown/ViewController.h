@@ -24,6 +24,9 @@
     UIView *_backdateView2;  //帰国予定日用のbackview
     BOOL _visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
     
+    
+    UIButton *_dateButton;    //出発日登録ボタン
+    
   //  UIButton *_CheckButton;    //金額チェックボタンを作成する
    // UIButton *_CancelButton;    //キャンセルボタンを作成する
    // UIButton *_dateButton;    //登録完了ボタンを作成する

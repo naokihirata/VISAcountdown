@@ -561,17 +561,17 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
 }
 -(void)dateButton{
-    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 320, 130, 32)];
+    _dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 320, 130, 32)];
     
     //[dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
     
-    [dateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [_dateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [dateButton addTarget:self action:@selector(TapFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_dateButton addTarget:self action:@selector(TapFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
     UIImage *imgdate=[UIImage imageNamed:@"Button_010.png"];
-    [dateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
-    [self.view addSubview:dateButton];
+    [_dateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [self.view addSubview:_dateButton];
 }
 -(void)TapFinishBtn:(UIButton *)dateButton{
     NSLog(@"date");
@@ -685,8 +685,14 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _switch=sender;
     if (_switch.on) {
         _switchlabel.text=@"自動";
+        [self dateButton];
+        [self dateLabel];
     }else{
         _switchlabel.text=@"手入力";
+        for (_uv in [self.view subviews]) {
+            [_dateButton removeFromSuperview];
+            [_dateLabel removeFromSuperview];
+        }
     }
 }
 //帰国日予定ボタン,メソッド
