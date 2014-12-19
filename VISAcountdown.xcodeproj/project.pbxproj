@@ -44,6 +44,7 @@
 		5F33CCA21A43CEA3006A6FCF /* iOS@2x_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC971A43CEA3006A6FCF /* iOS@2x_76.png */; };
 		5F33CCA31A43CEA3006A6FCF /* iOS@2x_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC981A43CEA3006A6FCF /* iOS@2x_80.png */; };
 		5F33CCA41A43CEA3006A6FCF /* iOS@2x_87.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC991A43CEA3006A6FCF /* iOS@2x_87.png */; };
+		5F33CCAF1A43F1E4006A6FCF /* tyutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F33CCAE1A43F1E4006A6FCF /* tyutorialViewController.m */; };
 		5F4D37031A10F94700D7668B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37021A10F94700D7668B /* main.m */; };
 		5F4D37061A10F94700D7668B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37051A10F94700D7668B /* AppDelegate.m */; };
 		5F4D37091A10F94700D7668B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37081A10F94700D7668B /* ViewController.m */; };
@@ -102,6 +103,8 @@
 		5F33CC971A43CEA3006A6FCF /* iOS@2x_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS@2x_76.png"; sourceTree = "<group>"; };
 		5F33CC981A43CEA3006A6FCF /* iOS@2x_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS@2x_80.png"; sourceTree = "<group>"; };
 		5F33CC991A43CEA3006A6FCF /* iOS@2x_87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS@2x_87.png"; sourceTree = "<group>"; };
+		5F33CCAD1A43F1E4006A6FCF /* tyutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tyutorialViewController.h; sourceTree = "<group>"; };
+		5F33CCAE1A43F1E4006A6FCF /* tyutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tyutorialViewController.m; sourceTree = "<group>"; };
 		5F4D36FD1A10F94700D7668B /* VISAcountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VISAcountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4D37011A10F94700D7668B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F4D37021A10F94700D7668B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				5F4D37081A10F94700D7668B /* ViewController.m */,
 				5F4D37261A11E30E00D7668B /* DetailViewController.h */,
 				5F4D37271A11E30F00D7668B /* DetailViewController.m */,
+				5F33CCAD1A43F1E4006A6FCF /* tyutorialViewController.h */,
+				5F33CCAE1A43F1E4006A6FCF /* tyutorialViewController.m */,
 				5F4D370A1A10F94700D7668B /* Main.storyboard */,
 				5F4D370D1A10F94700D7668B /* Images.xcassets */,
 				5F4D370F1A10F94700D7668B /* LaunchScreen.xib */,
@@ -392,6 +397,7 @@
 				5F4D37061A10F94700D7668B /* AppDelegate.m in Sources */,
 				5F4D37031A10F94700D7668B /* main.m in Sources */,
 				5F4D37281A11E30F00D7668B /* DetailViewController.m in Sources */,
+				5F33CCAF1A43F1E4006A6FCF /* tyutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -67,6 +67,25 @@
             </objects>
             <point key="canvasLocation" x="1764" y="136"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="LaZ-MF-4V1">
+            <objects>
+                <viewController storyboardIdentifier="tyutorialViewController" id="kn5-WF-sWd" customClass="tyutorialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z3H-21-WAV"/>
+                        <viewControllerLayoutGuide type="bottom" id="xin-ao-iPC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rup-nl-9cf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="mNZ-Q9-f6C"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VcM-0d-LIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="1012"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="OCH-Jb-xZr">
             <objects>
@@ -99,11 +118,12 @@
                     <connections>
                         <segue destination="L6j-FN-k0C" kind="relationship" relationship="viewControllers" id="tOU-2Z-olm"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="SwO-TL-lfI"/>
+                        <segue destination="kn5-WF-sWd" kind="relationship" relationship="viewControllers" id="hVw-7F-8ib"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw4-Qu-Nts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="136"/>
+            <point key="canvasLocation" x="834" y="142"/>
         </scene>
     </scenes>
 </document>

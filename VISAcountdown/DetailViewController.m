@@ -441,6 +441,7 @@
     [self.view addSubview:webButton];
 }
 -(void)TapWebBtn:(UIButton *)WebButton{
+    [self.view bringSubviewToFront:_backview];
     [self upObject];
     
 }
@@ -461,8 +462,6 @@
     [_backview addSubview:_webview];
     
     [self.view addSubview:_backview];
-
-
 }
 -(void)createButton{
     UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 25, 80, 25)];
