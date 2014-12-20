@@ -28,6 +28,7 @@
     UIButton *_extendButton3;
     UIButton *_extendButton29;
     UIButton *_extendButton6;
+    UIButton *_webButton;
     
     UIView *_backview;
     UIWebView *_webview;

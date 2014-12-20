@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSInteger pageSize = 8; // ページ数
-    CGFloat width = self.view.bounds.size.width*0.8;
-    CGFloat height = self.view.bounds.size.height*0.8;
+    NSInteger pageSize = 7; // ページ数
+    CGFloat width = self.view.bounds.size.width*0.95;
+    CGFloat height = self.view.bounds.size.height*0.95;
     
     CGFloat margin = (self.view.bounds.size.width - width) / 2;
     
@@ -54,7 +54,7 @@
         //        [self.scrollView addSubview:label];
         //        NSLog(@"imagenum:%d",i);
         
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"tutorial%d.png", i+1]];
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"tyutorial_0%d.png", i+1]];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         
         

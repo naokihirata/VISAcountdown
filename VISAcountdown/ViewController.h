@@ -25,8 +25,9 @@
     BOOL _visibleFlag;  //水色のビューが表示されている:YES 非表示:NO
     
     
+    UILabel *_alertlabel;
     UIButton *_dateButton;    //出発日登録ボタン
-    
+    UIButton *_returndateButton;
   //  UIButton *_CheckButton;    //金額チェックボタンを作成する
    // UIButton *_CancelButton;    //キャンセルボタンを作成する
    // UIButton *_dateButton;    //登録完了ボタンを作成する

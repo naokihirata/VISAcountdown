@@ -30,7 +30,7 @@
     _period = @[@"1ヶ月",@"2ヶ月",@"3ヶ月",@"4ヶ月",@"5ヶ月",@"6ヶ月",@"7ヶ月",@"8ヶ月",@"9ヶ月",@"10ヶ月",@"11ヶ月",@"12ヶ月"];
     _period_for_compare = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12"];
     
-    _purpose = @[@"留学",@"観光",@"就労"];
+    _purpose = @[@"留学",@"観光"];
     
     //現在の時刻、日付をとる
     _today = [NSDate date];
@@ -103,10 +103,7 @@
     [self purposeLabel];
     //料金を表示する
     [self checkLabel];
-    //出発日を表示する
-    [self dateLabel];
-    //帰国予定日を表示する
-    [self returnlabel];
+    
     //国名を選ぶボタン
     [self countryButton];
     //期間を選ぶボタン
@@ -115,10 +112,9 @@
     [self purposeButton];
     //料金チェックボタン
     [self checkButton];
-    //日付設定ボタン作成
-    [self dateButton];
-    //帰国予定日ボタン作成
-    [self returndateButton];
+    
+    
+    
     //登録完了ボタン
     [self setButton];
     //バックビュー作成
@@ -132,6 +128,17 @@
     //スイッチのラベル
     [self switchlabel];
     
+    if(!_switch.on){
+        //帰国予定日ボタン作成
+        [self returndateButton];
+        //帰国予定日を表示する
+        [self returnlabel];
+    }else{
+        //日付設定ボタン作成
+        [self dateButton];
+        //出発日を表示する
+        [self dateLabel];
+    }
     _datepicker = [[UIDatePicker alloc] init];
     _datepicker2=[[UIDatePicker alloc] init];
     
@@ -207,16 +214,16 @@
     [self.view addSubview:myLabelInput];
 }
 -(void)alertlabel{
-    UILabel *alertlabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, self.view.bounds.size.width, 20)];
-    [alertlabel setFont:[UIFont fontWithName:@"Marker Felt" size:12]];
-    alertlabel.textColor=[UIColor redColor];
+    _alertlabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, self.view.bounds.size.width, 20)];
+    [_alertlabel setFont:[UIFont fontWithName:@"Marker Felt" size:12]];
+    _alertlabel.textColor=[UIColor redColor];
     UIColor *color = [UIColor yellowColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
-    alertlabel.backgroundColor=acolor;
-    alertlabel.textAlignment=NSTextAlignmentNatural;
-    alertlabel.text=@"国名、期間、目的、出発日は入力必須項目です！";
+    _alertlabel.backgroundColor=acolor;
+    _alertlabel.textAlignment=NSTextAlignmentNatural;
+    _alertlabel.text=@"国名、期間、目的、出発日は入力必須項目です！";
     
-    [self.view addSubview:alertlabel];
+    [self.view addSubview:_alertlabel];
 }
 -(void)countryLabel{
     _countryLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,90 ,140, 27)];
@@ -308,6 +315,7 @@
     for (_uv in [self.view subviews]) {
         [_countryLabel removeFromSuperview];
     }
+    [self.view bringSubviewToFront:_backView];
 }
 -(void)TapPeriodBtn:(UIButton *)periodButton{
     
@@ -320,6 +328,7 @@
     for (_uv in [self.view subviews]) {
         [_periodLabel removeFromSuperview];
     }
+    [self.view bringSubviewToFront:_backView];
 }
 -(void)TapPurposeBtn:(UIButton *)puposeButton{
     _int = 2;
@@ -331,6 +340,7 @@
     for (_uv in [self.view subviews]) {
         [_purposeLabel removeFromSuperview];
     }
+    [self.view bringSubviewToFront:_backView];
 }
 
 -(void)pickerView{
@@ -561,7 +571,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
 }
 -(void)dateButton{
-    _dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 320, 130, 32)];
+    _dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 360, 130, 30)];
     
     //[dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
     
@@ -579,12 +589,13 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [self datepicker];
     [self updateObject];
     [self datecreateButton];
+    [self.view bringSubviewToFront:_backdateView];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView commitAnimations];
 }
 -(void)dateLabel{
-    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,325 ,140, 25)];
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,363 ,130, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _dateLabel.backgroundColor=acolor;
@@ -685,29 +696,40 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     _switch=sender;
     if (_switch.on) {
         _switchlabel.text=@"自動";
+        for (_uv in [self.view subviews]) {
+            [_returndateButton removeFromSuperview];
+            [_returnlabel removeFromSuperview];
+        }
         [self dateButton];
         [self dateLabel];
+        _alertlabel.text=@"国名、期間、目的、出発日は入力必須項目です！";
+
+        
     }else{
         _switchlabel.text=@"手入力";
         for (_uv in [self.view subviews]) {
             [_dateButton removeFromSuperview];
             [_dateLabel removeFromSuperview];
         }
+        [self returndateButton];
+        [self returnlabel];
+        _alertlabel.text=@"国名、期間、目的、帰国予定日は入力必須項目です！";
+
     }
 }
 //帰国日予定ボタン,メソッド
 -(void)returndateButton{
-    UIButton *returndateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 380, 130, 30)];
+    _returndateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 360, 130, 30)];
     
-    //[dateButton setTitle:@"出発日を登録" forState:UIControlStateNormal];
+    //[dateButton setTitle:@"帰国予定日を登録" forState:UIControlStateNormal];
     
-    [returndateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [_returndateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [returndateButton addTarget:self action:@selector(TapreturnFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_returndateButton addTarget:self action:@selector(TapreturnFinishBtn:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
     UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_07.png"];
-    [returndateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
-    [self.view addSubview:returndateButton];
+    [_returndateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [self.view addSubview:_returndateButton];
 }
 -(void)TapreturnFinishBtn:(UIButton *)returndateButton{
     NSLog(@"date");
@@ -715,9 +737,10 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [self datepicker2];
     [self updateObject2];
     [self datecreateButton2];
+    [self.view bringSubviewToFront:_backdateView2];
 }
 -(void)returnlabel{
-    _returnlabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,383 ,130, 27)];
+    _returnlabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,363 ,130, 27)];
     UIColor *color = [UIColor whiteColor];
     UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
     _returnlabel.backgroundColor=acolor;
@@ -886,6 +909,22 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
             break;
         case 3://ニュージーランド
             _daycountoffirstadition=90;
+            break;
+        case 4://カナダ
+            _daycountoffirstadition = 180;
+            break;
+        case 5://アメリカ
+            _daycountoffirstadition=30;
+            break;
+        case 6://フィジー
+            if (_valpurpose==1) {
+                _daycountoffirstadition=120;
+            }else{
+            _daycountoffirstadition=30;
+            }
+            break;
+        case 7://イギリス
+            _daycountoffirstadition=180;
             break;
         default:
             _daycountoffirstadition=30;

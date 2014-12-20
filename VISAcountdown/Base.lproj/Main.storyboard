@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="-1002" y="-442"/>
         </scene>
-        <!--Setting-->
+        <!--設定画面-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -60,17 +60,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" id="pce-7C-ZWZ"/>
+                    <tabBarItem key="tabBarItem" title="設定画面" id="pce-7C-ZWZ"/>
                     <navigationItem key="navigationItem" id="q5a-kq-2rs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1764" y="136"/>
         </scene>
-        <!--Item-->
+        <!--使い方-->
         <scene sceneID="LaZ-MF-4V1">
             <objects>
-                <viewController storyboardIdentifier="tyutorialViewController" id="kn5-WF-sWd" customClass="tyutorialViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tyutorialViewController" id="kn5-WF-sWd" userLabel="使い方" customClass="tyutorialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z3H-21-WAV"/>
                         <viewControllerLayoutGuide type="bottom" id="xin-ao-iPC"/>
@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mNZ-Q9-f6C"/>
+                    <tabBarItem key="tabBarItem" title="使い方" id="mNZ-Q9-f6C" userLabel="使い方"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcM-0d-LIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="tTM-3e-gnh"/>
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="tTM-3e-gnh" userLabel="メイン画面"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4M-Z7-gn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

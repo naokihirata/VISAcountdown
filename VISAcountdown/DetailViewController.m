@@ -33,8 +33,18 @@
     
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
     int memorycount=[[defaultscount objectForKey:@"KEY_5"] intValue];
+    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     
+    NSUserDefaults *defaultsreturndate=[NSUserDefaults standardUserDefaults];
+    NSDate *willreturndate=[_df dateFromString:[defaultsreturndate objectForKey:@"KEY_7"]];
     
+
+    if((!date)&&(!willreturndate)){
+        NSLog(@"ww");
+        self.tabBarController.selectedIndex=1;
+    }else{
+    }
     if (!memorycount) {
         _countdownDayNumber=-90;
        
@@ -68,9 +78,17 @@
 
     NSUserDefaults *defaultstouchnumber = [NSUserDefaults standardUserDefaults];
     int touchnumber=[[defaultstouchnumber objectForKey:@"KEY_10"] intValue];
+    if (!memo1==0) {
+        for (_uv in [self.view subviews]) {
+            [_weblabel removeFromSuperview];
+            [_webButton removeFromSuperview];
+        }
+    }else{
+    }
     
         switch(memo1){
         case 0: //フィリピン
+                [self webLabel];
                 [self WebButton];
                 [self smallView];
                 [self createButton];
@@ -95,14 +113,30 @@
             [self extendButton];
             [self extendButton2];
             break;
+        case 4://カナダ
+                [self extendButton];
+                [self extendButton2];
+                break;
+        case 5://アメリカ
+                [self extendButton];
+                [self extendButton3];
+                break;
+        case 6://フィジー
+                [self extendButton];
+                [self extendButton2];
+                break;
+        case 7://イギリス
+                [self extendButton];
+                [self extendButton2];
+                break;
         default://それ以外
             [self extendButton];
             [self extendButton2];
             break;
     }
 
-    
-    
+
+
     //広告関連(iAD)
     //初期化
     _adView = [[ADBannerView alloc] init];
@@ -124,11 +158,13 @@
 //    subview.backgroundColor=[UIColor yellowColor];
     //背景の色を黄色に変更
     self.view.backgroundColor = [UIColor yellowColor];
-    
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
 
+    NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
+    int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
     //countdownDayNumberの呼び出し
     NSUserDefaults *defaultscount = [NSUserDefaults standardUserDefaults];
     int memorycount=[[defaultscount objectForKey:@"KEY_5"] intValue];
@@ -136,6 +172,11 @@
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
     
+    NSUserDefaults *defaultsreturndate=[NSUserDefaults standardUserDefaults];
+    NSDate *willreturndate=[_df dateFromString:[defaultsreturndate objectForKey:@"KEY_7"]];
+
+    NSUserDefaults *defaultstouchnumber = [NSUserDefaults standardUserDefaults];
+    int touchnumber=[[defaultstouchnumber objectForKey:@"KEY_10"] intValue];
     if (!memorycount) {
         _countdownDayNumber=0;
     }else{
@@ -148,9 +189,74 @@
     //_finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
     if (self._switch2.on) {
         _finishdatelabel.text = [NSString stringWithFormat:@"滞在可能なのは%@までです",[_df stringFromDate:date]];
+        
     }else{
         _finishdatelabel.text = [NSString stringWithFormat:@"帰国日は%@です",[_df stringFromDate:date]];
     }
+    if((!date)&&(!willreturndate)){
+        NSLog(@"ww");
+        self.tabBarController.selectedIndex=1;
+    }else{
+    }
+            for (_uv in [self.view subviews]) {
+                [_weblabel removeFromSuperview];
+                [_webButton removeFromSuperview];
+            }
+            for (_uv in [self.view subviews]) {
+                [_extendButton removeFromSuperview];
+                [_extendButton2 removeFromSuperview];
+                [_extendButton3 removeFromSuperview];
+                [_extendButton29 removeFromSuperview];
+            }
+    switch(memo1){
+        case 0: //フィリピン
+            [self webLabel];
+            [self WebButton];
+            [self smallView];
+            [self createButton];
+            
+            if (touchnumber==0) {
+                
+                [self extendButton29];
+            }else{
+                [self extendButton];
+                [self extendButton2];
+            }
+            break;
+        case 1://オーストラリア
+            [self extendButton];
+            [self extendButton2];
+            break;
+        case 2://シンガポール
+            [self extendButton];
+            [self extendButton3];
+            break;
+        case 3://ニュージーランド
+            [self extendButton];
+            [self extendButton2];
+            break;
+        case 4://カナダ
+            [self extendButton];
+            [self extendButton2];
+            break;
+        case 5://アメリカ
+            [self extendButton];
+            [self extendButton3];
+            break;
+        case 6://フィジー
+            [self extendButton];
+            [self extendButton2];
+            break;
+        case 7://イギリス
+            [self extendButton];
+            [self extendButton2];
+            break;
+        default://それ以外
+            [self extendButton];
+            [self extendButton2];
+            break;
+    }
+
 }
 //バナーが正常に表示された場合
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner{
@@ -208,12 +314,13 @@
     NSUserDefaults *defaultscount=[NSUserDefaults standardUserDefaults];
     _countdownDayNumber = (int)[[defaultscount objectForKey:@"KEY_5"] intValue];
     
-    for (_uv in [self.view subviews]) {
-        [_extendButton removeFromSuperview];
-        [_extendButton2 removeFromSuperview];
-        [_extendButton3 removeFromSuperview];
-        [_extendButton29 removeFromSuperview];
+    if((!date)&&(!willreturndate)){
+        NSLog(@"ww");
+        self.tabBarController.selectedIndex=1;
+    }else{
     }
+    
+    
     
     
     NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
@@ -224,7 +331,7 @@
     int touchnumber=[[defaultstouchnumber objectForKey:@"KEY_10"] intValue];
     switch(valcountry){
     case 0: //フィリピン
-            [self WebButton];
+            //[self WebButton];
             if (touchnumber==0) {
                 [self extendButton29];
             }else{
@@ -300,7 +407,7 @@
     
     _countLabel.text = daycount;
    // }
-    if (self._switch2.on) {
+    
         
     
     NSDateComponents *startNumberdef =[cal components:NSDayCalendarUnit fromDate:_today toDate:willreturndate options:0];
@@ -308,17 +415,19 @@
     int day_number2 = [startNumberdef day];
     
     NSString *daycount2=[NSString stringWithFormat:@"帰国予定日まで残り%d日",day_number2+1];
-
-    if (!willreturndate) {
-        _willreturndatelabel.text=@"";
-        _countlabel2.text=@"";
+if (self._switch2.on) {
+        if (!willreturndate) {
+            _willreturndatelabel.text=@"";
+            _countlabel2.text=@"";
+        }else{
+        }
     }else{
         _countlabel2.text=daycount2;
         NSUserDefaults *defaultscount2=[NSUserDefaults standardUserDefaults];
         [[defaultscount2 objectForKey:@"KEY_8"] intValue];
         [defaultscount2 synchronize];
     }
-    }
+    
     _countrylabel.text=_country[valcountry];
     //最前面へ
     [self.view bringSubviewToFront:_backview];
@@ -427,18 +536,18 @@
 }
 //UIWebViewを表示するためのボタン
 -(void)WebButton{
-    UIButton *webButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 400, 20, 20)];
+    _webButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 390, 30, 30)];
     
     //[extendButton setTitle:@"一ヶ月延長" forState:UIControlStateNormal];
     
-    [webButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    [_webButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
     
-    [webButton addTarget:self action:@selector(TapWebBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_webButton addTarget:self action:@selector(TapWebBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     //画像を読み込んでボタンに貼る
-    UIImage *imgextend1=[UIImage imageNamed:@"Button_011.png"];
-    [webButton setBackgroundImage:imgextend1 forState:UIControlStateNormal];
-    [self.view addSubview:webButton];
+    UIImage *imgextend1=[UIImage imageNamed:@"VISAbutton_04_14.png"];
+    [_webButton setBackgroundImage:imgextend1 forState:UIControlStateNormal];
+    [self.view addSubview:_webButton];
 }
 -(void)TapWebBtn:(UIButton *)WebButton{
     [self.view bringSubviewToFront:_backview];
@@ -464,14 +573,14 @@
     [self.view addSubview:_backview];
 }
 -(void)createButton{
-    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 25, 80, 25)];
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 23, 50, 23)];
     
     //[datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
     
     [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [datecreateButton addTarget:self action:@selector(TapDateCreateBtn:) forControlEvents:UIControlEventTouchUpInside];
     //画像を読み込んでボタンに貼る
-    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_04_18.png"];
     [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
     [_backview addSubview:datecreateButton];
 }
