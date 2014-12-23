@@ -21,32 +21,6 @@
 		5F33CCA31A43CEA3006A6FCF /* iOS@2x_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC981A43CEA3006A6FCF /* iOS@2x_80.png */; };
 		5F33CCA41A43CEA3006A6FCF /* iOS@2x_87.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CC991A43CEA3006A6FCF /* iOS@2x_87.png */; };
 		5F33CCAF1A43F1E4006A6FCF /* tyutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F33CCAE1A43F1E4006A6FCF /* tyutorialViewController.m */; };
-		5F33CCCB1A453776006A6FCF /* backimage_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB11A453776006A6FCF /* backimage_02.png */; };
-		5F33CCCC1A453776006A6FCF /* backimage_02new.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB21A453776006A6FCF /* backimage_02new.png */; };
-		5F33CCCD1A453776006A6FCF /* Button_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB31A453776006A6FCF /* Button_01.png */; };
-		5F33CCCE1A453776006A6FCF /* Button_010.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB41A453776006A6FCF /* Button_010.png */; };
-		5F33CCCF1A453776006A6FCF /* Button_011.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB51A453776006A6FCF /* Button_011.png */; };
-		5F33CCD01A453776006A6FCF /* Button_012.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB61A453776006A6FCF /* Button_012.png */; };
-		5F33CCD11A453776006A6FCF /* Button_02purpose.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB71A453776006A6FCF /* Button_02purpose.png */; };
-		5F33CCD21A453776006A6FCF /* Button_03period.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB81A453776006A6FCF /* Button_03period.png */; };
-		5F33CCD31A453776006A6FCF /* Button_04costcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCB91A453776006A6FCF /* Button_04costcheck.png */; };
-		5F33CCD41A453776006A6FCF /* Button_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCBA1A453776006A6FCF /* Button_07.png */; };
-		5F33CCD51A453776006A6FCF /* Button_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCBB1A453776006A6FCF /* Button_08.png */; };
-		5F33CCD61A453776006A6FCF /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCBC1A453776006A6FCF /* images.jpeg */; };
-		5F33CCD71A453776006A6FCF /* images2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCBD1A453776006A6FCF /* images2.jpeg */; };
-		5F33CCD81A453776006A6FCF /* photo-big-resolution-for-free-13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCBE1A453776006A6FCF /* photo-big-resolution-for-free-13.jpg */; };
-		5F33CCD91A453776006A6FCF /* photo-big-resolution-for-free-14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCBF1A453776006A6FCF /* photo-big-resolution-for-free-14.jpg */; };
-		5F33CCDA1A453776006A6FCF /* railload.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC01A453776006A6FCF /* railload.jpg */; };
-		5F33CCDB1A453776006A6FCF /* select_country.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC11A453776006A6FCF /* select_country.png */; };
-		5F33CCDC1A453776006A6FCF /* sgf01a201405271100.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC21A453776006A6FCF /* sgf01a201405271100.jpg */; };
-		5F33CCDD1A453776006A6FCF /* textlabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC31A453776006A6FCF /* textlabel.png */; };
-		5F33CCDE1A453776006A6FCF /* VISAbutton_02_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC41A453776006A6FCF /* VISAbutton_02_03.png */; };
-		5F33CCDF1A453776006A6FCF /* VISAbutton_02_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC51A453776006A6FCF /* VISAbutton_02_07.png */; };
-		5F33CCE01A453776006A6FCF /* VISAbutton_02_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC61A453776006A6FCF /* VISAbutton_02_11.png */; };
-		5F33CCE11A453776006A6FCF /* VISAbutton_03_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC71A453776006A6FCF /* VISAbutton_03_03.png */; };
-		5F33CCE21A453776006A6FCF /* VISAbutton_03_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC81A453776006A6FCF /* VISAbutton_03_07.png */; };
-		5F33CCE31A453776006A6FCF /* VISAbutton_04_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCC91A453776006A6FCF /* VISAbutton_04_14.png */; };
-		5F33CCE41A453776006A6FCF /* VISAbutton_04_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCCA1A453776006A6FCF /* VISAbutton_04_18.png */; };
 		5F33CCFC1A45B3F0006A6FCF /* tyutorial_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCF51A45B3F0006A6FCF /* tyutorial_01.png */; };
 		5F33CCFD1A45B3F0006A6FCF /* tyutorial_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCF61A45B3F0006A6FCF /* tyutorial_02.png */; };
 		5F33CCFE1A45B3F0006A6FCF /* tyutorial_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCF71A45B3F0006A6FCF /* tyutorial_03.png */; };
@@ -54,6 +28,34 @@
 		5F33CD001A45B3F0006A6FCF /* tyutorial_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCF91A45B3F0006A6FCF /* tyutorial_05.png */; };
 		5F33CD011A45B3F0006A6FCF /* tyutorial_06.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCFA1A45B3F0006A6FCF /* tyutorial_06.png */; };
 		5F33CD021A45B3F0006A6FCF /* tyutorial_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CCFB1A45B3F0006A6FCF /* tyutorial_07.png */; };
+		5F33CD8E1A481093006A6FCF /* backimage_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD721A481093006A6FCF /* backimage_02.png */; };
+		5F33CD8F1A481093006A6FCF /* backimage_02new.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD731A481093006A6FCF /* backimage_02new.png */; };
+		5F33CD901A481093006A6FCF /* Button_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD741A481093006A6FCF /* Button_01.png */; };
+		5F33CD911A481093006A6FCF /* Button_010.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD751A481093006A6FCF /* Button_010.png */; };
+		5F33CD921A481093006A6FCF /* Button_011.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD761A481093006A6FCF /* Button_011.png */; };
+		5F33CD931A481093006A6FCF /* Button_012.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD771A481093006A6FCF /* Button_012.png */; };
+		5F33CD941A481093006A6FCF /* Button_02purpose.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD781A481093006A6FCF /* Button_02purpose.png */; };
+		5F33CD951A481093006A6FCF /* Button_03period.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD791A481093006A6FCF /* Button_03period.png */; };
+		5F33CD961A481093006A6FCF /* Button_04costcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD7A1A481093006A6FCF /* Button_04costcheck.png */; };
+		5F33CD971A481093006A6FCF /* Button_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD7B1A481093006A6FCF /* Button_07.png */; };
+		5F33CD981A481093006A6FCF /* Button_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD7C1A481093006A6FCF /* Button_08.png */; };
+		5F33CD991A481093006A6FCF /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD7D1A481093006A6FCF /* images.jpeg */; };
+		5F33CD9A1A481093006A6FCF /* images2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD7E1A481093006A6FCF /* images2.jpeg */; };
+		5F33CD9B1A481093006A6FCF /* photo-big-resolution-for-free-13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD7F1A481093006A6FCF /* photo-big-resolution-for-free-13.jpg */; };
+		5F33CD9C1A481093006A6FCF /* photo-big-resolution-for-free-14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD801A481093006A6FCF /* photo-big-resolution-for-free-14.jpg */; };
+		5F33CD9D1A481093006A6FCF /* railload.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD811A481093006A6FCF /* railload.jpg */; };
+		5F33CD9E1A481093006A6FCF /* select_country.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD821A481093006A6FCF /* select_country.png */; };
+		5F33CD9F1A481093006A6FCF /* sgf01a201405271100.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD831A481093006A6FCF /* sgf01a201405271100.jpg */; };
+		5F33CDA01A481093006A6FCF /* tabbar_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD841A481093006A6FCF /* tabbar_01.png */; };
+		5F33CDA11A481093006A6FCF /* tabbar_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD851A481093006A6FCF /* tabbar_02.png */; };
+		5F33CDA21A481093006A6FCF /* textlabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD861A481093006A6FCF /* textlabel.png */; };
+		5F33CDA31A481093006A6FCF /* VISAbutton_02_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD871A481093006A6FCF /* VISAbutton_02_03.png */; };
+		5F33CDA41A481093006A6FCF /* VISAbutton_02_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD881A481093006A6FCF /* VISAbutton_02_07.png */; };
+		5F33CDA51A481093006A6FCF /* VISAbutton_02_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD891A481093006A6FCF /* VISAbutton_02_11.png */; };
+		5F33CDA61A481093006A6FCF /* VISAbutton_03_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD8A1A481093006A6FCF /* VISAbutton_03_03.png */; };
+		5F33CDA71A481093006A6FCF /* VISAbutton_03_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD8B1A481093006A6FCF /* VISAbutton_03_07.png */; };
+		5F33CDA81A481093006A6FCF /* VISAbutton_04_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD8C1A481093006A6FCF /* VISAbutton_04_14.png */; };
+		5F33CDA91A481093006A6FCF /* VISAbutton_04_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F33CD8D1A481093006A6FCF /* VISAbutton_04_18.png */; };
 		5F4D37031A10F94700D7668B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37021A10F94700D7668B /* main.m */; };
 		5F4D37061A10F94700D7668B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37051A10F94700D7668B /* AppDelegate.m */; };
 		5F4D37091A10F94700D7668B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D37081A10F94700D7668B /* ViewController.m */; };
@@ -90,32 +92,6 @@
 		5F33CC991A43CEA3006A6FCF /* iOS@2x_87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS@2x_87.png"; sourceTree = "<group>"; };
 		5F33CCAD1A43F1E4006A6FCF /* tyutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tyutorialViewController.h; sourceTree = "<group>"; };
 		5F33CCAE1A43F1E4006A6FCF /* tyutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tyutorialViewController.m; sourceTree = "<group>"; };
-		5F33CCB11A453776006A6FCF /* backimage_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backimage_02.png; sourceTree = "<group>"; };
-		5F33CCB21A453776006A6FCF /* backimage_02new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backimage_02new.png; sourceTree = "<group>"; };
-		5F33CCB31A453776006A6FCF /* Button_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_01.png; sourceTree = "<group>"; };
-		5F33CCB41A453776006A6FCF /* Button_010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_010.png; sourceTree = "<group>"; };
-		5F33CCB51A453776006A6FCF /* Button_011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_011.png; sourceTree = "<group>"; };
-		5F33CCB61A453776006A6FCF /* Button_012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_012.png; sourceTree = "<group>"; };
-		5F33CCB71A453776006A6FCF /* Button_02purpose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_02purpose.png; sourceTree = "<group>"; };
-		5F33CCB81A453776006A6FCF /* Button_03period.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_03period.png; sourceTree = "<group>"; };
-		5F33CCB91A453776006A6FCF /* Button_04costcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_04costcheck.png; sourceTree = "<group>"; };
-		5F33CCBA1A453776006A6FCF /* Button_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_07.png; sourceTree = "<group>"; };
-		5F33CCBB1A453776006A6FCF /* Button_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_08.png; sourceTree = "<group>"; };
-		5F33CCBC1A453776006A6FCF /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
-		5F33CCBD1A453776006A6FCF /* images2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images2.jpeg; sourceTree = "<group>"; };
-		5F33CCBE1A453776006A6FCF /* photo-big-resolution-for-free-13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo-big-resolution-for-free-13.jpg"; sourceTree = "<group>"; };
-		5F33CCBF1A453776006A6FCF /* photo-big-resolution-for-free-14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo-big-resolution-for-free-14.jpg"; sourceTree = "<group>"; };
-		5F33CCC01A453776006A6FCF /* railload.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = railload.jpg; sourceTree = "<group>"; };
-		5F33CCC11A453776006A6FCF /* select_country.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_country.png; sourceTree = "<group>"; };
-		5F33CCC21A453776006A6FCF /* sgf01a201405271100.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sgf01a201405271100.jpg; sourceTree = "<group>"; };
-		5F33CCC31A453776006A6FCF /* textlabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textlabel.png; sourceTree = "<group>"; };
-		5F33CCC41A453776006A6FCF /* VISAbutton_02_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_02_03.png; sourceTree = "<group>"; };
-		5F33CCC51A453776006A6FCF /* VISAbutton_02_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_02_07.png; sourceTree = "<group>"; };
-		5F33CCC61A453776006A6FCF /* VISAbutton_02_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_02_11.png; sourceTree = "<group>"; };
-		5F33CCC71A453776006A6FCF /* VISAbutton_03_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_03_03.png; sourceTree = "<group>"; };
-		5F33CCC81A453776006A6FCF /* VISAbutton_03_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_03_07.png; sourceTree = "<group>"; };
-		5F33CCC91A453776006A6FCF /* VISAbutton_04_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_04_14.png; sourceTree = "<group>"; };
-		5F33CCCA1A453776006A6FCF /* VISAbutton_04_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_04_18.png; sourceTree = "<group>"; };
 		5F33CCF51A45B3F0006A6FCF /* tyutorial_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyutorial_01.png; sourceTree = "<group>"; };
 		5F33CCF61A45B3F0006A6FCF /* tyutorial_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyutorial_02.png; sourceTree = "<group>"; };
 		5F33CCF71A45B3F0006A6FCF /* tyutorial_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyutorial_03.png; sourceTree = "<group>"; };
@@ -123,6 +99,34 @@
 		5F33CCF91A45B3F0006A6FCF /* tyutorial_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyutorial_05.png; sourceTree = "<group>"; };
 		5F33CCFA1A45B3F0006A6FCF /* tyutorial_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyutorial_06.png; sourceTree = "<group>"; };
 		5F33CCFB1A45B3F0006A6FCF /* tyutorial_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tyutorial_07.png; sourceTree = "<group>"; };
+		5F33CD721A481093006A6FCF /* backimage_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backimage_02.png; sourceTree = "<group>"; };
+		5F33CD731A481093006A6FCF /* backimage_02new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backimage_02new.png; sourceTree = "<group>"; };
+		5F33CD741A481093006A6FCF /* Button_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_01.png; sourceTree = "<group>"; };
+		5F33CD751A481093006A6FCF /* Button_010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_010.png; sourceTree = "<group>"; };
+		5F33CD761A481093006A6FCF /* Button_011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_011.png; sourceTree = "<group>"; };
+		5F33CD771A481093006A6FCF /* Button_012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_012.png; sourceTree = "<group>"; };
+		5F33CD781A481093006A6FCF /* Button_02purpose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_02purpose.png; sourceTree = "<group>"; };
+		5F33CD791A481093006A6FCF /* Button_03period.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_03period.png; sourceTree = "<group>"; };
+		5F33CD7A1A481093006A6FCF /* Button_04costcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_04costcheck.png; sourceTree = "<group>"; };
+		5F33CD7B1A481093006A6FCF /* Button_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_07.png; sourceTree = "<group>"; };
+		5F33CD7C1A481093006A6FCF /* Button_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_08.png; sourceTree = "<group>"; };
+		5F33CD7D1A481093006A6FCF /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		5F33CD7E1A481093006A6FCF /* images2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images2.jpeg; sourceTree = "<group>"; };
+		5F33CD7F1A481093006A6FCF /* photo-big-resolution-for-free-13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo-big-resolution-for-free-13.jpg"; sourceTree = "<group>"; };
+		5F33CD801A481093006A6FCF /* photo-big-resolution-for-free-14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo-big-resolution-for-free-14.jpg"; sourceTree = "<group>"; };
+		5F33CD811A481093006A6FCF /* railload.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = railload.jpg; sourceTree = "<group>"; };
+		5F33CD821A481093006A6FCF /* select_country.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_country.png; sourceTree = "<group>"; };
+		5F33CD831A481093006A6FCF /* sgf01a201405271100.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sgf01a201405271100.jpg; sourceTree = "<group>"; };
+		5F33CD841A481093006A6FCF /* tabbar_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_01.png; sourceTree = "<group>"; };
+		5F33CD851A481093006A6FCF /* tabbar_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_02.png; sourceTree = "<group>"; };
+		5F33CD861A481093006A6FCF /* textlabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textlabel.png; sourceTree = "<group>"; };
+		5F33CD871A481093006A6FCF /* VISAbutton_02_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_02_03.png; sourceTree = "<group>"; };
+		5F33CD881A481093006A6FCF /* VISAbutton_02_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_02_07.png; sourceTree = "<group>"; };
+		5F33CD891A481093006A6FCF /* VISAbutton_02_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_02_11.png; sourceTree = "<group>"; };
+		5F33CD8A1A481093006A6FCF /* VISAbutton_03_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_03_03.png; sourceTree = "<group>"; };
+		5F33CD8B1A481093006A6FCF /* VISAbutton_03_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_03_07.png; sourceTree = "<group>"; };
+		5F33CD8C1A481093006A6FCF /* VISAbutton_04_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_04_14.png; sourceTree = "<group>"; };
+		5F33CD8D1A481093006A6FCF /* VISAbutton_04_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISAbutton_04_18.png; sourceTree = "<group>"; };
 		5F4D36FD1A10F94700D7668B /* VISAcountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VISAcountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4D37011A10F94700D7668B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F4D37021A10F94700D7668B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,39 +180,6 @@
 			path = VISAcountdown_latest.icon;
 			sourceTree = "<group>";
 		};
-		5F33CCB01A453776006A6FCF /* images */ = {
-			isa = PBXGroup;
-			children = (
-				5F33CCB11A453776006A6FCF /* backimage_02.png */,
-				5F33CCB21A453776006A6FCF /* backimage_02new.png */,
-				5F33CCB31A453776006A6FCF /* Button_01.png */,
-				5F33CCB41A453776006A6FCF /* Button_010.png */,
-				5F33CCB51A453776006A6FCF /* Button_011.png */,
-				5F33CCB61A453776006A6FCF /* Button_012.png */,
-				5F33CCB71A453776006A6FCF /* Button_02purpose.png */,
-				5F33CCB81A453776006A6FCF /* Button_03period.png */,
-				5F33CCB91A453776006A6FCF /* Button_04costcheck.png */,
-				5F33CCBA1A453776006A6FCF /* Button_07.png */,
-				5F33CCBB1A453776006A6FCF /* Button_08.png */,
-				5F33CCBC1A453776006A6FCF /* images.jpeg */,
-				5F33CCBD1A453776006A6FCF /* images2.jpeg */,
-				5F33CCBE1A453776006A6FCF /* photo-big-resolution-for-free-13.jpg */,
-				5F33CCBF1A453776006A6FCF /* photo-big-resolution-for-free-14.jpg */,
-				5F33CCC01A453776006A6FCF /* railload.jpg */,
-				5F33CCC11A453776006A6FCF /* select_country.png */,
-				5F33CCC21A453776006A6FCF /* sgf01a201405271100.jpg */,
-				5F33CCC31A453776006A6FCF /* textlabel.png */,
-				5F33CCC41A453776006A6FCF /* VISAbutton_02_03.png */,
-				5F33CCC51A453776006A6FCF /* VISAbutton_02_07.png */,
-				5F33CCC61A453776006A6FCF /* VISAbutton_02_11.png */,
-				5F33CCC71A453776006A6FCF /* VISAbutton_03_03.png */,
-				5F33CCC81A453776006A6FCF /* VISAbutton_03_07.png */,
-				5F33CCC91A453776006A6FCF /* VISAbutton_04_14.png */,
-				5F33CCCA1A453776006A6FCF /* VISAbutton_04_18.png */,
-			);
-			path = images;
-			sourceTree = "<group>";
-		};
 		5F33CCF41A45B3F0006A6FCF /* tyutorial.images */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +192,41 @@
 				5F33CCFB1A45B3F0006A6FCF /* tyutorial_07.png */,
 			);
 			path = tyutorial.images;
+			sourceTree = "<group>";
+		};
+		5F33CD711A481093006A6FCF /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5F33CD721A481093006A6FCF /* backimage_02.png */,
+				5F33CD731A481093006A6FCF /* backimage_02new.png */,
+				5F33CD741A481093006A6FCF /* Button_01.png */,
+				5F33CD751A481093006A6FCF /* Button_010.png */,
+				5F33CD761A481093006A6FCF /* Button_011.png */,
+				5F33CD771A481093006A6FCF /* Button_012.png */,
+				5F33CD781A481093006A6FCF /* Button_02purpose.png */,
+				5F33CD791A481093006A6FCF /* Button_03period.png */,
+				5F33CD7A1A481093006A6FCF /* Button_04costcheck.png */,
+				5F33CD7B1A481093006A6FCF /* Button_07.png */,
+				5F33CD7C1A481093006A6FCF /* Button_08.png */,
+				5F33CD7D1A481093006A6FCF /* images.jpeg */,
+				5F33CD7E1A481093006A6FCF /* images2.jpeg */,
+				5F33CD7F1A481093006A6FCF /* photo-big-resolution-for-free-13.jpg */,
+				5F33CD801A481093006A6FCF /* photo-big-resolution-for-free-14.jpg */,
+				5F33CD811A481093006A6FCF /* railload.jpg */,
+				5F33CD821A481093006A6FCF /* select_country.png */,
+				5F33CD831A481093006A6FCF /* sgf01a201405271100.jpg */,
+				5F33CD841A481093006A6FCF /* tabbar_01.png */,
+				5F33CD851A481093006A6FCF /* tabbar_02.png */,
+				5F33CD861A481093006A6FCF /* textlabel.png */,
+				5F33CD871A481093006A6FCF /* VISAbutton_02_03.png */,
+				5F33CD881A481093006A6FCF /* VISAbutton_02_07.png */,
+				5F33CD891A481093006A6FCF /* VISAbutton_02_11.png */,
+				5F33CD8A1A481093006A6FCF /* VISAbutton_03_03.png */,
+				5F33CD8B1A481093006A6FCF /* VISAbutton_03_07.png */,
+				5F33CD8C1A481093006A6FCF /* VISAbutton_04_14.png */,
+				5F33CD8D1A481093006A6FCF /* VISAbutton_04_18.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		5F4D36F41A10F94700D7668B = {
@@ -263,8 +269,8 @@
 		5F4D37001A10F94700D7668B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F33CD711A481093006A6FCF /* images */,
 				5F33CCF41A45B3F0006A6FCF /* tyutorial.images */,
-				5F33CCB01A453776006A6FCF /* images */,
 				5F33CC8E1A43CEA3006A6FCF /* VISAcountdown_latest.icon */,
 				5F33CC8C1A431854006A6FCF /* created.plist */,
 				5F0DC2F01A1B41EB0071ED16 /* costArea.plist */,
@@ -371,55 +377,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F33CCDC1A453776006A6FCF /* sgf01a201405271100.jpg in Resources */,
+				5F33CD8E1A481093006A6FCF /* backimage_02.png in Resources */,
 				5F33CD021A45B3F0006A6FCF /* tyutorial_07.png in Resources */,
-				5F33CCDF1A453776006A6FCF /* VISAbutton_02_07.png in Resources */,
+				5F33CD921A481093006A6FCF /* Button_011.png in Resources */,
+				5F33CD931A481093006A6FCF /* Button_012.png in Resources */,
 				5F4D370C1A10F94700D7668B /* Main.storyboard in Resources */,
-				5F33CCE11A453776006A6FCF /* VISAbutton_03_03.png in Resources */,
 				5F33CCA31A43CEA3006A6FCF /* iOS@2x_80.png in Resources */,
-				5F33CCCB1A453776006A6FCF /* backimage_02.png in Resources */,
-				5F33CCDA1A453776006A6FCF /* railload.jpg in Resources */,
 				5F33CCA41A43CEA3006A6FCF /* iOS@2x_87.png in Resources */,
+				5F33CDA41A481093006A6FCF /* VISAbutton_02_07.png in Resources */,
 				5F33CC9E1A43CEA3006A6FCF /* iOS@2x_152.png in Resources */,
+				5F33CDA81A481093006A6FCF /* VISAbutton_04_14.png in Resources */,
 				5F4D37111A10F94700D7668B /* LaunchScreen.xib in Resources */,
+				5F33CD9F1A481093006A6FCF /* sgf01a201405271100.jpg in Resources */,
 				5F33CCA21A43CEA3006A6FCF /* iOS@2x_76.png in Resources */,
-				5F33CCE01A453776006A6FCF /* VISAbutton_02_11.png in Resources */,
-				5F33CCD91A453776006A6FCF /* photo-big-resolution-for-free-14.jpg in Resources */,
 				5F0DC2F11A1B41EB0071ED16 /* costArea.plist in Resources */,
-				5F33CCE21A453776006A6FCF /* VISAbutton_03_07.png in Resources */,
 				5F33CC9B1A43CEA3006A6FCF /* iOS@2_58.png in Resources */,
-				5F33CCD51A453776006A6FCF /* Button_08.png in Resources */,
+				5F33CD9B1A481093006A6FCF /* photo-big-resolution-for-free-13.jpg in Resources */,
+				5F33CDA71A481093006A6FCF /* VISAbutton_03_07.png in Resources */,
 				5F33CCFD1A45B3F0006A6FCF /* tyutorial_02.png in Resources */,
-				5F33CCCE1A453776006A6FCF /* Button_010.png in Resources */,
-				5F33CCD11A453776006A6FCF /* Button_02purpose.png in Resources */,
-				5F33CCD31A453776006A6FCF /* Button_04costcheck.png in Resources */,
 				5F33CD011A45B3F0006A6FCF /* tyutorial_06.png in Resources */,
+				5F33CDA91A481093006A6FCF /* VISAbutton_04_18.png in Resources */,
+				5F33CD901A481093006A6FCF /* Button_01.png in Resources */,
 				5F33CCA01A43CEA3006A6FCF /* iOS@2x_29.png in Resources */,
-				5F33CCDE1A453776006A6FCF /* VISAbutton_02_03.png in Resources */,
-				5F33CCCD1A453776006A6FCF /* Button_01.png in Resources */,
-				5F33CCD41A453776006A6FCF /* Button_07.png in Resources */,
+				5F33CD941A481093006A6FCF /* Button_02purpose.png in Resources */,
+				5F33CD911A481093006A6FCF /* Button_010.png in Resources */,
+				5F33CD8F1A481093006A6FCF /* backimage_02new.png in Resources */,
 				5F33CC9A1A43CEA3006A6FCF /* iOS-8@2x_120.png in Resources */,
-				5F33CCD61A453776006A6FCF /* images.jpeg in Resources */,
-				5F33CCCC1A453776006A6FCF /* backimage_02new.png in Resources */,
-				5F33CCD21A453776006A6FCF /* Button_03period.png in Resources */,
+				5F33CD9D1A481093006A6FCF /* railload.jpg in Resources */,
 				5F33CCA11A43CEA3006A6FCF /* iOS@2x_40.png in Resources */,
+				5F33CD971A481093006A6FCF /* Button_07.png in Resources */,
+				5F33CD9E1A481093006A6FCF /* select_country.png in Resources */,
 				5F33CC9F1A43CEA3006A6FCF /* iOS@2x_180.png in Resources */,
-				5F33CCCF1A453776006A6FCF /* Button_011.png in Resources */,
-				5F33CCE41A453776006A6FCF /* VISAbutton_04_18.png in Resources */,
-				5F33CCD01A453776006A6FCF /* Button_012.png in Resources */,
 				5F33CC9D1A43CEA3006A6FCF /* iOS@2x_120.png in Resources */,
-				5F33CCD81A453776006A6FCF /* photo-big-resolution-for-free-13.jpg in Resources */,
-				5F33CCD71A453776006A6FCF /* images2.jpeg in Resources */,
+				5F33CD9A1A481093006A6FCF /* images2.jpeg in Resources */,
+				5F33CDA11A481093006A6FCF /* tabbar_02.png in Resources */,
 				5F4D370E1A10F94700D7668B /* Images.xcassets in Resources */,
+				5F33CD981A481093006A6FCF /* Button_08.png in Resources */,
+				5F33CD9C1A481093006A6FCF /* photo-big-resolution-for-free-14.jpg in Resources */,
 				5F33CC8D1A431854006A6FCF /* created.plist in Resources */,
-				5F33CCDB1A453776006A6FCF /* select_country.png in Resources */,
-				5F33CCDD1A453776006A6FCF /* textlabel.png in Resources */,
 				5F33CCFF1A45B3F0006A6FCF /* tyutorial_04.png in Resources */,
+				5F33CD951A481093006A6FCF /* Button_03period.png in Resources */,
 				5F33CCFC1A45B3F0006A6FCF /* tyutorial_01.png in Resources */,
+				5F33CDA21A481093006A6FCF /* textlabel.png in Resources */,
+				5F33CDA01A481093006A6FCF /* tabbar_01.png in Resources */,
 				5F33CCFE1A45B3F0006A6FCF /* tyutorial_03.png in Resources */,
+				5F33CD991A481093006A6FCF /* images.jpeg in Resources */,
+				5F33CDA61A481093006A6FCF /* VISAbutton_03_03.png in Resources */,
 				5F33CD001A45B3F0006A6FCF /* tyutorial_05.png in Resources */,
-				5F33CCE31A453776006A6FCF /* VISAbutton_04_14.png in Resources */,
+				5F33CDA51A481093006A6FCF /* VISAbutton_02_11.png in Resources */,
 				5F33CC9C1A43CEA3006A6FCF /* iOS@2x_1024.png in Resources */,
+				5F33CD961A481093006A6FCF /* Button_04costcheck.png in Resources */,
+				5F33CDA31A481093006A6FCF /* VISAbutton_02_03.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +528,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "226c067b-c9f0-4c81-aa63-1a06e73cdfa4";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -556,7 +564,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "226c067b-c9f0-4c81-aa63-1a06e73cdfa4";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

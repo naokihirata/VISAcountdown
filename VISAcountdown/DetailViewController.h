@@ -51,7 +51,9 @@
     
     int _daycountoffirstadition; //ボタンによる期間の延長
     
-    int _number;    
+    int _number;
+    
+    BOOL _upwebview;    //webviewがあがっているかの判断
 }
 
 @property (nonatomic,assign) int _daycount2;

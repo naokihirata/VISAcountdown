@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="894" y="1012"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--メイン画面-->
         <scene sceneID="OCH-Jb-xZr">
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" id="L6j-FN-k0C" customClass="DetailViewController" sceneMemberID="viewController">
@@ -99,7 +99,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="tTM-3e-gnh" userLabel="メイン画面"/>
+                    <tabBarItem key="tabBarItem" title="メイン画面" image="tabbar_02.png" id="tTM-3e-gnh" userLabel="メイン画面">
+                        <attributedString key="userComments">
+                            <fragment content="メイン画面">
+                                <attributes>
+                                    <font key="NSFont" size="11" name="AquaKana"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4M-Z7-gn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,4 +135,7 @@
             <point key="canvasLocation" x="834" y="142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar_02.png" width="100" height="100"/>
+    </resources>
 </document>

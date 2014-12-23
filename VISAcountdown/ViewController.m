@@ -63,14 +63,17 @@
     //NSDate *date2=[_df dateFromString:de]
     
     if(!memo1){
+    }else{
         _valcountry=memo1;
         _countryLabel.text = _country[_valcountry];
     }
     if(!memo2){
+    }else{
         _valperiod=memo2;
         _periodLabel.text = _period[_valperiod];
     }
     if(!memo3){
+    }else{
         _valpurpose=memo3;
         _purposeLabel.text = _purpose[_valpurpose];
     }
@@ -960,7 +963,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         
         date_converted =[formatter dateFromString:hourDateString];
         localNotification.fireDate=date_converted;
-        if (_countdownDayNumber+1<=14) {
+//        if (_countdownDayNumber+1<=14) {
+//            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+//        }else{
+//        }
+        if(_countdownDayNumber+1==14){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと2週間です。"];
+        }else if (_countdownDayNumber+1==7){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと1週間です。"];
+        }else if (_countdownDayNumber+1<=3) {
             localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         }else{
         }
@@ -1021,8 +1032,15 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         //        _countLabel.text = [NSString stringWithFormat:@"あと%d日です",countdownDayNumber];
         localNotification.fireDate=date_converted;
         
-        localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
-        
+        //localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        if(_countdownDayNumber+1==14){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと2週間です。"];
+        }else if (_countdownDayNumber+1==7){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと1週間です。"];
+        }else if (_countdownDayNumber+1<=3) {
+            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+        }else{
+        }
         
         localNotification.applicationIconBadgeNumber = _countdownDayNumber + 1;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];

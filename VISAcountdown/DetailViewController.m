@@ -256,6 +256,7 @@
             [self extendButton2];
             break;
     }
+    [self.view bringSubviewToFront:_backview];
 
 }
 //バナーが正常に表示された場合
@@ -291,6 +292,12 @@
         _isVisible = NO;
         
     }
+}
+-(void)viewDidDisappear:(BOOL)animated{
+
+    //画面遷移でwebviewを消す
+    [self downObject];
+
 }
 -(void)viewDidAppear:(BOOL)animated{
     
@@ -382,7 +389,7 @@
     
 //    if(_number<1){
 //    }else{
-    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    //NSDateComponents *comp = [[NSDateComponents alloc] init];
     NSCalendar *cal = [NSCalendar currentCalendar];
     //指定した日付の30日先を設定
     
@@ -591,10 +598,12 @@ if (self._switch2.on) {
 -(void)upObject{
     
     _backview.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    
+    _upwebview=YES;
 }
 -(void)downObject{
     _backview.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
-    
+    _upwebview=NO;
 }
 -(void)aditionalcalculate{
     // アプリに登録されている全ての通知を削除
@@ -690,7 +699,15 @@ if (self._switch2.on) {
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        if (_countdownDayNumber+1<=14) {
+//        if (_countdownDayNumber+1<=14) {
+//            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+//        }else{
+//        }
+        if(_countdownDayNumber+1==14){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと2週間です。"];
+        }else if (_countdownDayNumber+1==7){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと1週間です。"];
+        }else if (_countdownDayNumber+1<=3) {
             localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         }else{
         }
@@ -798,7 +815,15 @@ if (self._switch2.on) {
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        if (_countdownDayNumber+1<=14) {
+//        if (_countdownDayNumber+1<=14) {
+//            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+//        }else{
+//        }
+        if(_countdownDayNumber+1==14){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと2週間です。"];
+        }else if (_countdownDayNumber+1==7){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと1週間です。"];
+        }else if (_countdownDayNumber+1<=3) {
             localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         }else{
         }
@@ -986,7 +1011,15 @@ if (self._switch2.on) {
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        if (_countdownDayNumber+1<=14) {
+//        if (_countdownDayNumber+1<=14) {
+//            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+//        }else{
+//        }
+        if(_countdownDayNumber+1==14){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと2週間です。"];
+        }else if (_countdownDayNumber+1==7){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと1週間です。"];
+        }else if (_countdownDayNumber+1<=3) {
             localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         }else{
         }
@@ -1100,7 +1133,15 @@ if (self._switch2.on) {
         date_converted =[formatter dateFromString:hourDateString];
         
         localNotification.fireDate=date_converted;
-        if (_countdownDayNumber+1<=14) {
+//        if (_countdownDayNumber+1<=14) {
+//            localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
+//        }else{
+//        }
+        if(_countdownDayNumber+1==14){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと2週間です。"];
+        }else if (_countdownDayNumber+1==7){
+            localNotification.alertBody=[NSString stringWithFormat:@"あと1週間です。"];
+        }else if (_countdownDayNumber+1<=3) {
             localNotification.alertBody=[NSString stringWithFormat:@"あと%d日です",_countdownDayNumber+1];
         }else{
         }
