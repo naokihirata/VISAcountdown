@@ -48,16 +48,20 @@
     NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
     NSUserDefaults *defaultsperiod = [NSUserDefaults standardUserDefaults];
     NSUserDefaults *defaultspurpose = [NSUserDefaults standardUserDefaults];
+    //選択された国の番号の呼び出し
     int memo1=[[defaultscountry objectForKey:@"KEY_1"] intValue];
-    
+    //選択された期間の番号の呼び出し
     int memo2=[[defaultsperiod objectForKey:@"KEY_2"] intValue];
-    
+    //選択された目的の番号の呼び出し
     int memo3=[[defaultspurpose objectForKey:@"KEY_3"] intValue];
+    
     
     NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
     NSDate *date=[_df dateFromString:[defaultsdate objectForKey:@"KEY_4"]];
+    //DatePickerで選択された出発日の呼び出し
     NSUserDefaults *defautsdate1 = [NSUserDefaults standardUserDefaults];
     NSDate *date1=[_df dateFromString:[defautsdate1 objectForKey:@"KEY_6"]];
+    //DatePickerで選択された帰国日予定日の呼び出し
     NSUserDefaults *defaultsreturndate=[NSUserDefaults standardUserDefaults];
     NSDate *date2=[_df dateFromString:[defaultsreturndate objectForKey:@"KEY_7"]];
     //NSDate *date2=[_df dateFromString:de]
@@ -94,32 +98,9 @@
         
         sub._finishdate1= _finishdate;
     }
-    //タイトルを表示
-    [self textLabel];
-    //注意書きを表示
-    [self alertlabel];
-    //国名を表示する
-    [self countryLabel];
-    //期間を表示する
-    [self periodLabel];
-    //目的を表示する
-    [self purposeLabel];
-    //料金を表示する
-    [self checkLabel];
+    //機種の取得
+    NSString *modelname = [[UIDevice currentDevice] model];
     
-    //国名を選ぶボタン
-    [self countryButton];
-    //期間を選ぶボタン
-    [self periodButton];
-    //目的を選ぶボタン
-    [self purposeButton];
-    //料金チェックボタン
-    [self checkButton];
-    
-    
-    
-    //登録完了ボタン
-    [self setButton];
     //バックビュー作成
     [self smallView];
     //バックビュー（datepicker）作成
@@ -128,20 +109,90 @@
     [self smalldateView2];
     //スイッチを表示
     [self swich];
-    //スイッチのラベル
-    [self switchlabel];
     
-    if(!_switch.on){
-        //帰国予定日ボタン作成
-        [self returndateButton];
-        //帰国予定日を表示する
-        [self returnlabel];
+    
+    //iPadかどうか判断する
+    if([modelname hasPrefix:@"iPad"] ){
+        //iPadの時
+        
+        //タイトルを表示
+        [self textlabel_ipad];
+        //注意書きの位置を調整
+        [self alertlabel_ipad];
+        //国名を表示するラベルの位置を調整
+        [self countryLabel_ipad];
+        //期間を表示するラベルの位置を調整
+        [self periodLabel_ipad];
+        //目的を表示するラベルの位置を調整
+        [self purposeLabel_ipad];
+        //料金を表示するラベルの位置を調整
+        [self checkLabel_ipad];
+        //ipad用の国名を選択するボタン
+        [self countryButton_ipad];
+        //ipad用の期間を選択するボタン
+        [self periodButton_ipad];
+        //ipad用の目的を選択するボタン
+        [self purposeButton_ipad];
+        //ipad用の料金をチェックするボタン
+        [self checkButton_ipad];
+        if(!_switch.on){
+            //帰国予定日ボタン作成
+            [self returndateButton_ipad];
+            //帰国予定日を表示する
+            [self returnlabel_ipad];
+        }else{
+            //日付設定ボタン作成
+            [self dateButton_ipad];
+            //出発日を表示する
+            [self dateLabel_ipad];
+        }
+        //switchで自動か手動かの表示するラベル
+        [self switchlabel_ipad];
+        //switchの位置を調整
+        _switch.center=CGPointMake(140, 375);
+        //ipad用の登録完了ボタン
+        [self setButton_ipad];
     }else{
-        //日付設定ボタン作成
-        [self dateButton];
-        //出発日を表示する
-        [self dateLabel];
+        //iphoneなら
+        
+        //タイトルを表示
+        [self textLabel];
+        //注意書きを表示
+        [self alertlabel];
+        //国名を表示する
+        [self countryLabel];
+        //期間を表示する
+        [self periodLabel];
+        //目的を表示する
+        [self purposeLabel];
+        //料金を表示する
+        [self checkLabel];
+        //料金チェックボタン
+        [self checkButton];
+        //国名を選ぶボタン
+        [self countryButton];
+        //期間を選ぶボタン
+        [self periodButton];
+        //目的を選ぶボタン
+        [self purposeButton];
+        //スイッチのラベル
+        [self switchlabel];
+        if(!_switch.on){
+            //帰国予定日ボタン作成
+            [self returndateButton];
+            //帰国予定日を表示する
+            [self returnlabel];
+        }else{
+            //日付設定ボタン作成
+            [self dateButton];
+            //出発日を表示する
+            [self dateLabel];
+        }
+        //登録完了ボタン
+        [self setButton];
+        
     }
+
     _datepicker = [[UIDatePicker alloc] init];
     _datepicker2=[[UIDatePicker alloc] init];
     
@@ -192,6 +243,420 @@
 //        _isVisible = NO;
 //    }
 //}
+
+//ipad用のメソッド
+//情報を入力のラベル(ipad)
+-(void)textlabel_ipad{
+    UILabel *myLabelInput = [[UILabel alloc] initWithFrame:CGRectMake(20 ,16 ,130, 35)];
+    //myLabelInput.font=[UIFont systemFontOfSize:22];
+    [myLabelInput setFont:[UIFont fontWithName:@"Marker Felt" size:22]];
+    myLabelInput.textColor=[UIColor blueColor];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.02]; //透過率50%
+    myLabelInput.backgroundColor=acolor;
+    myLabelInput.textAlignment = NSTextAlignmentLeft;
+    myLabelInput.text = @"情報を入力";
+    [self.view addSubview:myLabelInput];
+}
+-(void)alertlabel_ipad{
+    _alertlabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, self.view.bounds.size.width, 20)];
+    [_alertlabel setFont:[UIFont fontWithName:@"Marker Felt" size:12]];
+    _alertlabel.textColor=[UIColor redColor];
+    UIColor *color = [UIColor yellowColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _alertlabel.backgroundColor=acolor;
+    _alertlabel.textAlignment=NSTextAlignmentNatural;
+    _alertlabel.text=@"国名、期間、目的、出発日は入力必須項目です！";
+    
+    [self.view addSubview:_alertlabel];
+}
+-(void)countryLabel_ipad{
+    _countryLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,90 ,140, 27)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _countryLabel.backgroundColor=acolor;
+    _countryLabel.font=[UIFont systemFontOfSize:16];
+    _countryLabel.textAlignment = NSTextAlignmentCenter;
+    _countryLabel.text = _country[_valcountry];
+    [self.view addSubview:_countryLabel];
+}
+-(void)periodLabel_ipad{
+    _periodLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,145 ,140, 27)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _periodLabel.backgroundColor=acolor;
+    _periodLabel.font=[UIFont systemFontOfSize:22];
+    _periodLabel.textAlignment = NSTextAlignmentCenter;
+    _periodLabel.text = _period[_valperiod];
+    [self.view addSubview:_periodLabel];
+}
+-(void)purposeLabel_ipad{
+    _purposeLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,207 ,140, 27)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _purposeLabel.backgroundColor=acolor;
+    _purposeLabel.font=[UIFont systemFontOfSize:22];
+    _purposeLabel.textAlignment = NSTextAlignmentCenter;
+    _purposeLabel.text = _purpose[_valpurpose];
+    [self.view addSubview:_purposeLabel];
+}
+-(void)checkLabel_ipad{
+    _checkLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 288, 280, 27)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _checkLabel.backgroundColor=acolor;
+    _checkLabel.font=[UIFont systemFontOfSize:18];
+    _checkLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:_checkLabel];
+}
+//国名を選択するボタン（ipad）
+-(void)countryButton_ipad{
+    UIButton *countryButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 85, 140, 37)];
+    //セットタイトルを消す
+    //[countryButton setTitle:@"国名を選択" forState:UIControlStateNormal];
+    
+    [countryButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [countryButton addTarget:self action:@selector(TapCountryBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgcountry=[UIImage imageNamed:@"Button_01.png"];
+    [countryButton setBackgroundImage:imgcountry forState:UIControlStateNormal];
+    
+    [self.view addSubview:countryButton];
+}
+//期間を選択するボタン(ipad)
+-(void)periodButton_ipad{
+    UIButton *periodButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 141, 140, 37)];
+    
+    //[periodButton setTitle:@"期間を選択" forState:UIControlStateNormal];
+    
+    [periodButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [periodButton addTarget:self action:@selector(TapPeriodBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgperiod=[UIImage imageNamed:@"Button_03period.png"];
+    [periodButton setBackgroundImage:imgperiod forState:UIControlStateNormal];
+    [self.view addSubview:periodButton];
+}
+//目的を選択するボタン(ipad)
+-(void)purposeButton_ipad{
+    UIButton *purposeButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 200, 140, 37)];
+    
+    //[purposeButton setTitle:@"目的を選択" forState:UIControlStateNormal];
+    
+    [purposeButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [purposeButton addTarget:self action:@selector(TapPurposeBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //画像を読み込んでボタンに貼る
+    UIImage *imgpurpose=[UIImage imageNamed:@"Button_02purpose.png"];
+    [purposeButton setBackgroundImage:imgpurpose forState:UIControlStateNormal];
+    [self.view addSubview:purposeButton];
+}
+-(void)TapCountryBtn_ipad:(UIButton *)countryButton_ipad{
+    
+    _int = 0;
+    NSLog(@"country");
+    _valcountry = 0;
+    
+    [self upObject];
+    [self pickerView];
+    [self createButton_ipad];
+    
+    for (_uv in [self.view subviews]) {
+        [_countryLabel removeFromSuperview];
+    }
+    [self.view bringSubviewToFront:_backView];
+}
+-(void)TapPeriodBtn_ipad:(UIButton *)periodButton_ipad{
+    
+    _int = 1;
+    NSLog(@"period");
+    _valperiod = 0;
+    [self upObject];
+    [self pickerView];
+    [self createButton_ipad];
+    for (_uv in [self.view subviews]) {
+        [_periodLabel removeFromSuperview];
+    }
+    [self.view bringSubviewToFront:_backView];
+}
+-(void)TapPurposeBtn_ipad:(UIButton *)puposeButton_ipad{
+    _int = 2;
+    NSLog(@"purpose");
+    _valpurpose = 0;
+    [self upObject];
+    [self pickerView];
+    [self createButton_ipad];
+    for (_uv in [self.view subviews]) {
+        [_purposeLabel removeFromSuperview];
+    }
+    [self.view bringSubviewToFront:_backView];
+}
+//料金を確認するボタン(ipad)
+-(void)checkButton_ipad{
+    UIButton *CheckButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 250, 140, 34)];
+    
+    [CheckButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [CheckButton addTarget:self action:@selector(TapCheckBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgcheck=[UIImage imageNamed:@"Button_04costcheck.png"];
+    [CheckButton setBackgroundImage:imgcheck forState:UIControlStateNormal];
+    [self.view addSubview:CheckButton];
+}
+
+-(void)TapCheckBtn_ipad:(UIButton *)checkButton_ipad{
+    NSLog(@"check");
+    //プロジェクト内のファイルにアクセス出来るオブジェクトを宣言
+    _bundle = [NSBundle mainBundle];
+    //読み込むプロパティリストのファイルパス（場所）を指定
+    _path = [_bundle pathForResource:@"created" ofType:@"plist"];
+    
+    //プロパティリストの中身のデータを取得
+    _dic = [NSDictionary dictionaryWithContentsOfFile:_path];
+    
+    //取得出来た配列のデータをメンバ変数に代入
+    _PListArray = [_dic objectForKey:_country[_valcountry]];
+    
+    //TODO:取得した配列から国期間目的が一致したデータを取り出す
+    for(NSDictionary *VISAcondition in _PListArray) {
+        // NSLog(@"%@",VISAcondition[@"country"]);
+        
+        if(([VISAcondition[@"country"] isEqualToString:_country[_valcountry]])&&([VISAcondition[@"purpose"] isEqualToString:_purpose[_valpurpose]])&&([VISAcondition[@"period"] isEqualToString:_period_for_compare[_valperiod]])){
+            NSLog(@"%@",VISAcondition[@"cost"]);
+            
+            //TODO:取り出したデータから料金を抜き出し表示する
+            _checkLabel.text = VISAcondition[@"cost"];
+            break;
+        }else{NSLog(@"%@",VISAcondition[@"country"]);}
+        
+    }
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView commitAnimations];
+}
+-(void)dateButton_ipad{
+    _dateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 320, 130, 30)];
+    
+    [_dateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [_dateButton addTarget:self action:@selector(TapFinishBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"Button_010.png"];
+    [_dateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [self.view addSubview:_dateButton];
+}
+-(void)TapFinishBtn_ipad:(UIButton *)dateButton_ipad{
+    NSLog(@"date");
+    
+    [self datepicker];
+    [self updateObject];
+    [self datecreateButton_ipad];
+    [self.view bringSubviewToFront:_backdateView];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView commitAnimations];
+}
+-(void)dateLabel_ipad{
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,323 ,130, 27)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _dateLabel.backgroundColor=acolor;
+    _dateLabel.font=[UIFont systemFontOfSize:22];
+    _dateLabel.textAlignment = NSTextAlignmentCenter;
+    
+    _dateLabel.text = [_df stringFromDate:_departdate1];
+    [self.view addSubview:_dateLabel];
+}
+//設定を登録
+-(void)setButton_ipad{
+    UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 390, 130, 35)];
+    
+    //[setButton setTitle:@"設定を登録する" forState:UIControlStateNormal];
+    
+    [setButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [setButton addTarget:self action:@selector(TapSetBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgset=[UIImage imageNamed:@"Button_08.png"];
+    [setButton setBackgroundImage:imgset forState:UIControlStateNormal];
+    [self.view addSubview:setButton];
+}
+-(void)TapSetBtn_ipad:(UIButton *)setButton_ipad{
+    NSLog(@"完了");
+    
+    if(_valcountry<0){
+        [self WarningAlertView];
+    }else if(_valperiod<0){
+        [self WarningAlertView];
+    }else if(_valpurpose<0){
+        [self WarningAlertView];
+    }else{
+        [self ConfirmAlertView];
+    }
+}
+-(void)switchlabel_ipad{
+    _switchlabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 360, 80, 27)];
+    [_switchlabel setFont:[UIFont fontWithName:@"Marker Felt" size:20]];
+    //switchlabel.textColor=[UIColor redColor];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.2]; //透過率50%
+    _switchlabel.backgroundColor=acolor;
+    _switchlabel.textAlignment=NSTextAlignmentCenter;
+    _switchlabel.text=@"自動";
+    
+    [self.view addSubview:_switchlabel];
+}
+//帰国日予定ボタン,メソッド
+-(void)returndateButton_ipad{
+    _returndateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 320, 130, 30)];
+    
+    [_returndateButton setTitleColor:[UIColor colorWithRed:0.192157 green:0.760784 blue:0.952941 alpha:1.0] forState:UIControlStateNormal];
+    
+    [_returndateButton addTarget:self action:@selector(TapreturnFinishBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_07.png"];
+    [_returndateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [self.view addSubview:_returndateButton];
+}
+-(void)TapreturnFinishBtn_ipad:(UIButton *)returndateButton_ipad{
+    NSLog(@"date");
+    
+    [self datepicker2];
+    [self updateObject2];
+    [self datecreateButton2_ipad];
+    [self.view bringSubviewToFront:_backdateView2];
+}
+-(void)returnlabel_ipad{
+    _returnlabel = [[UILabel alloc] initWithFrame:CGRectMake(165 ,323 ,130, 27)];
+    UIColor *color = [UIColor whiteColor];
+    UIColor *acolor = [color colorWithAlphaComponent:0.5]; //透過率50%
+    _returnlabel.backgroundColor=acolor;
+    _returnlabel.font=[UIFont systemFontOfSize:22];
+    _returnlabel.textAlignment = NSTextAlignmentCenter;
+    
+    _returnlabel.text = [_df stringFromDate:_willreturndate];
+    [self.view addSubview:_returnlabel];
+}
+-(void)createButton_ipad{
+    UIButton *createButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 220, 100, 30)];
+    
+    [createButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [createButton addTarget:self action:@selector(TapCreateBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [createButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [_backView addSubview:createButton];
+}
+-(void)TapCreateBtn_ipad:(UIButton *)createButton_ipad{
+    
+    NSUserDefaults *defaultscountry = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaultsperiod = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaultspurpose = [NSUserDefaults standardUserDefaults];
+    for (_uv in [self.view subviews]) {
+        [_PickerView removeFromSuperview];
+        
+    }
+    //機種の取得
+    NSString *modelname = [[UIDevice currentDevice] model];
+    [self downObject];
+    switch(_int){
+        case 0:
+            [self countryLabel_ipad];
+            
+            [defaultscountry setInteger:_valcountry forKey:@"KEY_1"];
+            [defaultscountry synchronize];
+            break;
+        case 1:
+            [self periodLabel_ipad];
+            [defaultsperiod setInteger:_valperiod forKey:@"KEY_2"];
+            [defaultsperiod synchronize];
+            
+            break;
+        case 2:
+            [self purposeLabel_ipad];
+            
+            [defaultspurpose setInteger:_valpurpose forKey:@"KEY_3"];
+            [defaultspurpose synchronize];
+            
+            break;
+        default:
+            break;
+    }
+    
+}
+-(void)datecreateButton_ipad{
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 220, 100, 30)];
+    
+    [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [datecreateButton addTarget:self action:@selector(TapDateCreateBtn_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [_backdateView addSubview:datecreateButton];
+    
+}
+-(void)TapDateCreateBtn_ipad:(UIButton *)datecreateButton_ipad{
+    
+    for (_uv in [self.view subviews]) {
+        [_datepicker removeFromSuperview];
+    }
+    [self downdateObject];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:_datepicker.date]];
+    
+    //NSdate型にDatePickerの値を代入
+    _departdate1=[formatter dateFromString:hourDateString];
+    
+    //finishdateを保存
+    NSUserDefaults *defaultsdate = [NSUserDefaults standardUserDefaults];
+    [defaultsdate setObject:[_df stringFromDate:_finishdate] forKey:@"KEY_4"];
+    [defaultsdate synchronize];
+    //DatePickerのデータを保存
+    NSUserDefaults *defaultsdate1 = [NSUserDefaults standardUserDefaults];
+    [defaultsdate1 setObject:[_df stringFromDate:_departdate1] forKey:@"KEY_6"];
+    [defaultsdate1 synchronize];
+    
+    _dateLabel.text = [_df stringFromDate:_departdate1];
+    
+}
+-(void)datecreateButton2_ipad{
+    UIButton *datecreateButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 220, 100, 30)];
+    
+    //[datecreateButton setTitle:@"完了" forState:UIControlStateNormal];
+    
+    [datecreateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [datecreateButton addTarget:self action:@selector(TapDateCreateBtn2_ipad:) forControlEvents:UIControlEventTouchUpInside];
+    //画像を読み込んでボタンに貼る
+    UIImage *imgdate=[UIImage imageNamed:@"VISAbutton_03_03.png"];
+    [datecreateButton setBackgroundImage:imgdate forState:UIControlStateNormal];
+    [_backdateView2 addSubview:datecreateButton];
+    
+}
+-(void)TapDateCreateBtn2_ipad:(UIButton *)datecreateButton2_ipad{
+    
+    for (_uv in [self.view subviews]) {
+        [_datepicker2 removeFromSuperview];
+    }
+    [self downdateObject2];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
+    NSString *hourDateString = [NSString stringWithFormat:@"%@ 00:00:00", [_df stringFromDate:_datepicker2.date]];
+    
+    //NSdate型にDatePickerの値を代入
+    _willreturndate=[formatter dateFromString:hourDateString];
+    
+    //willreturndateを保存(KEY_7)
+    NSUserDefaults *defaultsreturndate = [NSUserDefaults standardUserDefaults];
+    [defaultsreturndate setObject:[_df stringFromDate:_willreturndate] forKey:@"KEY_7"];
+    [defaultsreturndate synchronize];
+    
+    _returnlabel.text = [_df stringFromDate:_willreturndate];
+}
 -(void)viewDidAppear:(BOOL)animated{
     //全てのbackviewを最前面へ
     [self.view bringSubviewToFront:_backView];
@@ -216,6 +681,7 @@
 
     [self.view addSubview:myLabelInput];
 }
+
 -(void)alertlabel{
     _alertlabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, self.view.bounds.size.width, 20)];
     [_alertlabel setFont:[UIFont fontWithName:@"Marker Felt" size:12]];
@@ -470,21 +936,35 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
         [_PickerView removeFromSuperview];
 
     }
+    //機種の取得
+    NSString *modelname = [[UIDevice currentDevice] model];
     [self downObject];
     switch(_int){
         case 0:
-            [self countryLabel];
+            if([modelname hasPrefix:@"iPad"] ){
+                [self countryLabel_ipad];
+            }else{
+                [self countryLabel];
+            }
             [defaultscountry setInteger:_valcountry forKey:@"KEY_1"];
             [defaultscountry synchronize];
             break;
         case 1:
-            [self periodLabel];
+            if([modelname hasPrefix:@"iPad"] ){
+                [self periodLabel_ipad];
+            }else{
+                [self periodLabel];
+            }
             [defaultsperiod setInteger:_valperiod forKey:@"KEY_2"];
             [defaultsperiod synchronize];
 
             break;
         case 2:
-            [self purposeLabel];
+            if([modelname hasPrefix:@"iPad"] ){
+                [self purposeLabel_ipad];
+            }else{
+                [self purposeLabel];
+            }
             [defaultspurpose setInteger:_valpurpose forKey:@"KEY_3"];
             [defaultspurpose synchronize];
 
@@ -513,9 +993,7 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     
     //プロジェクト内のファイルにアクセス出来るオブジェクトを宣言
     _bundle = [NSBundle mainBundle];
-    
-    //TODO:プロパティリストから値を読み込む
-    
+
     //読み込むプロパティリストのファイルパス（場所）を指定
     _path = [_bundle pathForResource:@"created" ofType:@"plist"];
     
@@ -695,7 +1173,8 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
     [self.view addSubview:_switch];
 }
 -(void)swich_ValueChanged:(id)sender{
-    
+    //機種の取得
+    NSString *modelname = [[UIDevice currentDevice] model];
     _switch=sender;
     if (_switch.on) {
         _switchlabel.text=@"自動";
@@ -703,8 +1182,14 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
             [_returndateButton removeFromSuperview];
             [_returnlabel removeFromSuperview];
         }
-        [self dateButton];
-        [self dateLabel];
+        
+        if([modelname hasPrefix:@"iPad"] ){
+            [self dateButton_ipad];
+            [self dateLabel_ipad];
+        }else{
+            [self dateButton];
+            [self dateLabel];
+        }
         _alertlabel.text=@"国名、期間、目的、出発日は入力必須項目です！";
 
         
@@ -714,12 +1199,18 @@ _backView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.s
             [_dateButton removeFromSuperview];
             [_dateLabel removeFromSuperview];
         }
-        [self returndateButton];
-        [self returnlabel];
+        if([modelname hasPrefix:@"iPad"] ){
+            [self returndateButton_ipad];
+            [self returnlabel_ipad];
+        }else{
+            [self returndateButton];
+            [self returnlabel];
+        }
         _alertlabel.text=@"国名、期間、目的、帰国予定日は入力必須項目です！";
 
     }
 }
+
 //帰国日予定ボタン,メソッド
 -(void)returndateButton{
     _returndateButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 360, 130, 30)];
